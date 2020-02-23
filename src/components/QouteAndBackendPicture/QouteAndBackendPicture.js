@@ -1,1 +1,0 @@
-import './QouteAndBackendPicture.css';
