@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "core-js": "^3.3.4",
-    "handlebars": "^4.5.3"
+    "handlebars": "^4.5.3",
+    "pnotify": "^4.0.0"
   }
 }

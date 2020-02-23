@@ -1,0 +1,1 @@
+import './FiveDaysSmall.css';
