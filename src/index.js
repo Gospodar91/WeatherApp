@@ -18,3 +18,17 @@ import './components/Geolocation/Geolocation';
 import './components/AnimationWeather/AnimationWeather';
 import './components/CubeAnimation/CubeAnimation';
 import './components/GlobalFunctionAndVariables/globalFunctionAndVariables';
+import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
+
+
+GlobalEmitter.on(GlobalEmitter.ON_START, onStart);
+
+function onStart(e){
+
+    console.log('HELLO ON START', e);
+}
+
+
+setTimeout(function(){
+    GlobalEmitter.emit(GlobalEmitter.ON_GEO, {z:'ON_GEO'})
+}, 1000);
