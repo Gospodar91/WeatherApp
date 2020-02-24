@@ -25,7 +25,7 @@ const fetchImage = () => {
     };
 
 
-export default addBackground;
+export default fetchImage;
 
     fetchImage();
 
