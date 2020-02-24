@@ -1,2 +1,2 @@
-import './DataWindow.css';
+import './CubeAnimation.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';

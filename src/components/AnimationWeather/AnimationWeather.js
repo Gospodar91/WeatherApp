@@ -1,2 +1,2 @@
-import './DataWindow.css';
+import './AnimationWeather.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
