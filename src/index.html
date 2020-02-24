@@ -1,70 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather App</title>
-  </head>
-  <body>
-    <div class="background-image">
-      <div class="container">
-        <section id="first-page">
-          <!-- Секция Search -->
-          <div class="global-input">
-            <div class="input-form">
-              <form class="search__form" id="search-form">
-                <input
-                  id="search-input"
-                  type="text"
-                  value=""
-                  name="city"
-                  placeholder="Enter city name..."
-                />
-              </form>
-            </div>
-            <!-- Конец секции Search -->
-            <!-- Начало секции favoritesLIST -->
-            <div class="favorites">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="background-image">
+    <div class="container">
+      <section id="first-page">
+        <!-- Секция Search -->
+        <div class="global-input">
+          <div class="input-form">
+            <form class="search__form" id="search-form">
+              <button class="search__form-geolocation" title="use geolocation"></button>
+              <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
+              <button class="search__form-favourite"></button>
+            </form>
+          </div>
+          <!-- Конец секции Search -->
+          <!-- Начало секции favoritesLIST -->
+         <div class="favorites">
               <ul class="favorites-list"></ul>
               <button class="list-button favorite-next"></button>
             </div>
           </div>
-          <!-- Конец favoritesList -->
-          <!-- Начало  секции WeatherInfo -->
-          <div class="none-pageOne">
-            <div class="weather-info">
-              <button class="weather-button weather-today">today</button>
-              <button class="weather-button five-days">5 days</button>
-            </div>
-            <!-- Начало  секции Data -->
-            <div class="data">
-              <ul class="data-list"></ul>
-            </div>
-            <!-- Конец секции Data -->
-            <!-- Начало  секции Quot -->
-            <div class="quote"></div>
-            <!-- Конец секции Quot -->
+        <!-- Конец favoritesList -->
+        <!-- Начало  секции WeatherInfo -->
+        <div class="none-pageOne">
+          <div class="weather-info">
+            <button class="weather-button weather-today">today</button>
+            <button class="weather-button five-days">5 days</button>
           </div>
-        </section>
-        <section id="second-page">
-          <div class="AllFiveDays">
-            <!-- Начало  секции FiveDaysSmall -->
-            <div class="FiveDaysSmall">
-              <button class="show-charts"></button>
-            </div>
-            <!-- Конец  секции FiveDaysSmall -->
-            <!-- Начало  секции FiveDaysBig -->
-            <div class="FiveDaysBig none-FiveDaysBig">
-              <button class="show-charts"></button>
-            </div>
-            <!-- Конец  секции FiveDaysBig -->
-            <div class="schedule none-schedule">
-              <button class="show-charts"></button>
+          <!-- Начало  секции Data -->
+          <div class="data">
+            <p class="data__day">8 Sat</p>
+            <div class="data__wrapper">
+              <div class="data__day--month"> <span class="month">February</span> <span class="time">21:30:56</span>
+              </div>
+              <div class="data__sun">
+                <div class="sunrise"> <img src="#" alt="#" class="sunrise__icon"> <span
+                    class="sunrise__time">07:04</span> </div>
+                <div class="twilight"> <img src="#" alt="#" class="twilight__icon"> <span
+                    class="twilight__time">17:05</span> </div>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
+          <!-- Конец секции Data -->
+          <!-- Начало  секции Quot -->
+          <div class="quote">
+            <blockquote class="quote__block">
+              <p class="quote__text"></p>
+              <cite class="quote__author"></cite>
+            </blockquote>
+          </div>
+          <!-- Конец секции Quot -->
+        </div>
+      </section>
+      <section id="second-page">
+        <div class="AllFiveDays">
+          <!-- Начало  секции FiveDaysSmall -->
+          <div class="FiveDaysSmall">
+            <h3 class="FiveDaysSmall__city">Kyiv UA</h3>
+            <ul class="FiveDaysWeaterList">
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+            </ul>
+            <button class="FiveDaysSmall__nav-btn">
+              <span class="FiveDaysSmall__nav-btn--left">
+                <pre></pre></span>
+            </button>
+            <button class="FiveDaysSmall__nav-btn">
+              <span class="FiveDaysSmall__nav-btn--right">
+                <pre></pre></span>
+            </button>
+          </div>
+          <!-- Конец  секции FiveDaysSmall -->
+          <!-- Начало  секции FiveDaysBig -->
+          <div class="FiveDaysBig none-FiveDaysBig"></div>
+          <!-- Конец  секции FiveDaysBig -->
+          <!-- Начало  секции Schedule -->
+          <div class="schedule none-schedule">
+            <div class="schedule__div">
+              <button class="show-charts">Show Chart</button>
+              <img class="ellipse-img" src="../src/assets/icons/ellipse/ellipse.png" alt="ellipse" width="28"
+                height="28" />
+            </div>
+            <div class="schedule__legend schedule__legend-none">
+              <h2 class="schedule__legend-title">AVERAGE:</h2>
+              <ul class="schedule__legend-list">
+                <li class="schedule__legend-item temperature">
+                  Temperature,
+                  <span class="schedule__legend-span temp">C°</span>
+                </li>
+                <li class="schedule__legend-item humidity">
+                  Humidity, <span class="schedule__legend-span hum">%</span>
+                </li>
+                <li class="schedule__legend-item windspeed">
+                  Wind Speed,
+                  <span class="schedule__legend-span ws">m/s</span>
+                </li>
+                <li class="schedule__legend-item atmosphere">
+                  Atmosphere Pressure,
+                  <span class="schedule__legend-span ap">m/m</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Конец  секции Schedule -->
+        </div>
+      </section>
     </div>
-  </body>
+  </div>
+</body>
 </html>
