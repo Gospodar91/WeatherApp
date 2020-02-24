@@ -1,86 +1,80 @@
 .FiveDaysSmall {
-    border-radius: 35px;
-    background-color: rgb(16, 33, 54);
-    opacity: 0.8;
-    box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
-    height: 272px;
-    text-align: center;
-    padding: 30px 18px 15px;
-  }
-  
-  .FiveDaysWeaterList {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .FiveDaysWeaterList__item {
-    display: flex;
-    flex-direction: column;
-    width: 58px;
-    margin: 0px 12px;
-  }
-  
-  .FiveDaysSmall__city {
-    margin-bottom: 14px;
-    color: #fff;
-  }
-  
-  .FiveDaysWeaterList__item--day {
-    margin-bottom: 8px;
-    color: #9299a0;
-  }
-  
-  .FiveDaysWeaterList__item--date {
-    margin-bottom: 10px;
-    color: #fff;
-  }
-  
-  .FiveDaysWeaterList__item--icon {
-    margin: 0 auto;
-    margin-bottom: 10px;
-  }
-  
-  .FiveDaysWeaterList__item--min-max-label {
-    width: 58px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    color: #9299a0;
-  }
-  .FiveDaysWeaterList__item--min-max-label::after {
-    content: '';
-    background-color: rgba(255, 255, 255, 0.2);
-    opacity: 0.2;
-    position: absolute;
-    width: 1px;
-    height: 30px;
-    top: 40%;
-    left: 49%;
-  }
-  
-  .FiveDaysWeaterList__item--min-max {
-    width: 58px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 7px;
-    color :#ff6b08;
-  }
-  
-  .FiveDaysWeaterList__item--moreBtn {
-    background-color: transparent;
-    border: none;
-    text-decoration: underline;
-    cursor: pointer;
-    margin-bottom: 4px;
-    color: #49525f;
-  }
-  
-  .FiveDaysSmall__navBtn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    width: 32px;
-    height: 32px;
-    margin: 0px 13px;
-  }
+  border-radius: 35px;
+  background-color: rgb(16, 33, 54);
+  opacity: 0.8;
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  height: 272px;
+  text-align: center;
+  padding: 30px 18px 15px;
+}
+
+.FiveDaysWeaterList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.FiveDaysWeaterList__item {
+  display: flex;
+  flex-direction: column;
+  width: 58px;
+  margin: 0px 12px;
+}
+
+.FiveDaysSmall__city {
+  margin-bottom: 14px;
+}
+
+.FiveDaysWeaterList__item--day {
+  margin-bottom: 8px;
+}
+
+.FiveDaysWeaterList__item--date {
+  margin-bottom: 10px;
+}
+
+.FiveDaysWeaterList__item--icon {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.FiveDaysWeaterList__item--min-max-label {
+  width: 58px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.FiveDaysWeaterList__item--min-max-label::after {
+  content: '';
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0.2;
+  position: absolute;
+  width: 1px;
+  height: 30px;
+  top: 40%;
+  left: 49%;
+}
+
+.FiveDaysWeaterList__item--min-max {
+  width: 58px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.FiveDaysWeaterList__item--moreBtn {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.FiveDaysSmall__navBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  margin: 0px 13px;
+}
