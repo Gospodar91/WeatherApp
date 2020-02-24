@@ -1,0 +1,75 @@
+.more-info-list {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 35px;
+  background-color: rgb(16, 33, 54);
+  opacity: 0.8;
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  padding-top: 267px;
+  padding-bottom: 55px;
+}
+
+.more-info-item {
+  padding: 20px;
+  font-size: 14px;
+  font-family: 'Lato';
+  color: rgba(255, 255, 255, 0.541);
+  text-align: center;
+  border: solid 1px rgb(255, 255, 255, 0.2);
+  border-radius: 25px;
+  width: 118px;
+  height: 218px;
+}
+
+.more-info-item__set-img {
+  margin: 0 auto;
+}
+
+.more-info-item__set-temperature {
+  font-size: 18px;
+  font-family: 'Lato';
+  color: rgb(255, 107, 8);
+  font-weight: bold;
+}
+
+.more-info-item__weather-details {
+  width: 88px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.more-info-item__pressure-value::before,
+.more-info-item__humidity-value::before,
+.more-info-item__wind-value::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: left;
+  margin-right: 8px;
+}
+
+.more-info-item__pressure-value::before {
+  background-image: url(./img/pressure.png);
+}
+
+.more-info-item__humidity-value::before {
+  background-image: url(./img/humidity.png);
+  margin-left: 5px;
+}
+
+.more-info-item__wind-value::before {
+  background-image: url(./img/wind.png);
+}
+
+.more-info-item__pressure-value,
+.more-info-item__humidity-value,
+.more-info-item__wind-value {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
