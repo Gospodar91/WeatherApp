@@ -23,6 +23,10 @@
   width: 84px;
 }
 
+.data__sun span {
+  width: 56px;
+}
+
 .data__day {
   color: rgb(247, 247, 247);
   font-weight: 300;
@@ -35,6 +39,7 @@
   font-size: 14px;
   line-height: 22px;
   margin-top: 14px;
+  justify-content: center;
 }
 
 .data__sun {
@@ -82,8 +87,17 @@
 
 @media (min-width: 768px) {
   .data {
+    margin: 0 auto;
     width: 490px;
     height: 278px;
+  }
+
+  .data span {
+    width: 94px;
+  }
+
+  .data__sun span {
+    width: 72px;
   }
 
   .data__day {
@@ -97,7 +111,7 @@
   }
 
   .data__day--month {
-    margin-top: 22px;
+    margin: 0;
   }
 
   .data__sun {
@@ -115,7 +129,7 @@
     border-radius: 0px;
     border-top-right-radius: 35px;
     position: absolute;
-    /* bottom: 0; */
+    bottom: 0;
     left: 0;
   }
 
@@ -124,17 +138,13 @@
     margin-left: 110px;
   }
 
-  .test__wrap {
-    display: flex;
-    flex-direction: row;
-    margin-top: 18px;
-  }
-
-  .test__wrap div {
+  .data__wrapper div {
     margin: 0;
   }
 
-  .data span {
-    width: 96px;
+  .data__wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
   }
 }
