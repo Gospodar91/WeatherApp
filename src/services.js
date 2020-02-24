@@ -1,17 +1,28 @@
 const baseUrlForTodayWeather = 'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather = 'https://api.openweathermap.org/data/2.5/forecast?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 
+const choiseForm = document.querySelector('#search-form');
+const choiseInput=document.querySelector('#search-input');
+
+
+choiseForm.addEventListener('submit', submitForm);
+function submitForm (event){
+    event.preventDefault();
+    console.log(choiseInput.value);
+}
+
+
 const makeUrlForDetectedCityFromCurrentCoord =(latitude, longitude) => {
     const APIKEY = "67daddc6-334a-4325-8705-7fd9afb2f209";
     return `https://graphhopper.com/api/1/geocode?reverse=true&point=${latitude},${longitude}&debug=true&key=${APIKEY}`
 }
 
 export default {
-    city: 'Lviv',
+    city: 'kyiv',
     today: null,
     fiveDay: null,
     blockSection: 'today',
-
+    
     getCurrentCityForCurrentLocationCoord() {
         const option = {
             timeout: 500
@@ -53,10 +64,11 @@ export default {
             // console.log('res FiveDayWeather ', res);
             this.fiveDay = res;
             this.blockSection = 'fiveDay';
-            console.log('this ', this);
+            // console.log('this ', this);
         })
         .catch(err => console.log(err))
     },
 
     getImgBackground() {}
+    
 }

@@ -15,7 +15,6 @@ function addBackground(city) {
         .then(parsedResponse => {
            
         const imgArr = parsedResponse.hits;
-        console.log(imgArr);
         const rand = Math.floor(Math.random() * imgArr.length);
 
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].fullHDURL})`

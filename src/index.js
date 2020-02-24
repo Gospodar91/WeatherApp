@@ -38,7 +38,7 @@ import services from './services';
 import addBackground from './components/BackgroundImg/BackgroundImg'
 import './components/BackgroundImg/BackgroundImg.css';
 
-document.addEventListener('DOMContentLoaded', searchWeatherData)
+document.addEventListener('DOMContentLoaded', searchWeatherData);
 
 function searchWeatherData() {
     // пробуем определить по координатам местонахождение человека:
@@ -60,3 +60,5 @@ function searchWeatherData() {
         addBackground(services.city);
     })
 }
+
+
