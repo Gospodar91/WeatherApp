@@ -71,12 +71,12 @@ margin-bottom: 13px;
 
     .search__form-geolocation{
         top: 41px;
-        left: 30px;
+        left: 75px;
     }
     
     .search__form-favourite{
         top: 41px;
-        right: 12px;
+        right: 75px;
     }
   
 }
