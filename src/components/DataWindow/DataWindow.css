@@ -1,0 +1,82 @@
+.data {
+  width: 280px;
+  height: 190px;
+  border-radius: 35px;
+  background-color: rgb(16, 33, 54);
+  opacity: 0.6;
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.data__day--month,
+.sunrise,
+.twilight {
+  display: flex;
+}
+
+.data span {
+  text-align: center;
+  display: block;
+  color: rgb(255, 255, 255);
+  width: 84px;
+}
+
+.data__day {
+  color: rgb(247, 247, 247);
+  font-weight: 300;
+  font-size: 45px;
+  line-height: 56px;
+  margin-top: 32px;
+}
+
+.data__day--month {
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 14px;
+}
+
+.data__sun {
+  display: flex;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 26px;
+}
+
+.sunrise,
+.twilight {
+  display: flex;
+  justify-content: space-around;
+}
+
+.data__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.time,
+.twilight__icon {
+  position: relative;
+}
+
+.twilight__icon::before {
+  content: '';
+  background-color: rgb(231, 232, 235);
+  opacity: 0.4;
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  left: 0px;
+}
+
+.time::before {
+  content: '';
+  background-color: rgb(231, 232, 235);
+  opacity: 0.4;
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  left: 0px;
+}
