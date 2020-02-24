@@ -12,6 +12,9 @@ html {
 
 
 }
+body{
+  font-family: 'Lato';
+}
 
 a {
   display: block;
