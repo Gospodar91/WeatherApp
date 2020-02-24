@@ -1,3 +1,5 @@
+
+
 class EventEmitter{
 
     constructor(){
@@ -14,7 +16,7 @@ class EventEmitter{
     on(eventName, fn){
       this._getEventListByName(eventName).add(fn);
     }
-  
+
     once(eventName, fn){
   
       const self = this;
@@ -28,7 +30,7 @@ class EventEmitter{
     }
   
     emit(eventName, ...args){
-  
+//   console.log(eventName);
       this._getEventListByName(eventName).forEach(function(fn){
   
         fn.apply(this,args);
@@ -41,5 +43,18 @@ class EventEmitter{
       this._getEventListByName(eventName).delete(fn);
     }
   
-  
+
   }
+
+let GlobalEmitter;
+  if (!GlobalEmitter){
+    GlobalEmitter = new EventEmitter();
+  } 
+
+  GlobalEmitter.ON_START = 'ON_START';//g
+  GlobalEmitter.ON_GEO = 'ON_GEO';//Эмиттиттся после получения данных.В данные приходит
+
+
+
+
+  export default GlobalEmitter;
