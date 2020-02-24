@@ -1,5 +1,6 @@
 import './Schedule.css';
 import canvas from './canvasjs.min.js';
+import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 
 const scheduleButtons = document.querySelector('.schedule__div');
 const legend = document.querySelector('.schedule__legend');
@@ -19,3 +20,4 @@ function openChart(e) {
     scheduleButtonText.textContent = 'Show Chart';
   }
 }
+
