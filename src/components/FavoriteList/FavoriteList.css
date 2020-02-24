@@ -1,0 +1,59 @@
+.favorites {
+  width: 500px;
+  display: flex;
+}
+
+.favorites-list {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+}
+
+.favorites-list__item {
+  background-color: rgba(16, 33, 54, 0.47);
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.favorites-list__item-link {
+  font-size: 14px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  line-height: 40px;
+  color: #ffffff;
+}
+
+.favorites-list__item-close {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  font-size: 0;
+  background-image: url(../../assets/icons/close/close-24px.svg);
+  background-position: center;
+}
+
+.favorite-next {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../assets/icons/chevron-left/chevron_right-24px.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(241, 241, 241, 0.2);
+  border: none;
+}
+
+avorites-list__item-link::after {
+  display: block;
+  content: '';
+  height: 4px;
+  width: 60px;
+  background-color: red;
+  margin-bottom: 6px;
+  margin: 0, auto;
+}
