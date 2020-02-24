@@ -1,85 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Weather App</title>
-</head>
-
-<body>
-  <div class="background-image">
-    <div class="container">
-      <section id="first-page">
-        <!-- Секция Search -->
-        <div class="global-input">
-          <div class="input-form">
-            <form class="search__form" id="search-form">
-              <input id="search-input" type="text" value="" name="city" placeholder="Enter city name..." />
-            </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="background-image">
+      <div class="container">
+        <section id="first-page">
+          <!-- Секция Search -->
+          <div class="global-input">
+            <div class="input-form">
+              <form class="search__form" id="search-form">
+                <input
+                  id="search-input"
+                  type="text"
+                  value=""
+                  name="city"
+                  placeholder="Enter city name..."
+                />
+              </form>
+            </div>
+            <!-- Конец секции Search -->
+            <!-- Начало секции favoritesLIST -->
+            <div class="favorites">
+              <ul class="favorites-list">
+              </ul>
+              <button class="list-button favorite-next"></button>
+            </div>
           </div>
-          <!-- Конец секции Search -->
-          <!-- Начало секции favoritesLIST -->
-          <div class="favorites">
-            <ul class="favorites-list">
-
-              <li class="favorites-list__item">
-                <a href="#" class="favorites-list__item-link">Kyiv</a>
-                <button class="list-button favorites-list__item-close">
-                  <svg class="button__svg"><use href="./assets/icons/close/close-24px.svg"></use></svg>
-                </button>
-              </li>
-            <li class="favorites-list__item">
-              <a href="#" class="favorites-list__item-link">San-Francisco</a>
-              <button class="list-button favorites-list__item-close">
-                <!-- <svg class="button__svg"><use href="./assets/icons/close/close-24px.svg"></use></svg> -->
-              </button>
-          </li>
-
-            </ul>
-            <button class="list-button favorite-next"></button>
+          <!-- Конец favoritesList -->
+          <!-- Начало  секции WeatherInfo -->
+          <div class="none-pageOne">
+            <div class="weather-info">
+              <button class="weather-button weather-today">today</button>
+              <button class="weather-button five-days">5 days</button>
+            </div>
+            <!-- Начало  секции Data -->
+            <div class="data">
+              <ul class="data-list"></ul>
+            </div>
+            <!-- Конец секции Data -->
+            <!-- Начало  секции Quot -->
+            <div class="quote"></div>
+            <!-- Конец секции Quot -->
           </div>
-        </div>
-        <!-- Конец favoritesList -->
-        <!-- Начало  секции WeatherInfo -->
-        <div class="none-pageOne">
-          <div class="weather-info">
-            <button class="weather-button weather-today">today</button>
-            <button class="weather-button five-days">5 days</button>
+        </section>
+        <section id="second-page">
+          <div class="AllFiveDays">
+            <!-- Начало  секции FiveDaysSmall -->
+            <div class="FiveDaysSmall">
+              <button class="show-charts"></button>
+            </div>
+            <!-- Конец  секции FiveDaysSmall -->
+            <!-- Начало  секции FiveDaysBig -->
+            <div class="FiveDaysBig none-FiveDaysBig">
+              <button class="show-charts"></button>
+            </div>
+            <!-- Конец  секции FiveDaysBig -->
+            <div class="schedule none-schedule">
+              <button class="show-charts"></button>
+            </div>
           </div>
-          <!-- Начало  секции Data -->
-          <div class="data">
-            <ul class="data-list"></ul>
-          </div>
-          <!-- Конец секции Data -->
-          <!-- Начало  секции Quot -->
-          <div class="quote">
-          </div>
-          <!-- Конец секции Quot -->
-        </div>
-      </section>
-      <section id="second-page">
-        <div class="AllFiveDays">
-          <!-- Начало  секции FiveDaysSmall -->
-          <div class="FiveDaysSmall">
-            <button class="show-charts"></button>
-          </div>
-          <!-- Конец  секции FiveDaysSmall -->
-          <!-- Начало  секции FiveDaysBig -->
-          <div class="FiveDaysBig none-FiveDaysBig">
-            <button class="show-charts"></button>
-          </div>
-          <!-- Конец  секции FiveDaysBig -->
-          <div class="schedule none-schedule">
-            <button class="show-charts"></button>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
-
-  </div>
-
-</body>
-
+  </body>
 </html>
