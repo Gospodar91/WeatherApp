@@ -1,70 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Weather App</title>
-</head>
-
-<body>
-  <div class="background-image"> 
-  <div class="container">
-    <section id="first-page">
-      <!-- Секция Search -->
-      <div class="global-input">
-        <div class="input-form">
-          <form class="search__form" id="search-form">
-            <input id="search-input" type="text" value="" name="city" placeholder="Enter city name..." />
+  <body>
+    <div class="background-image">
+      <div class="container">
+        <section id="first-page">
+          <!-- Секция Search -->
+          <div class="global-input">
+            <div class="input-form">
+                <form class="search__form" id="search-form">
+            <button class="search__form-geolocation" title="use geolocation"></button>
+            <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
+            <button class="search__form-favourite"></button>
           </form>
-        </div>
-        <!-- Конец секции Search -->
-        <!-- Начало секции favoritesLIST -->
-        <div class="favorites">
-          <ul class="favorites-list"></ul>
-          <button class="list-button favorite-next">Hello</button>
-          <button class="list-button favorite-close"></button>
-        </div>
-      </div>
-      <!-- Конец favoritesList -->
-      <!-- Начало  секции WeatherInfo -->
-      <div class="none-pageOne">
-        <div class="weather-info">
-          <button class="weather-button weather-today">today</button>
-          <button class="weather-button five-days">5 days</button>
-        </div>
-        <!-- Начало  секции Data -->
-        <div class="data">
-          <ul class="data-list"></ul>
-        </div>
-        <!-- Конец секции Data -->
-        <!-- Начало  секции Quot -->
-        <div class="quote">
-        </div>
-        <!-- Конец секции Quot -->
-      </div>
-    </section>
-    <section id="second-page">
-      <div class="AllFiveDays">
-        <!-- Начало  секции FiveDaysSmall -->
-        <div class="FiveDaysSmall">
-          <button class="show-charts"></button>
-        </div>
-        <!-- Конец  секции FiveDaysSmall -->
-        <!-- Начало  секции FiveDaysBig -->
-        <div class="FiveDaysBig none-FiveDaysBig">
-          <button class="show-charts"></button>
-        </div>
-        <!-- Конец  секции FiveDaysBig -->
-        <div class="schedule none-schedule">
-          <button class="show-charts"></button>
-        </div>
-      </div>
-  </div>
-  </section>
-  </div>
+            </div>
+            <!-- Конец секции Search -->
+            <!-- Начало секции favoritesLIST -->
+            <div class="favorites">
+              <ul class="favorites-list"></ul>
+              <button class="list-button favorite-next">Hello</button>
+              <button class="list-button favorite-close"></button>
+            </div>
+          </div>
+          <!-- Конец favoritesList -->
+          <!-- Начало  секции WeatherInfo -->
+          <div class="none-pageOne">
+            <div class="weather-info">
+              <button class="weather-button weather-today">today</button>
+              <button class="weather-button five-days">5 days</button>
+            </div>
+            <!-- Начало  секции Data -->
+            <div class="data">
+              <ul class="data-list"></ul>
+            </div>
+            <!-- Конец секции Data -->
+            <!-- Начало  секции Quot -->
+            <div class="quote"></div>
+            <!-- Конец секции Quot -->
+          </div>
+        </section>
+        <section id="second-page">
+          <div class="AllFiveDays">
+            <!-- Начало  секции FiveDaysSmall -->
+            <div class="FiveDaysSmall">
+              <h3 class="FiveDaysSmall__city">Kyiv UA</h3>
+              <ul class="FiveDaysWeaterList">
+                <li class="FiveDaysWeaterList__item">
+                  <button class="FiveDaysWeaterList__item--moreBtn">
+                    more info
+                  </button>
+                </li>
+                <li class="FiveDaysWeaterList__item">
+                  <button class="FiveDaysWeaterList__item--moreBtn">
+                    more info
+                  </button>
+                </li>
+                <li class="FiveDaysWeaterList__item">
+                  <button class="FiveDaysWeaterList__item--moreBtn">
+                    more info
+                  </button>
+                </li>
+                <li class="FiveDaysWeaterList__item">
+                  <button class="FiveDaysWeaterList__item--moreBtn">
+                    more info
+                  </button>
+                </li>
+                <li class="FiveDaysWeaterList__item">
+                  <button class="FiveDaysWeaterList__item--moreBtn">
+                    more info
+                  </button>
+                </li>
+              </ul>
+              <button class="FiveDaysSmall__nav-btn">
+                <span class="FiveDaysSmall__nav-btn--left"><pre></pre></span>
+              </button>
+              <button class="FiveDaysSmall__nav-btn">
+                <span class="FiveDaysSmall__nav-btn--right"><pre></pre></span>
+              </button>
+            </div>
+            <!-- Конец  секции FiveDaysSmall -->
+            <!-- Начало  секции FiveDaysBig -->
+            <div class="FiveDaysBig none-FiveDaysBig">
 
-</body>
 
+            </div>
+            <!-- Конец  секции FiveDaysBig -->
+            <button class="show-charts">Show chart</button>
+            <div class="schedule none-schedule">
+
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
 </html>
