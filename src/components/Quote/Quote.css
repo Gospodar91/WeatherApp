@@ -1,0 +1,50 @@
+.quote__block {
+    text-align: right;
+    width: 204px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.quote__text {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 21px;
+    margin-bottom: 10px;
+}
+
+.quote__author {
+    font-size: 18px;
+    font-style: normal;
+}
+
+@media (min-width: 768px) {
+    .container {
+      width: 608px;
+    }
+
+    .quote__block {
+        width: 372px;
+    }
+
+    .quote__text {
+        font-size: 22px;
+        font-weight: normal;
+        font-style: italic;
+        line-height: 32px;
+        margin-bottom: 12px;
+    }
+
+    .quote__author {
+        font-size: 18px;
+        font-weight: normal;
+        font-style: normal;
+    }
+
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      width: 1060px;
+    }
+  }
