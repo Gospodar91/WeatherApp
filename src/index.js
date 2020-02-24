@@ -38,9 +38,9 @@ import services from './services';
 import addBackground from './components/BackgroundImg/BackgroundImg'
 import './components/BackgroundImg/BackgroundImg.css';
 
-document.addEventListener('DOMContentLoaded', serchWeatherData)
+document.addEventListener('DOMContentLoaded', searchWeatherData)
 
-function serchWeatherData() {
+function searchWeatherData() {
     // пробуем определить по координатам местонахождение человека:
     services.getCurrentCityForCurrentLocationCoord()
     .then(city => {

@@ -7,14 +7,12 @@ const makeUrlForDetectedCityFromCurrentCoord =(latitude, longitude) => {
 }
 
 export default {
-    city: 'Kyiv',
+    city: 'Lviv',
     today: null,
     fiveDay: null,
     blockSection: 'today',
 
     getCurrentCityForCurrentLocationCoord() {
-        let city = 'Lviv';
-
         const option = {
             timeout: 500
         };
