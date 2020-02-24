@@ -1,6 +1,5 @@
 .favorites {
   padding-top: 13px;
-  width: 280px;
   display: flex;
   justify-content: space-between;
 }
@@ -10,20 +9,24 @@
   justify-content: space-around;
 }
 .favorites-list__item {
+  height: 27px;
   padding-left: 14px;
   padding-right: 12px;
-  background-color: #55667a;
+  background-color: rgba(16, 33, 54, 0.47);
   display: flex;
   justify-content: space-between;
   border-radius: 12px;
   align-items: center;
+  margin-right: 10px;
 }
 .favorites-list__item-link {
-  font-size: 14px;
+  font-size: 12px;
   width: 100%;
   display: block;
   text-align: center;
-  margin-right: 24px;
+  margin-right: 12px;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
 }
 .favorites-list__item-link::after {
   content: '';
@@ -43,13 +46,26 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 12px;
+  cursor: pointer;
 }
 .favorite-next {
   border-radius: 50%;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 27px;
+  height: 27px;
   background-image: url(../../assets/icons/chevron-left/chevron_right-24px.svg);
   background-repeat: no-repeat;
   background-position: center;
+}
+@media (min-width: 768px) {
+  .favorites {
+    justify-content: left;
+    width: 492px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1280px) {
+  .favorites {
+    width: 520px;
+  }
 }
