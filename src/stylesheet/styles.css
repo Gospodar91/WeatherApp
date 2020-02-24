@@ -12,8 +12,10 @@ html {
 
 
 }
-body{
+
+body {
   font-family: 'Lato';
+
 }
 
 a {
@@ -40,7 +42,7 @@ ul {
 
 @media (min-width: 768px) {
   .container {
-    width: 492px;
+    width: 608px;
   }
 
 }
