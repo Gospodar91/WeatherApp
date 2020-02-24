@@ -33,3 +33,4 @@ function getWeather(location) {
   
 }
 getWeather('kiev');
+
