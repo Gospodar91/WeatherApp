@@ -12,7 +12,7 @@ import './components/Quote/Quote';
 import './components/BackgroundImg/BackgroundImg';
 import './components/DataWindow/DataWindow';
 import './components/FiveDaysSmall/FiveDaysSmall';
-import './components/FiveDaysBig/FiveDaysBig';
+import './components/MoreInfo/MoreInfo';
 import './components/Schedule/Schedule';
 import './components/Geolocation/Geolocation';
 import './components/AnimationWeather/AnimationWeather';
