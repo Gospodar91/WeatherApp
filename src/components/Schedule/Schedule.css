@@ -27,7 +27,6 @@
 
 .schedule {
   margin-top: 26px;
-  margin-bottom: 56px;
   width: 280px;
   height: 518px;
   border-radius: 35px;
@@ -164,7 +163,6 @@
   .schedule {
     width: 608px;
     height: 454px;
-    margin-bottom: 122px;
   }
   @keyframes fadeIn {
     from {
@@ -203,7 +201,6 @@
     .schedule {
         width: 1060px;
         height: 550px;
-        margin-bottom: 97px;
       }
 
       .schedule__legend-list{
