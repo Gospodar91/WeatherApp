@@ -1,5 +1,5 @@
 /* FiveDaysSmall начало*/
-.FiveDaysSmall__city,
+.FiveDaysSmall__city-mobile,
 .FiveDaysWeaterList__item--day,
 .FiveDaysWeaterList__item--date,
 .FiveDaysWeaterList__item--min-max-label{
@@ -8,7 +8,7 @@
     letter-spacing: 1px;
     line-height: 22px;
 }
-.FiveDaysSmall__city {
+.FiveDaysSmall__city-mobile{
   font-weight: 700;
   font-size: 18px;
   color: #fff;
