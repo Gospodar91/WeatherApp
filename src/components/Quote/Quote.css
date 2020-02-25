@@ -16,12 +16,23 @@
     font-style: italic;
     line-height: 21px;
     margin-bottom: 10px;
+    animation: anim 8s infinite reverse;
+    animation-iteration-count: infinite; 
 }
 
 .quote__author {
     font-size: 18px;
     font-style: normal;
+    animation: anim 8s infinite reverse;
+    animation-iteration-count: infinite; 
 }
+
+  @keyframes anim {
+    0%   { opacity: 1; -webkit-filter: blur(20px); filter: blur(20px)}
+    10%  { opacity: 1; -webkit-filter: blur(0px); filter: blur(0px)}
+    90% { opacity: 1; -webkit-filter: blur(0px); filter: blur(0px)}
+    100% { opacity: 1; -webkit-filter: blur(20px); filter: blur(20px)}
+  }
 
 @media (min-width: 768px) {
     .container {
@@ -31,7 +42,6 @@
         width: 372px;
     }
   
-
     .quote__text {
         font-size: 22px;
         font-weight: normal;
