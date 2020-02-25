@@ -65,7 +65,10 @@
     .container {
       width: 1060px;
     }
-    .quote{
+    /* .quote{
       padding-bottom: 135px;
+    } */
+    .quote{
+      padding-bottom: 25px;
     }
   }

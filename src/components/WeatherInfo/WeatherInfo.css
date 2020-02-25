@@ -143,7 +143,8 @@ input[type="radio"].visually-hidden {
 
 @media (min-width: 1280px) {
   .weather-info {
-    padding-top: 94px;
+    /* padding-top: 94px; */
+    padding-top: 56px;
     padding-bottom: 54px;
     width: 492px;
     position: relative;
