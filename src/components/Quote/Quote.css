@@ -4,6 +4,9 @@
     margin-left: auto;
     margin-right: 0;
     color: white;
+    background-color: rgba(16, 33, 54, 0.8);
+    border-radius: 20px;
+    padding: 10px;   
 }
 
 .quote__text {
@@ -20,6 +23,9 @@
 }
 
 @media (min-width: 768px) {
+    .container {
+        width: 608px;
+      }
     .quote__block {
         width: 372px;
     }
@@ -39,3 +45,4 @@
     }
 
   }
+
