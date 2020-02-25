@@ -20,21 +20,8 @@ import './components/CubeAnimation/CubeAnimation';
 import './components/GlobalFunctionAndVariables/globalFunctionAndVariables';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
 import quoteData from './components/Quote/data';
-
-// GlobalEmitter.on(GlobalEmitter.ON_START, onStart);
-
-// function onStart(e){
-
-//     console.log('HELLO ON START', e);
-// }
-
-// setTimeout(function(){
-//     GlobalEmitter.emit(GlobalEmitter.ON_GEO, {z:'ON_GEO'})
-// }, 1000);
-
-// Проект без использования Emitter, только с объктом services
 import services from './services';
-import addBackground from './components/BackgroundImg/BackgroundImg';
+
 import './components/BackgroundImg/BackgroundImg.css';
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 
@@ -82,3 +69,4 @@ setInterval(function() {
 // function showRandomQuote(event){
 //     console.log(event);
 // }
+services.getImgBackground();
