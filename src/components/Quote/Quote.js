@@ -47,6 +47,7 @@ const quoteArray = [
     quote: 'If you want to see the sunshine, you have to weather the storm',
     author: 'Frank Lane',
   },
+  {quote:'Just for the record, the weather today is calm and sunny, but the air is full of shit.', author:'Ellie Yelizarieva '}
 ];
 
 const quoteRandom = Math.floor(Math.random() * quoteArray.length);
