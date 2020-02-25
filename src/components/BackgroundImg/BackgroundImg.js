@@ -1,39 +1,33 @@
-import './BackgroundImg.css';
-import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-GlobalEmitter.on(GlobalEmitter.ON_BG_LOADED,showBG);
-function showBG(incomingData){
-    const mainDiv = document.querySelector(".background-image")
-    mainDiv.style.backgroundImage = `url(${incomingData.url})`
+import css from'./BackgroundImg.css';
 
-}
-// const baseUrl = 'https://pixabay.com/api/';
-// const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
-// const requestParams = `?image_type=photo&orientation=horizontal&q=kiev&page=1&per_page=20`
-// const mainDiv = document.querySelector(".background-image")
+const baseUrl = 'https://pixabay.com/api/';
+const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
+const requestParams = `?image_type=photo&orientation=horizontal&q=kiev&page=1&per_page=20`
+const mainDiv = document.querySelector(".background-image")
 
 
-// const fetchImage = () => {
-//     const baseUrl = 'https://pixabay.com/api/';
-//     const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
-//     const requestParams = `?image_type=photo&orientation=horizontal&q=kiev&page=1&per_page=40`
+const fetchImage = () => {
+    const baseUrl = 'https://pixabay.com/api/';
+    const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
+    const requestParams = `?image_type=photo&orientation=horizontal&q=kiev&page=1&per_page=40`
     
-//     return fetch(baseUrl + requestParams + key)
-//         .then(response => response.json())
-//         .then(parsedResponse => {
+    return fetch(baseUrl + requestParams + key)
+        .then(response => response.json())
+        .then(parsedResponse => {
            
-//         const imgArr = parsedResponse.hits;
+        const imgArr = parsedResponse.hits;
 
-//         const rand = Math.floor(Math.random() * imgArr.length);
+        const rand = Math.floor(Math.random() * imgArr.length);
 
-//         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].fullHDURL})`
-//         // console.dir(mainDiv.style)
-//         })
-//     };
+        mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`
+        // console.dir(mainDiv.style)
+        })
+    };
 
 
-// export default fetchImage;
+export default fetchImage;
 
-// fetchImage();
+    fetchImage();
 
     
 
