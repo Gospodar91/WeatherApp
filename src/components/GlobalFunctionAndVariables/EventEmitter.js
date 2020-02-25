@@ -54,6 +54,7 @@ let GlobalEmitter;
   GlobalEmitter.ON_START = 'ON_START';//g
   GlobalEmitter.ON_GEO = 'ON_GEO';//Эмиттиттся после получения данных.В данные приходит
   GlobalEmitter.ON_BG_LOADED = 'ON_BG_LOADED';
+  GlobalEmitter.ON_DATE_LOADED = 'ON_DATE_LOADED' // получение данных для данных о текущем дне
 
 
 

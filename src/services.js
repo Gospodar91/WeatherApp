@@ -1,3 +1,5 @@
+import GlobalEmitter from "./components/GlobalFunctionAndVariables/EventEmitter";
+
 const baseUrlForTodayWeather = 'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather = 'https://api.openweathermap.org/data/2.5/forecast?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 
@@ -52,6 +54,7 @@ export default {
             // console.log('res getTodayWeather ', res);
             this.today = res;
             this.blockSection = 'today';
+            // GlobalEmitter.emmit(GlobalEmitter.ON_DATE_LOADED, res);
             console.log('this ', this);
         })
         .catch(err => console.log(err))
