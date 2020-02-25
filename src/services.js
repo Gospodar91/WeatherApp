@@ -1,18 +1,7 @@
-import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
-
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
   'https://api.openweathermap.org/data/2.5/forecast?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
-
-const choiseForm = document.querySelector('#search-form');
-const choiseInput = document.querySelector('#search-input');
-
-choiseForm.addEventListener('submit', submitForm);
-function submitForm(event) {
-  event.preventDefault();
-  console.log(choiseInput.value);
-}
 
 const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
   const APIKEY = '67daddc6-334a-4325-8705-7fd9afb2f209';
@@ -20,13 +9,14 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
 };
 
 export default {
-  city: '',
+  city: 'Lviv',
   today: null,
   fiveDay: null,
-  blockSection: 'today',
+  blockSection: 'fiveDay',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
+      maximumAge: 600000,
       timeout: 500,
     };
 
@@ -58,10 +48,9 @@ export default {
     fetch(baseUrlForTodayWeather + city)
       .then(res => res.json())
       .then(res => {
-        // console.log('res getTodayWeather ', res);
         this.today = res;
         this.blockSection = 'today';
-        console.log('this ', this);
+        console.log('getTodayWeather ', this);
       })
       .catch(err => console.log(err));
   },
@@ -70,10 +59,9 @@ export default {
     fetch(baseUrlForFiveDayWeather + city)
       .then(res => res.json())
       .then(res => {
-        // console.log('res FiveDayWeather ', res);
         this.fiveDay = res;
         this.blockSection = 'fiveDay';
-        // console.log('this ', this);
+        console.log('getFiveDayWeather ', this);
       })
       .catch(err => console.log(err));
   },
@@ -86,13 +74,9 @@ export default {
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
-        const imgArr = parsedResponse.hits;
-
-        const rand = Math.floor(Math.random() * imgArr.length);
-       
-        const url = parsedResponse.hits[rand].fullHDURL;
-        console.log('getImgBackground url',url);
-        GlobalEmitter.emit(GlobalEmitter.ON_BG_LOADED, { url: url });
+        const rand = Math.floor(Math.random() * parsedResponse.hits.length);
+        const mainDiv = document.querySelector('.background-image');
+        mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
       });
   },
 };

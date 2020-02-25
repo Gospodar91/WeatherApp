@@ -38,7 +38,7 @@
   html,
   body {
     margin: 0;
-    height: 100%;
+    /* height: 100% !important; */
   }
   
   .sky {
@@ -176,7 +176,7 @@
   }
 
   /* animation keyframes */
-  @-webkit-keyframes weather {
+  @keyframes weather {
     from {
       background-position: 0 0px;
     }
@@ -192,7 +192,7 @@
       background-position: 0 1024px;
     }
   }
-  @-webkit-keyframes weather2 {
+  @keyframes weather2 {
     from {
       background-position: 64px 64px;
     }
