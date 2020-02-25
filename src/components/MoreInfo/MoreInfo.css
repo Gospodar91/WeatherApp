@@ -1,29 +1,22 @@
 .MoreInfo {
+  box-sizing: content-box;
   border-radius: 35px;
   background-color: rgb(16, 33, 54);
   opacity: 0.8;
+  padding-left: 10px;
+  padding-right: 10px;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
-  padding-bottom: 55px;
 }
 
 .more-info-list {
+  margin-top: 20px;
   display: flex;
-  justify-content: left;
-  padding-right: 20px;
-  padding-left: 10px;
-  padding-top: 267px;
-  padding-bottom: 55px;
-  overflow-x: scroll;
+  padding-bottom: 30px;
+  /* overflow-x: scroll; */
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   height: 2px;
-}
-
-::-webkit-scrollbar-button {
-  background-image: url('');
-  background-repeat: no-repeat;
-  width: 1px;
 }
 
 ::-webkit-scrollbar-track {
@@ -32,21 +25,22 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(255, 107, 8);
-}
-
-
+} */
 
 .more-info-item {
-  padding: 20px;
+  padding: 15px;
   font-size: 14px;
   font-family: 'Lato';
   color: rgba(255, 255, 255, 0.541);
   text-align: center;
   border: solid 1px rgb(255, 255, 255, 0.2);
   border-radius: 25px;
-  width: 118px;
-  height: 218px;
+  width: 120px;
   margin-right: 20px;
+}
+
+.more-info-item:hover {
+  background-color:rgb(255, 255, 255, 0.12);
 }
 
 .more-info-item:last-child {
@@ -75,7 +69,7 @@
 .more-info-item__pressure-value::before,
 .more-info-item__humidity-value::before,
 .more-info-item__wind-value::before {
-  content: '';
+  content:'';
   display: inline-block;
   width: 28px;
   height: 24px;
@@ -107,32 +101,43 @@
 }
 
 .hourly-weather-btns {
-  display: none;
+  display: block;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 26px;
+    border-radius: 50px;
+    
+}
+
+.hourly-weather-prev-btn:hover,
+.hourly-weather-next-btn:hover {
+    background-color: rgb(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.hourly-weather-prev-btn,
+.hourly-weather-next-btn {
+  border-radius: 50%;
+  border: none;
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .gallery {
-  width: 280px;
   overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .hourly-weather-btns {
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 30px;
-  }
-
-  .gallery {
-    width: 608px;
-  }
 }
 
 @media (min-width: 1280px) {
   .hourly-weather-btns {
     display: none;
   }
-
-  .gallery {
-    width: 1060px;
+  .more-info-list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
   }
 }

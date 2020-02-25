@@ -2,20 +2,20 @@ import './MoreInfo.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 /* конфигурация */
 
-let width = 118; // ширина картинки
-let count = 4; // видимое количество изображений
+let width = 150; // ширина картинки
+let count = 1; // видимое количество изображений
 const refMoreInfo = document.querySelector('.MoreInfo');
 
 let list = refMoreInfo.querySelector('.more-info-list');
 let listElems = refMoreInfo.querySelectorAll('.more-info-item');
 
-let position = 4; // положение ленты прокрутки
+let position = 0; // положение ленты прокрутки
 
 refMoreInfo.querySelector('.hourly-weather-prev-btn').onclick = function() {
   // сдвиг влево
   position += width * count;
   // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-  position = Math.min(position, 4)
+  position = Math.min(position, 0)
   list.style.marginLeft = position + 'px';
 };
 
