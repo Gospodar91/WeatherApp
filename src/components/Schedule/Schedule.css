@@ -147,16 +147,16 @@
 }
 
 .temperature::after {
-  right: 119px;
+  right: 126px;
 }
 .humidity::after {
-  right: 94px;
+  right: 101px;
 }
 .windspeed::after {
-  right: 125px;
+  right: 132px;
 }
 .atmosphere::after {
-  right: 187px;
+  right: 193px;
 }
 
 @media (min-width: 768px) {
@@ -177,7 +177,7 @@
 
   .schedule__legend-list{
       margin-top: 0;
-      width: 446px;
+      width: 462px;
       display: flex;
       flex-wrap: wrap;
       
