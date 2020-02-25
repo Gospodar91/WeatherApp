@@ -133,6 +133,9 @@ input[type="radio"].visually-hidden {
   .reject {
     position: static;
   }
+  .pudding-for-five-days{
+    padding-top: 310px;
+  }
 }
 
 @media (min-width: 1280px) {
