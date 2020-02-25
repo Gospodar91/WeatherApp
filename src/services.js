@@ -20,7 +20,7 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
 };
 
 export default {
-  city: '',
+  city: 'Kiev',
   today: null,
   fiveDay: null,
   blockSection: 'today',
