@@ -7,15 +7,7 @@ const quoteRandomQuote = document.querySelector('.quote__text');
 const quoteRandomAuthor = document.querySelector('.quote__author');
 // quoteRandomAuthor.textContent = quoteArray[Number(quoteRandom)].author;
 
-<<<<<<< HEAD
-
-function showRandomQuote(incomingData){
-  quoteRandomQuote.textContent=incomingData.quote;
-  quoteRandomAuthor.textContent=incomingData.author;
-
-=======
 function showRandomQuote(incomingData) {
   quoteRandomQuote.textContent = incomingData.quote;
   quoteRandomAuthor.textContent = incomingData.author;
->>>>>>> dev
 }
