@@ -1,13 +1,18 @@
-.more-info-list {
-  display: flex;
-  justify-content: space-around;
+.MoreInfo {
   border-radius: 35px;
   background-color: rgb(16, 33, 54);
   opacity: 0.8;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+}
+
+.more-info-list {
+  display: flex;
+  justify-content: space-around;
   padding-top: 267px;
   padding-bottom: 55px;
+  overflow-x: scroll;
 }
+
 
 .more-info-item {
   padding: 20px;
@@ -72,4 +77,23 @@
   margin-bottom: 4px;
   display: flex;
   align-items: center;
+}
+
+.hourly-weather-btns {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hourly-weather-btns {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .hourly-weather-btns {
+    display: none;
+  }
 }
