@@ -20,9 +20,13 @@
 }
 
 @media (min-width: 768px) {
+    .container {
+        width: 608px;
+      }
     .quote__block {
         width: 372px;
     }
+  
 
     .quote__text {
         font-size: 22px;
@@ -38,4 +42,9 @@
         font-style: normal;
     }
 
+  }
+  @media (min-width: 1280px) {
+    .container {
+      width: 1060px;
+    }
   }

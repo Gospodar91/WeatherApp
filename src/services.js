@@ -2,7 +2,7 @@ const baseUrlForTodayWeather = 'https://api.openweathermap.org/data/2.5/weather?
 const baseUrlForFiveDayWeather = 'https://api.openweathermap.org/data/2.5/forecast?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 
 const choiseForm = document.querySelector('#search-form');
-const choiseInput=document.querySelector('#search-input');
+const choiseInput = document.querySelector('#search-input');
 
 
 choiseForm.addEventListener('submit', submitForm);
