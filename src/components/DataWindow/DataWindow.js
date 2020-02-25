@@ -4,8 +4,8 @@ import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 GlobalEmitter.on(GlobalEmitter.ON_DATE_LOADED, onDateReady);
 
 function onDateReady(data) {
-    alert('!')
-  document.querySelector('.data__day').innerHTML = ""
+  console.log('!');
+  document.querySelector('.data__day').innerHTML = 's';
   document.querySelector('.month');
   document.querySelector('.time');
   document.querySelector('.sunrise__time');
@@ -42,3 +42,5 @@ setTimeout(onDateReady, 1000, {
   name: 'Zaporizhia',
   cod: 200,
 });
+
+function parseData(data) {}
