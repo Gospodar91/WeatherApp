@@ -1,0 +1,165 @@
+.data {
+  width: 280px;
+  height: 190px;
+  border-radius: 35px;
+  background-color: rgba(16, 33, 54, .6);
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, .6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data__day--month,
+.sunrise,
+.twilight {
+  display: flex;
+}
+
+.data span {
+  text-align: center;
+  display: block;
+  color: rgb(255, 255, 255);
+  width: 84px;
+}
+
+.data__sun span {
+  width: 56px;
+}
+
+.data__day {
+  color: rgb(247, 247, 247);
+  font-weight: 300;
+  font-size: 45px;
+  line-height: 56px;
+  margin-top: 32px;
+}
+
+.data__day--month {
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 14px;
+  justify-content: center;
+}
+
+.data__sun {
+  display: flex;
+  font-size: 14px;
+  line-height: 22px;
+  /* margin-top: 26px; */
+}
+
+.sunrise__time,
+.twilight__time{
+  margin-top: 26px;
+}
+
+.sunrise,
+.twilight {
+  display: flex;
+  justify-content: space-around;
+}
+
+.data__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.time,
+.twilight__icon {
+  position: relative;
+}
+
+.twilight__icon {
+  margin-left: 10px;
+}
+
+.twilight__icon::before {
+  content: '';
+  background-color: rgb(231, 232, 235);
+  opacity: 0.4;
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  left: 0px;
+}
+
+.time::before {
+  content: '';
+  background-color: rgb(231, 232, 235);
+  opacity: 0.4;
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  left: 0px;
+}
+
+.sunrise__icon,
+.twilight__icon {
+  height: 30px;
+  width: 30px;
+  margin-top: 14px;
+}
+
+@media (min-width: 768px) {
+  .data {
+    margin: 0 auto;
+    width: 490px;
+    height: 278px;
+  }
+
+  .data span {
+    width: 94px;
+  }
+
+  .data__sun span {
+    width: 72px;
+  }
+
+  .data__day {
+    font-size: 90px;
+    line-height: 108px;
+    margin-top: 44px;
+  }
+  .data__day--month,
+  .data__sun {
+    font-size: 18px;
+  }
+
+  .data__day--month {
+    margin: 0;
+  }
+
+  .data__sun {
+    margin-top: 38px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .background-image {
+    position: relative;
+  }
+
+  .data {
+    width: 600px;
+    border-radius: 0px;
+    border-top-right-radius: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .data__day {
+    align-self: start;
+    margin-left: 110px;
+  }
+
+  .data__wrapper div {
+    margin: 0;
+  }
+
+  .data__wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+  }
+}
