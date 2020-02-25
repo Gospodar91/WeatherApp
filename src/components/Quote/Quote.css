@@ -3,6 +3,11 @@
     width: 204px;
     margin-left: auto;
     margin-right: 0;
+    color: white;
+    background-color: rgba(16, 33, 54, 0.8);
+    border-radius: 20px;
+    padding: 10px;   
+    height: 148px;
 }
 
 .quote__text {
@@ -20,12 +25,12 @@
 
 @media (min-width: 768px) {
     .container {
-      width: 492px;
-    }
-
+        width: 608px;
+      }
     .quote__block {
         width: 372px;
     }
+  
 
     .quote__text {
         font-size: 22px;
@@ -42,7 +47,6 @@
     }
 
   }
-
   @media (min-width: 1280px) {
     .container {
       width: 1060px;

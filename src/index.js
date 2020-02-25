@@ -12,23 +12,69 @@ import './components/Quote/Quote';
 import './components/BackgroundImg/BackgroundImg';
 import './components/DataWindow/DataWindow';
 import './components/FiveDaysSmall/FiveDaysSmall';
-import './components/FiveDaysBig/FiveDaysBig';
+import './components/MoreInfo/MoreInfo';
 import './components/Schedule/Schedule';
 import './components/Geolocation/Geolocation';
 import './components/AnimationWeather/AnimationWeather';
 import './components/CubeAnimation/CubeAnimation';
 import './components/GlobalFunctionAndVariables/globalFunctionAndVariables';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
+import quoteData from './components/Quote/data';
+import services from './services';
 
+import './components/BackgroundImg/BackgroundImg.css';
+document.addEventListener('DOMContentLoaded', searchWeatherData);
 
-GlobalEmitter.on(GlobalEmitter.ON_START, onStart);
+// const choiseForm = document.querySelector('#search-form');
+// const choiseInput = document.querySelector('#search-input');
 
-function onStart(e){
+// choiseForm.addEventListener('submit', submitForm);
 
-    console.log('HELLO ON START', e);
+// function submitForm(event) {
+//   event.preventDefault();
+//   services.city = choiseInput.value;
+//   console.log(choiseInput.value);
+//   console.log(services.city);
+// }
+
+function searchWeatherData() {
+  // пробуем определить по координатам местонахождение человека:
+  services
+    .getCurrentCityForCurrentLocationCoord()
+    .then(city => {
+      if (services.blockSection === 'today') {
+        services.getTodayWeather(city);
+      } else if (services.blockSection === 'fiveDay') {
+        services.getFiveDayWeather(city);
+      }
+   console.log('---searchWeatherData---');
+      services.getImgBackground(city);
+    })
+    .catch((e) => {
+      console.log('---searchWeatherData error---',e);
+      if (services.blockSection === 'today') {
+        services.getTodayWeather(services.city);
+      } else if (services.blockSection === 'fiveDay') {
+        services.getFiveDayWeather(services.city);
+      }
+   
+      
+    });
 }
 
 
-setTimeout(function(){
-    GlobalEmitter.emit(GlobalEmitter.ON_GEO, {z:'ON_GEO'})
-}, 1000);
+
+
+function showQuote(){
+  GlobalEmitter.emit(GlobalEmitter.ON_QUOTE_READY, {
+    ...quoteData[Math.floor(Math.random() * quoteData.length)],
+  });
+}
+setInterval(showQuote, 8000);
+showQuote();
+
+
+// GlobalEmitter.on(GlobalEmitter.ON_QUOTE_READY, showRandomQuote);
+// function showRandomQuote(event){
+//     console.log(event);
+// }
