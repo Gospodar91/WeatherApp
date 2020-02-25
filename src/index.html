@@ -1,106 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather App</title>
-  </head>
 
-  <body>
-    <div class="background-image">
-      <div class="container">
-        <section id="first-page">
-          <!-- Секция Search -->
-          <div class="global-input">
-            <div class="input-form">
-              <form class="search__form" id="search-form">
-                <input
-                  id="search-input"
-                  type="text"
-                  value=""
-                  name="city"
-                  placeholder="Enter city name..."
-                />
-              </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="background-image">
+    <div class="container">
+      <section id="first-page">
+        <!-- Секция Search -->
+        <div class="global-input">
+          <div class="input-form">
+            <form class="search__form" id="search-form">
+              <input id="search-input" type="text" value="" name="city" placeholder="Enter city name..." />
+            </form>
+          </div>
+          <!-- Конец секции Search -->
+          <!-- Начало секции favoritesLIST -->
+          <div class="favorites">
+            <ul class="favorites-list"></ul>
+            <button class="list-button favorite-next">Hello</button>
+            <button class="list-button favorite-close"></button>
+          </div>
+        </div>
+        <!-- Конец favoritesList -->
+        <!-- Начало  секции WeatherInfo -->
+        <div class="none-pageOne">
+          <div class="weather-info">
+            <div class="weather-today-wrapper">
+              <div class="current-weather-icon">
+                <img src="https://openweathermap.org/img/w/04n.png" alt="clouds">
+              </div>
+              <h3 class="current-city-name">Kiyv,UA</h3>
+              <div class="today-temperature">
+                <div class="today-current-temperature">-3</div>
+                <div class="minimax-block">
+                  <div class="today-min-temperature minimax"><span>min</span>-2</div>
+                  <div class="minimax-devider"></div>
+                  <div class="today-max-temperature minimax"><span>max</span>-3</div>
+                </div>
+              </div>
             </div>
-            <!-- Конец секции Search -->
-            <!-- Начало секции favoritesLIST -->
-            <div class="favorites">
-              <ul class="favorites-list"></ul>
-              <button class="list-button favorite-next">Hello</button>
-              <button class="list-button favorite-close"></button>
+            <div class="show-today-or-5-days-buttons">
+              <button class="weather-button weather-today weather-button-active">today</button>
+              <button class="weather-button five-days weather-button-unactive">5 days</button>
             </div>
           </div>
-          <!-- Конец favoritesList -->
-          <!-- Начало  секции WeatherInfo -->
-          <div class="none-pageOne">
-            <div class="weather-info">
-              <button class="weather-button weather-today">today</button>
-              <button class="weather-button five-days">5 days</button>
-            </div>
-            <!-- Начало  секции Data -->
-            <div class="data">
-              <ul class="data-list"></ul>
-            </div>
-            <!-- Конец секции Data -->
-            <!-- Начало  секции Quot -->
-            <div class="quote"></div>
-            <!-- Конец секции Quot -->
+          <!-- Начало  секции Data -->
+          <div class="data">
+            <ul class="data-list"></ul>
           </div>
-        </section>
-        <section id="second-page">
-          <div class="AllFiveDays">
-            <!-- Начало  секции FiveDaysSmall -->
-            <div class="FiveDaysSmall">
-              <h3 class="FiveDaysSmall__city">Kyiv UA</h3>
-              <ul class="FiveDaysWeaterList">
-                <li class="FiveDaysWeaterList__item">
-                  <button class="FiveDaysWeaterList__item--moreBtn">
-                    more info
-                  </button>
-                </li>
-                <li class="FiveDaysWeaterList__item">
-                  <button class="FiveDaysWeaterList__item--moreBtn">
-                    more info
-                  </button>
-                </li>
-                <li class="FiveDaysWeaterList__item">
-                  <button class="FiveDaysWeaterList__item--moreBtn">
-                    more info
-                  </button>
-                </li>
-                <li class="FiveDaysWeaterList__item">
-                  <button class="FiveDaysWeaterList__item--moreBtn">
-                    more info
-                  </button>
-                </li>
-                <li class="FiveDaysWeaterList__item">
-                  <button class="FiveDaysWeaterList__item--moreBtn">
-                    more info
-                  </button>
-                </li>
-              </ul>
-              <button class="FiveDaysSmall__nav-btn">
-                <span class="FiveDaysSmall__nav-btn--left"><pre></pre></span>
-              </button>
-              <button class="FiveDaysSmall__nav-btn">
-                <span class="FiveDaysSmall__nav-btn--right"><pre></pre></span>
-              </button>
-            </div>
-            <!-- Конец  секции FiveDaysSmall -->
-            <!-- Начало  секции FiveDaysBig -->
-            <div class="FiveDaysBig none-FiveDaysBig">
-
-            </div>
-            <!-- Конец  секции FiveDaysBig -->
-            <button class="show-charts">Show chart</button>
-            <div class="schedule none-schedule">
-
-            </div>
+          <!-- Конец секции Data -->
+          <!-- Начало  секции Quot -->
+          <div class="quote"></div>
+          <!-- Конец секции Quot -->
+        </div>
+      </section>
+      <section id="second-page">
+        <div class="AllFiveDays">
+          <!-- Начало  секции FiveDaysSmall -->
+          <div class="FiveDaysSmall">
+            <h3 class="FiveDaysSmall__city">Kyiv UA</h3>
+            <ul class="FiveDaysWeaterList">
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+              <li class="FiveDaysWeaterList__item">
+                <button class="FiveDaysWeaterList__item--moreBtn">
+                  more info
+                </button>
+              </li>
+            </ul>
+            <button class="FiveDaysSmall__nav-btn">
+              <span class="FiveDaysSmall__nav-btn--left">
+                <pre></pre></span>
+            </button>
+            <button class="FiveDaysSmall__nav-btn">
+              <span class="FiveDaysSmall__nav-btn--right">
+                <pre></pre></span>
+            </button>
           </div>
-        </section>
-      </div>
+          <!-- Конец  секции FiveDaysSmall -->
+          <!-- Начало  секции FiveDaysBig -->
+          <div class="FiveDaysBig none-FiveDaysBig">
+
+          </div>
+          <!-- Конец  секции FiveDaysBig -->
+          <button class="show-charts">Show chart</button>
+          <div class="schedule none-schedule">
+
+          </div>
+        </div>
+      </section>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
