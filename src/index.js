@@ -38,17 +38,17 @@ import addBackground from './components/BackgroundImg/BackgroundImg';
 import './components/BackgroundImg/BackgroundImg.css';
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 
-const choiseForm = document.querySelector('#search-form');
-const choiseInput = document.querySelector('#search-input');
+// const choiseForm = document.querySelector('#search-form');
+// const choiseInput = document.querySelector('#search-input');
 
-choiseForm.addEventListener('submit', submitForm);
+// choiseForm.addEventListener('submit', submitForm);
 
-function submitForm(event) {
-  event.preventDefault();
-  services.city = choiseInput.value;
-  console.log(choiseInput.value);
-  console.log(services.city);
-}
+// function submitForm(event) {
+//   event.preventDefault();
+//   services.city = choiseInput.value;
+//   console.log(choiseInput.value);
+//   console.log(services.city);
+// }
 
 function searchWeatherData() {
   // пробуем определить по координатам местонахождение человека:
