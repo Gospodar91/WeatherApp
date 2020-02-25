@@ -38,6 +38,11 @@ ul {
   margin: 0 auto;
 }
 
+
+.background-image {
+  overflow-y: auto;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 608px;
