@@ -31,9 +31,25 @@
         <!-- Конец favoritesList -->
         <!-- Начало  секции WeatherInfo -->
         <div class="none-pageOne">
-          <div class="weather-info">
-            <button class="weather-button weather-today">today</button>
-            <button class="weather-button five-days">5 days</button>
+          <div class="weather-info" id="weather-info-today-init">
+            <div class="weather-today-wrapper">
+              <div class="current-weather-icon">
+                <img src="https://openweathermap.org/img/w/04n.png" alt="clouds">
+              </div>
+              <h3 class="current-city-name">Kiyv,UA</h3>
+              <div class="today-temperature">
+                <div class="today-current-temperature">-3</div>
+                <div class="minimax-block">
+                  <div class="today-min-temperature minimax"><span>min</span>-2</div>
+                  <div class="minimax-devider"></div>
+                  <div class="today-max-temperature minimax"><span>max</span>-3</div>
+                </div>
+              </div>
+            </div>
+            <div class="show-today-or-5-days-buttons">
+              <button class="weather-button weather-today weather-button-active">today</button>
+              <button class="weather-button five-days weather-button-unactive">5 days</button>
+            </div>
           </div>
           <!-- Начало  секции Data -->
           <div class="data">
@@ -59,14 +75,8 @@
           <!-- Начало  секции Quot -->
           <div class="quote">
             <blockquote class="quote__block">
-<<<<<<< HEAD
               <p class="quote__text"></p>
               <cite class="quote__author"></cite>
-=======
-              <p class="quote__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas autem corporis,
-                deserunt cumque sunt molestias, placeat aspernatur error dignissimos </p>
-              <cite class="quote__author">Statchem</cite>
->>>>>>> dev
             </blockquote>
           </div>
           <!-- Конец секции Quot -->
@@ -158,11 +168,11 @@
             </ul>
             <button class="FiveDaysSmall__navBtn">
               <span class="FiveDaysSmall__navBtn--left">
-                <pre><</pre></span>
+                <pre></pre></span>
             </button>
             <button class="FiveDaysSmall__navBtn">
               <span class="FiveDaysSmall__navBtn--right">
-                <pre>></pre></span>
+                <pre></pre></span>
             </button>
           </div>
           <!-- Конец  секции FiveDaysSmall -->

@@ -5,7 +5,7 @@ GlobalEmitter.on(GlobalEmitter.ON_DATE_LOADED, onDateReady);
 
 function onDateReady(data) {
     alert('!')
-  document.querySelector('.data__day').innerHTML = 'main.temp'
+  document.querySelector('.data__day').innerHTML = ""
   document.querySelector('.month');
   document.querySelector('.time');
   document.querySelector('.sunrise__time');
