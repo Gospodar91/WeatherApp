@@ -50,18 +50,13 @@
 
 .sunrise__time,
 .twilight__time{
-  margin-top: 26px;
+  margin-top: 22px;
 }
 
 .sunrise,
 .twilight {
   display: flex;
   justify-content: space-around;
-}
-
-.data__icon {
-  width: 20px;
-  height: 20px;
 }
 
 .time,
@@ -97,7 +92,7 @@
 .twilight__icon {
   height: 30px;
   width: 30px;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 @media (min-width: 768px) {
@@ -130,7 +125,7 @@
   }
 
   .data__sun {
-    margin-top: 38px;
+    margin-top: 20px;
   }
 }
 
@@ -160,6 +155,25 @@
   .data__wrapper {
     display: flex;
     flex-direction: row;
-    margin-top: 18px;
   }
+
+  .sunrise__icon,
+  .twilight__icon,
+  .sunrise__time,
+  .twilight__time {
+    margin: 0;
+  }
+
+  .sunrise__icon,
+  .twilight__icon {
+    margin-top: -10px;
+  }
+
+  .data__wrapper {
+    margin-left: 40px;
+    display: flex;
+    width: 430px;
+    justify-content: space-between;
+  }
+
 }

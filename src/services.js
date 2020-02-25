@@ -78,10 +78,10 @@ export default {
       .catch(err => console.log(err));
   },
 
-  getImgBackground() {
+  getImgBackground(cityName) {
     const baseUrl = 'https://pixabay.com/api/';
     const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
-    const requestParams = `?image_type=photo&orientation=horizontal&q=kiev&page=1&per_page=40`;
+    const requestParams = `?image_type=photo&orientation=horizontal&q=${cityName}&page=1&per_page=40`;
 
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
@@ -89,8 +89,9 @@ export default {
         const imgArr = parsedResponse.hits;
 
         const rand = Math.floor(Math.random() * imgArr.length);
-        console.log('helloo');
+       
         const url = parsedResponse.hits[rand].fullHDURL;
+        console.log('getImgBackground url',url);
         GlobalEmitter.emit(GlobalEmitter.ON_BG_LOADED, { url: url });
       });
   },
