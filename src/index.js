@@ -47,26 +47,34 @@ function searchWeatherData() {
       } else if (services.blockSection === 'fiveDay') {
         services.getFiveDayWeather(city);
       }
-      addBackground(city);
+   console.log('---searchWeatherData---');
+      services.getImgBackground(city);
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log('---searchWeatherData error---',e);
       if (services.blockSection === 'today') {
         services.getTodayWeather(services.city);
       } else if (services.blockSection === 'fiveDay') {
         services.getFiveDayWeather(services.city);
       }
-      addBackground(services.city);
+   
+      
     });
 }
 
-setInterval(function() {
+
+
+
+function showQuote(){
   GlobalEmitter.emit(GlobalEmitter.ON_QUOTE_READY, {
     ...quoteData[Math.floor(Math.random() * quoteData.length)],
   });
-}, 5000);
+}
+setInterval(showQuote, 8000);
+showQuote();
+
 
 // GlobalEmitter.on(GlobalEmitter.ON_QUOTE_READY, showRandomQuote);
 // function showRandomQuote(event){
 //     console.log(event);
 // }
-services.getImgBackground();
