@@ -1,3 +1,5 @@
+import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
+
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
@@ -12,7 +14,7 @@ export default {
   city: 'Lviv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
@@ -49,6 +51,7 @@ export default {
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
+        buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
       })
       .catch(err => console.log(err));
