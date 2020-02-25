@@ -16,6 +16,7 @@ export default {
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
+      maximumAge: 600000,
       timeout: 500,
     };
 
