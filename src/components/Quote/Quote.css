@@ -27,13 +27,6 @@
     animation-iteration-count: infinite; 
 }
 
-/* @-webkit-keyframes anim {
-    0%   { opacity: 1; -webkit-filter: blur(10px); filter: blur(10px)}
-    20%  { opacity: 1; -webkit-filter: blur(0px); filter: blur(0px)}
-    80%  { opacity: 1; -webkit-filter: blur(0px); filter: blur(0px)}
-    98% { opacity: 1; -webkit-filter: blur(10px); filter: blur(10px)}
-  } */
-
   @keyframes anim {
     0%   { opacity: 1; -webkit-filter: blur(20px); filter: blur(20px)}
     10%  { opacity: 1; -webkit-filter: blur(0px); filter: blur(0px)}
@@ -49,7 +42,6 @@
         width: 372px;
     }
   
-
     .quote__text {
         font-size: 22px;
         font-weight: normal;
