@@ -9,7 +9,7 @@
   .opacity {
     position: absolute;
     width: 100%;
-    /* height: 100%; */
+
     background-color: rgba(22, 21, 21, 0.5);
   }
   
@@ -107,6 +107,7 @@
 .weather {
     position: relative;
     overflow: hidden;
+    /* overflow-y: scroll; */
   }
   /* pseudo elements: positioning and setup */
   .weather:before,
