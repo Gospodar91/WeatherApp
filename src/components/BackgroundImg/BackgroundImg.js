@@ -27,7 +27,7 @@ const fetchImage = () => {
 
 export default fetchImage;
 
-    fetchImage();
+fetchImage();
 
     
 
