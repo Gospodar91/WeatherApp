@@ -14,7 +14,7 @@ input[type="radio"].visually-hidden {
 }
 
 .weather-info {
-  padding: 0 0 32px;
+  padding: 50px 0 32px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -110,6 +110,9 @@ input[type="radio"].visually-hidden {
 }
 
 @media (min-width: 768px) {
+  .weather-info {
+    padding-top: 104px;
+  }
   .weather-today-wrapper {
     width: 492px;
   }
@@ -137,6 +140,7 @@ input[type="radio"].visually-hidden {
 
 @media (min-width: 1280px) {
   .weather-info {
+    padding-top: 94px;
     width: 492px;
     position: relative;
     right: -674px;
