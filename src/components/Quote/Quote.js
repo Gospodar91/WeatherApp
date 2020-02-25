@@ -1,7 +1,5 @@
 import './Quote.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-<<<<<<< HEAD
-=======
 
 const quoteArray = [
   {
@@ -59,4 +57,3 @@ quoteRandomQuote.textContent = quoteArray[Number(quoteRandom)].quote;
 
 const quoteRandomAuthor = document.querySelector(".quote__author");
 quoteRandomAuthor.textContent = quoteArray[Number(quoteRandom)].author;
->>>>>>> dev
