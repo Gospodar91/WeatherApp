@@ -1,17 +1,18 @@
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
 input[type="radio"].visually-hidden {
-    position: absolute;
-    width: 0.0625rem;
-    height: 0.0625rem;
-    margin: -0.0625rem;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
+
 .weather-info {
   padding: 0 0 32px;
   color: #fff;
@@ -128,11 +129,24 @@ input[type="radio"].visually-hidden {
   .minimax-block {
     width: 106px;
   }
+
+  .reject {
+    position: static;
+  }
 }
 
 @media (min-width: 1280px) {
   .weather-info {
+    width: 492px;
     position: relative;
-    right: -392px;
+    right: -674px;
+  }
+
+  .current-city-name-on-second-page {
+    font-size: 28px;
+    color: rgb(231, 26, 26);
+    font-weight: bold;
+    align-self: start;
+    padding-left: 76px;
   }
 }
