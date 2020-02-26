@@ -1,0 +1,23 @@
+@media(max-width: 767px){
+    .gw-part,
+    .gw-part__item{
+        display: none;
+    }
+}
+@media(min-width: 768px){
+    .gw-part,
+.gw-part__item {
+    background-color: yellowgreen;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 25px;
+    position: absolute;
+    font-weight: 30px;
+    font-size: large;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    transform: translateX(0) translateY(0);
+};
+}
