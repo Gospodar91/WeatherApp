@@ -9,11 +9,11 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-
-
 }
-body{
+
+body {
   font-family: 'Lato';
+
 }
 
 a {
@@ -36,11 +36,17 @@ ul {
 .container {
   width: 280px;
   margin: 0 auto;
+ 
+}
+
+
+.background-image {
+  overflow-y: auto;
 }
 
 @media (min-width: 768px) {
   .container {
-    width: 492px;
+    width: 608px;
   }
 
 }

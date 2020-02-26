@@ -1,0 +1,161 @@
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.weather-info {
+  padding: 50px 0 32px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-today-wrapper {
+  width: 100%;
+  border-radius: 35px;
+  background-color: rgb(16, 33, 54);
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
+  padding: 30px 0 38px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-city-name {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.302);
+  line-height: 1.375;
+  margin-bottom: 20px;
+}
+
+.today-current-temperature {
+  font-size: 45px;
+  line-height: 0.489;
+}
+
+.today-min-temperature {
+  border-right: 1px solid rgba(255, 255, 255, 0.302);
+}
+
+.minimax-block {
+  width: 78px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.minimax {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  line-height: 1;
+  flex-grow: 1;
+}
+
+.today-temperature span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.302);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.show-today-or-5-days-buttons {
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-button {
+  width: 126px;
+  height: 30px;
+  border-radius: 15px;
+  outline: none;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.571;
+}
+
+.weather-button-active {
+  background-color: rgb(247, 247, 247);
+}
+
+.weather-button-unactive {
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  background-color: rgba(255, 255, 255);
+  opacity: 0.541;
+}
+
+@media (max-width: 767px) {
+  .today-temperature {
+    width: 170px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .weather-info {
+    padding-top: 104px;
+  }
+  .weather-today-wrapper {
+    width: 492px;
+  }
+
+  .current-city-name {
+    font-size: 18px;
+    line-height: 1.222;
+    margin-bottom: 26px;
+  }
+
+
+  .today-current-temperature {
+    margin-bottom: 30px;
+    font-size: 90px;
+  }
+
+  .minimax-block {
+    width: 106px;
+  }
+
+  .reject {
+    position: static;
+  }
+  .pudding-for-five-days{
+    padding-top: 310px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .weather-info {
+    /* padding-top: 94px; */
+    padding-top: 56px;
+    padding-bottom: 54px;
+    width: 492px;
+    position: relative;
+    right: -674px;
+  }
+
+  .current-city-name-on-second-page {
+    font-size: 28px;
+    color: rgb(231, 26, 26);
+    font-weight: bold;
+    align-self: start;
+    padding-left: 76px;
+  }
+}

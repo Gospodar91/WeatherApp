@@ -1,0 +1,38 @@
+/* FiveDaysSmall начало*/
+.FiveDaysSmall__city-mobile,
+.FiveDaysWeaterList__item--day,
+.FiveDaysWeaterList__item--date,
+.FiveDaysWeaterList__item--min-max-label{
+    font-family: 'Lato';
+    font-style: normal;
+    letter-spacing: 1px;
+    line-height: 22px;
+}
+.FiveDaysSmall__city-mobile{
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+}
+.FiveDaysWeaterList__item--day{
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.54);
+}
+.FiveDaysWeaterList__item--date{
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+.FiveDaysWeaterList__item--min-max-label,
+.FiveDaysWeaterList__item--moreBtn{
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.3);
+}
+.FiveDaysWeaterList__item--min-max{
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6b08;
+}
+/* FiveDaysSmall конец*/
+

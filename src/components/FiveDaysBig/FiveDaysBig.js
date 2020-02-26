@@ -1,1 +1,0 @@
-import './FiveDaysBig.css';
