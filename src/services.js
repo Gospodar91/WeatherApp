@@ -13,7 +13,7 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
 };
 
 export default {
-  city: 'Lviv',
+  city: 'Kyiv',
   today: null,
   fiveDay: null,
   blockSection: 'today',
@@ -65,8 +65,8 @@ export default {
   getFiveDayWeather(city) {
         fetch(baseUrlForFiveDayWeather + city)
         .then(res => {
-            // console.log('getFiveDayWeather ', res);
-            if(res.status === 404){
+             console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+            if(res.today.cod === 404){
                 PNotify.error({
                     title: 'NOTICE!',
                     text: 'Please write correct country!',
@@ -79,7 +79,7 @@ export default {
           this.blockSection = 'fiveDay';
           console.log('getFiveDayWeather', this);    
         }) .catch(error => {
-            console.error('error')
+            console.error('error !!!!!!!!!!!!!!!!!!!!!!!!!', error);
         });
       
   },
@@ -92,9 +92,12 @@ export default {
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
+        console.log('parsedResponse', parsedResponse);
         const rand = Math.floor(Math.random() * parsedResponse.hits.length);
         const mainDiv = document.querySelector('.background-image');
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
-      });
+      }) .catch(error => {
+        console.error('getImgBackground error', error)
+    });;
   },
 };
