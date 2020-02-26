@@ -3,7 +3,7 @@ import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 
-
+import FiveDaysSmall from './components/FiveDaysSmall/FiveDaysSmall';
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -90,7 +90,8 @@ export default {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
           // showTemperature(res);
-          console.log('getFiveDayWeather', this);    
+          console.log('getFiveDayWeather', this); 
+          FiveDaysSmall(res);   
         }) .catch(error => {
             console.error('error', error)
         });

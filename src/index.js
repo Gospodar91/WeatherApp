@@ -11,7 +11,7 @@ import './components/FavoriteList/FavoriteList';
 import './components/WeatherInfo/WeatherInfo';
 import './components/Quote/Quote';
 import './components/DataWindow/DataWindow';
-// import './components/FiveDaysSmall/FiveDaysSmall';
+import './components/FiveDaysSmall/FiveDaysSmall';
 // import './components/MoreInfo/MoreInfo';
 import './components/Schedule/Schedule';
 import './components/Geolocation/Geolocation';

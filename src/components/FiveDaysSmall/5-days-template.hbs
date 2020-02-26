@@ -1,0 +1,20 @@
+{{#each this}}
+<li class="FiveDaysWeaterList__item">
+    <div class="FiveDaysWeaterList__item--day">{{this.day}}</div>
+    <div class="FiveDaysWeaterList__item--date">{{this.date}}</div>
+    <div>
+        <img class="FiveDaysWeaterList__item--icon" src="https://openweathermap.org/img/w/{{this.icon}}.png"
+            alt="weather-ico" />
+    </div>
+    <div class="FiveDaysWeaterList__item--min-max-label">
+        <span>min</span><span>max</span>
+    </div>
+    <div class="FiveDaysWeaterList__item--min-max">
+        <span>{{this.min}} &deg;</span>
+        <span>{{this.max}} &deg;</span>
+    </div>
+    <button class="FiveDaysWeaterList__item--moreBtn">
+        more info
+    </button>
+</li>
+{{/each}}

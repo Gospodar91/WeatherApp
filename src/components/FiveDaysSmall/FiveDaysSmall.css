@@ -30,12 +30,11 @@
 }
 
 .FiveDaysWeaterList__item--date {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .FiveDaysWeaterList__item--icon {
   margin: 0 auto;
-  margin-bottom: 10px;
 }
 
 .FiveDaysWeaterList__item--min-max-label {
@@ -58,7 +57,7 @@
 .FiveDaysWeaterList__item--min-max {
   width: 58px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 7px;
 }
 
@@ -149,7 +148,7 @@
   .FiveDaysWeaterList__item--date {
     font-size: 25px;
     line-height: 1.2;
-    margin-bottom: 26px;
+    margin-bottom: 8px;
   }
   .FiveDaysWeaterList__item--min-max-label,
   .FiveDaysWeaterList__item--moreBtn {
@@ -163,7 +162,7 @@
     line-height: 1.2;
   }
   .FiveDaysWeaterList__item--icon {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   .FiveDaysWeaterList__item--moreBtn{
     margin-bottom: 10px;
