@@ -4,7 +4,6 @@ const weatherInfoBlock = document.querySelector('.weather-info');
 const weatherInfoToday = document.querySelector('.weather-today-wrapper');
 const dataToday = document.querySelector('.data');
 const quoteToday = document.querySelector('.quote');
-const noneMoreInfoToday = document.querySelector('.none-MoreInfo');
 const secondPage = document.querySelector('#second-page');
 
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
@@ -18,7 +17,6 @@ function onFiveDaysWeatherBtnClick(e) {
   weatherInfoToday.classList.add('visually-hidden');
   dataToday.classList.add('visually-hidden');
   quoteToday.classList.add('visually-hidden');
-  noneMoreInfoToday.classList.add('visually-hidden');
   secondPage.classList.remove('visually-hidden');
   weatherInfoBlock.classList.add('pudding-for-five-days');
 
@@ -33,7 +31,6 @@ function onTodayWeatherBtnClick(e) {
   weatherInfoToday.classList.remove('visually-hidden');
   dataToday.classList.remove('visually-hidden');
   quoteToday.classList.remove('visually-hidden');
-  noneMoreInfoToday.classList.remove('visually-hidden');
   secondPage.classList.add('visually-hidden');
   weatherInfoBlock.classList.remove('pudding-for-five-days');
 

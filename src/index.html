@@ -9,18 +9,25 @@
 </head>
 
 <body>
-  <div class="animationweather weather rain">
+  <div class="animationweather weather rain"></div>
   <div class="background-image">
-    <div class="animationweather-special thunder opacity">
+    <div class="animationweather-special">
     <div class="container">
       <section id="first-page">
         <!-- Секция Search -->
         <div class="global-input">
           <div class="input-form">
             <form class="search__form" id="search-form">
-              <button class="search__form-geolocation"></button>
+              <svg class="search__form-geolocation" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M20.94 11c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+              </svg>
               <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
-              <button class="search__form-favourite"></button>
+              <button class="search__form-favourite">
+                <svg class="fovourite-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                  <path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/>
+                  <path d="M0 0h24v24H0z" fill="none"/></svg>
+              </button>
             </form>
           </div>
           <!-- Конец секции Search -->
@@ -91,7 +98,8 @@
           <div class="FiveDaysSmall">
             <h3 class="FiveDaysSmall__city-mobile">Kyiv, UA</h3>
             <ul class="FiveDaysWeaterList">
-              <li class="FiveDaysWeaterList__item">
+<!-- !!!!!!!!!!!!!!!!!!! -->
+              <li class="FiveDaysWeaterList__item js-FiveDaysWeaterList__firstDay">    
                 <div class="FiveDaysWeaterList__item--day">Day1</div>
                 <div class="FiveDaysWeaterList__item--date">date 1</div>
                 <div>
@@ -103,12 +111,13 @@
                 </div>
                 <div class="FiveDaysWeaterList__item--min-max">
                   <span>-1</span><span>+1</span>
-                </div>
+                </div>      
                 <button class="FiveDaysWeaterList__item--moreBtn">
                   more info
                 </button>
               </li>
-              <li class="FiveDaysWeaterList__item">
+  <!-- !!!!!!!!!!!!!!!!!!! -->
+              <li class="FiveDaysWeaterList__item js-FiveDaysWeaterList__secondDay" >
                 <div class="FiveDaysWeaterList__item--day">Day2</div>
                 <div class="FiveDaysWeaterList__item--date">date 2</div>
                 <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
@@ -182,11 +191,93 @@
           </div>
           <!-- Конец  секции FiveDaysSmall -->
           <!-- Начало  секции FiveDaysBig -->
-          <div class="MoreInfo none-MoreInfo">
+ <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          <div class='MoreInfo js-MoreInfoFirstDay'>
             <div class="gallery">
             <ul class="more-info-list">
               <li class="more-info-item more-info-item__time-00-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">1</p><span class="degrees">&#176</span>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772mm</p>
+                  <p class="more-info-item__humidity-value">54%</p>
+                  <p class="more-info-item__wind-value">3,7m/s</p>
+                </div>
+              </li>
+              <li class="more-info-item more-info-item__time-04-00">
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">2</p>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772</p>
+                  <p class="more-info-item__humidity-value">5</p>
+                  <p class="more-info-item__wind-value">3,7</p>
+                </div>
+              </li>
+              <li class="more-info-item more-info-item__time-08-00">
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">3</p><span>&#176</span>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772</p>
+                  <p class="more-info-item__humidity-value">54</p>
+                  <p class="more-info-item__wind-value">3,7</p>
+                </div>
+              </li>
+              <li class="more-info-item more-info-item__time-12-00">
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">4</p><span>&#176</span>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772</p>
+                  <p class="more-info-item__humidity-value">54</p>
+                  <p class="more-info-item__wind-value">3,7</p>
+                </div>
+              </li>
+             <li class="more-info-item more-info-item__time-15-00">
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">5</p><span>&#176</span>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                  <p class="more-info-item__humidity-value">54<span>%</span></p>
+                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                </div>
+              </li>
+              <li class="more-info-item more-info-item__time-19-00">
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">6</p><span>&#176</span>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                  <p class="more-info-item__humidity-value">54<span>%</span></p>
+                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                </div>
+              </li>
+              <li class="more-info-item more-info-item__time-22-00">
+                <p class="more-info-item__set-time">01:00</p>
+                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                <p class="more-info-item__set-temperature">7</p><span>&#176</span>
+                <div class="more-info-item__weather-details">
+                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                  <p class="more-info-item__humidity-value">54<span>%</span></p>
+                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+            <div class="hourly-weather-btns">
+              <button class="hourly-weather-prev-btn"><</button>
+              <button class="hourly-weather-next-btn">></button>
+            </div>
+          </div>
+ <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          <div class='MoreInfo none-MoreInfo js-MoreInfoSecondDay'>
+            <div class="gallery">
+            <ul class="more-info-list">
+              <li class="more-info-item more-info-item__time-00-00">
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -196,7 +287,7 @@
                 </div>
               </li>
               <li class="more-info-item more-info-item__time-04-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -206,7 +297,7 @@
                 </div>
               </li>
               <li class="more-info-item more-info-item__time-08-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -216,7 +307,7 @@
                 </div>
               </li>
               <li class="more-info-item more-info-item__time-12-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -226,7 +317,7 @@
                 </div>
               </li>
              <li class="more-info-item more-info-item__time-15-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -236,7 +327,7 @@
                 </div>
               </li>
               <li class="more-info-item more-info-item__time-19-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -246,7 +337,7 @@
                 </div>
               </li>
               <li class="more-info-item more-info-item__time-22-00">
-                <p class="more-info-item__set-time">00:00</p>
+                <p class="more-info-item__set-time">02:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
                 <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
@@ -262,6 +353,330 @@
               <button class="hourly-weather-next-btn">></button>
             </div>
           </div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<div class='MoreInfo none-MoreInfo js-MoreInfoThirdDay'>
+  <div class="gallery">
+  <ul class="more-info-list">
+    <li class="more-info-item more-info-item__time-00-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-04-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-08-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-12-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+   <li class="more-info-item more-info-item__time-15-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-19-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-22-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+  </ul>
+</div>
+  <div class="hourly-weather-btns">
+    <button class="hourly-weather-prev-btn"><</button>
+    <button class="hourly-weather-next-btn">></button>
+  </div>
+</div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<div class='MoreInfo none-MoreInfo js-MoreInfoThirdDay'>
+  <div class="gallery">
+  <ul class="more-info-list">
+    <li class="more-info-item more-info-item__time-00-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-04-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-08-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-12-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+   <li class="more-info-item more-info-item__time-15-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-19-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-22-00">
+      <p class="more-info-item__set-time">03:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+  </ul>
+</div>
+  <div class="hourly-weather-btns">
+    <button class="hourly-weather-prev-btn"><</button>
+    <button class="hourly-weather-next-btn">></button>
+  </div>
+</div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<div class='MoreInfo none-MoreInfo js-MoreInfoForthDay'>
+  <div class="gallery">
+  <ul class="more-info-list">
+    <li class="more-info-item more-info-item__time-00-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-04-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-08-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-12-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+   <li class="more-info-item more-info-item__time-15-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-19-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-22-00">
+      <p class="more-info-item__set-time">04:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+  </ul>
+</div>
+  <div class="hourly-weather-btns">
+    <button class="hourly-weather-prev-btn"><</button>
+    <button class="hourly-weather-next-btn">></button>
+  </div>
+</div>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<div class='MoreInfo none-MoreInfo js-MoreInfoFifthDay'>
+  <div class="gallery">
+  <ul class="more-info-list">
+    <li class="more-info-item more-info-item__time-00-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-04-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-08-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-12-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+   <li class="more-info-item more-info-item__time-15-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-19-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+    <li class="more-info-item more-info-item__time-22-00">
+      <p class="more-info-item__set-time">05:00</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+      <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+        <p class="more-info-item__humidity-value">54<span>%</span></p>
+        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+      </div>
+    </li>
+  </ul>
+</div>
+  <div class="hourly-weather-btns">
+    <button class="hourly-weather-prev-btn"><</button>
+    <button class="hourly-weather-next-btn">></button>
+  </div>
+</div>
           <!-- Конец  секции FiveDaysBig -->
           <!-- Начало  секции Schedule -->
           <div class="schedule none-schedule">
@@ -294,8 +709,8 @@
           <!-- Конец  секции Schedule -->
         </div>
       </section>
-    </div>
-  </div>
+    
+  
   <div class="loader is-hidden" id="spinner">
       <div class="ball one"><div class="inner"></div></div>
       <div class="ball two"><div class="inner"></div></div>
