@@ -1,9 +1,7 @@
 import './MoreInfo.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-import rez from '../../services.js';
+import res from '../../services.js';
 
-
-console.log(rez.city);
 
 const refs = {
     moreInfoFirstDay: document.querySelector('.js-FiveDaysWeaterList__firstDay'),
@@ -19,12 +17,12 @@ const refs = {
     setWind: document.querySelector('.more-info-item__wind-value'),
 }
 
-const showTemperature = rez => {
-    refs.setTemperature.textContent = `${rez.city}`;
-    refs.setPressure.textContent = `${rez.fiveDay.list[0].main['pressure']}mm`;
-    refs.setHumidity.textContent = `${rez.fiveDay.list[0].main['humidity']}%`;
-    refs.setWind.textContent = `${rez.fiveDay.list[0].wind['speed']}m/s`;
-    console.log(rez.fiveDay.list[0].wind['speed'])
+export default function showTemperature (res) {
+    refs.setTemperature.textContent = `${res.city}`;
+    refs.setPressure.textContent = `${res.list[0].main['pressure']}mm`;
+    refs.setHumidity.textContent = `${res.list[0].main['humidity']}%`;
+    refs.setWind.textContent = `${res.list[0].wind['speed']}m/s`;
+    console.log(res.list[0].wind['speed'])
   };
 
 refs.moreInfoFirstDay.addEventListener('click', handlerWeatherForFirstDay);
@@ -32,7 +30,6 @@ refs.moreInfoSecondDay.addEventListener('click', handlerWeatherForSecondDay);
 
 
 function handlerWeatherForFirstDay(event) {
-    showTemperature(rez);
     refs.containerWeatherForFirstDay.style.display = 'block';
     refs.containerWeatherForSecondDay.style.display = 'none';
 }
