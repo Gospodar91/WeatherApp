@@ -1,6 +1,8 @@
 import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
+import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
+
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -16,7 +18,7 @@ export default {
   city: 'Lviv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
@@ -54,6 +56,7 @@ export default {
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
+        buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
       })
       .catch(err => {

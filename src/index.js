@@ -15,7 +15,7 @@ import './components/FiveDaysSmall/FiveDaysSmall';
 import './components/MoreInfo/MoreInfo';
 import './components/Schedule/Schedule';
 import './components/Geolocation/Geolocation';
-import './components/AnimationWeather/AnimationWeather';
+// import './components/AnimationWeather/AnimationWeather';
 import './components/CubeAnimation/CubeAnimation';
 import './components/GlobalFunctionAndVariables/globalFunctionAndVariables';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
