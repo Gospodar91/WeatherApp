@@ -8,6 +8,14 @@
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
 }
 
+.js-MoreInfoFirstDay,
+.js-MoreInfoSecondDay,
+.js-MoreInfoThirdDay,
+.js-MoreInfoForthDay,
+.js-MoreInfoFifthDay{
+  display: none;
+}
+
 .more-info-list {
   margin-top: 20px;
   display: flex;
@@ -51,7 +59,9 @@
   margin: 0 auto;
 }
 
-.more-info-item__set-temperature {
+.more-info-item__set-temperature,
+.degrees {
+  display: inline-block;
   font-size: 18px;
   font-family: 'Lato';
   color: rgb(255, 107, 8);
@@ -75,7 +85,7 @@
   height: 24px;
   background-repeat: no-repeat;
   background-position: left;
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .more-info-item__pressure-value::before {
