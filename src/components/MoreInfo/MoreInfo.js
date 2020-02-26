@@ -23,8 +23,8 @@ export default function showTemperature (res) {
     console.log('ooooooo',res.list[0].wind['speed'])
   };
 
-refs.moreInfoFirstDay.addEventListener('click', handlerWeatherForFirstDay);
-refs.moreInfoSecondDay.addEventListener('click', handlerWeatherForSecondDay);
+// refs.moreInfoFirstDay.addEventListener('click', handlerWeatherForFirstDay);
+// refs.moreInfoSecondDay.addEventListener('click', handlerWeatherForSecondDay);
 
 
 function handlerWeatherForFirstDay(event) {
