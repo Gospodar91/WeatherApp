@@ -1,3 +1,7 @@
+import PNotify from 'pnotify/dist/es/PNotify.js';
+import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
+import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
+
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
@@ -12,7 +16,7 @@ export default {
   city: 'Lviv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
@@ -50,20 +54,34 @@ export default {
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
+        buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.error('hellooo');
+      });
   },
 
   getFiveDayWeather(city) {
-    fetch(baseUrlForFiveDayWeather + city)
-      .then(res => res.json())
-      .then(res => {
-        this.fiveDay = res;
-        this.blockSection = 'fiveDay';
-        console.log('getFiveDayWeather ', this);
-      })
-      .catch(err => console.log(err));
+        fetch(baseUrlForFiveDayWeather + city)
+        .then(res => {
+            // console.log('getFiveDayWeather ', res);
+            if(res.status === 404){
+                PNotify.error({
+                    title: 'NOTICE!',
+                    text: 'Please write correct country!',
+                });
+            } 
+            return res.json();
+        })
+        .then(res => {
+          this.fiveDay = res;
+          this.blockSection = 'fiveDay';
+          console.log('getFiveDayWeather', this);    
+        }) .catch(error => {
+            console.error('error')
+        });
+      
   },
 
   getImgBackground(cityName) {

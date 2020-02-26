@@ -15,7 +15,7 @@ import './components/FiveDaysSmall/FiveDaysSmall';
 import './components/MoreInfo/MoreInfo';
 import './components/Schedule/Schedule';
 import './components/Geolocation/Geolocation';
-import './components/AnimationWeather/AnimationWeather';
+// import './components/AnimationWeather/AnimationWeather';
 import './components/CubeAnimation/CubeAnimation';
 import './components/GlobalFunctionAndVariables/globalFunctionAndVariables';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
@@ -26,8 +26,7 @@ import './components/BackgroundImg/BackgroundImg.css';
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 
 function searchWeatherData() {
-  services
-    .getCurrentCityForCurrentLocationCoord()
+  services.getCurrentCityForCurrentLocationCoord()
     .then(city => {
       if (services.blockSection === 'today') {
         services.getTodayWeather(city);
