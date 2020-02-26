@@ -43,6 +43,7 @@ input[type="radio"].visually-hidden {
 .today-current-temperature {
   font-size: 45px;
   line-height: 0.489;
+  text-align: center;
 }
 
 .today-min-temperature {
@@ -133,7 +134,8 @@ input[type="radio"].visually-hidden {
   .reject {
     position: static;
   }
-  .pudding-for-five-days{
+
+  .pudding-for-five-days {
     padding-top: 310px;
   }
 }

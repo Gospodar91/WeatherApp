@@ -1,3 +1,4 @@
+import renderDataInDom from '../src/components/WeatherInfo/WeatherInfo';
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
@@ -12,7 +13,7 @@ export default {
   city: 'Lviv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
@@ -50,7 +51,7 @@ export default {
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
-        console.log('getTodayWeather ', this);
+        renderDataInDom(res);
       })
       .catch(err => console.log(err));
   },
@@ -61,7 +62,6 @@ export default {
       .then(res => {
         this.fiveDay = res;
         this.blockSection = 'fiveDay';
-        console.log('getFiveDayWeather ', this);
       })
       .catch(err => console.log(err));
   },

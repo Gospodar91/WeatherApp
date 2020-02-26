@@ -10,293 +10,294 @@
 
 <body>
   <div class="animationweather weather snow">
-  <div class="background-image">
-    <div class="animationweather-special thunder opacity">
-    <div class="container">
-      <section id="first-page">
-        <!-- Секция Search -->
-        <div class="global-input">
-          <div class="input-form">
-            <form class="search__form" id="search-form">
-              <button class="search__form-geolocation"></button>
-              <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
-              <button class="search__form-favourite"></button>
-            </form>
-          </div>
-          <!-- Конец секции Search -->
-          <!-- Начало секции favoritesLIST -->
-          <div class="favorites">
-            <ul class="favorites-list"></ul>
-            <button class="list-button favorite-next"></button>
-          </div>
+    <div class="background-image">
+      <div class="animationweather-special thunder opacity">
+        <div class="container">
+          <section id="first-page">
+            <!-- Секция Search -->
+            <div class="global-input">
+              <div class="input-form">
+                <form class="search__form" id="search-form">
+                  <button class="search__form-geolocation"></button>
+                  <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
+                  <button class="search__form-favourite"></button>
+                </form>
+              </div>
+              <!-- Конец секции Search -->
+              <!-- Начало секции favoritesLIST -->
+              <div class="favorites">
+                <ul class="favorites-list"></ul>
+                <button class="list-button favorite-next"></button>
+              </div>
+            </div>
+            <!-- Конец favoritesList -->
+            <!-- Начало  секции WeatherInfo -->
+            <div class="none-pageOne">
+              <div class="weather-info" id="weather-info-today-init">
+                <div class="weather-today-wrapper">
+                  <div class="current-weather-icon">
+                    <img id="weather-today-sky" src="https://openweathermap.org/img/w/04n.png" alt="clouds">
+                  </div>
+                  <h3 class="current-city-name">Kiyv,UA</h3>
+                  <div class="today-temperature">
+                    <div class="today-current-temperature">-3</div>
+                    <div class="minimax-block">
+                      <div class="today-min-temperature minimax"><span>min</span><span id="today-min">-2</span></div>
+                      <div class="minimax-devider"></div>
+                      <div class="today-max-temperature minimax"><span>max</span><span id="today-max">-3</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="show-today-or-5-days-buttons">
+                  <button class="weather-button weather-today weather-button-active">today</button>
+                  <button class="weather-button five-days weather-button-unactive">5 days</button>
+                </div>
+              </div>
+              <!-- Начало  секции Data -->
+              <div class="data">
+                <p class="data__day">8 Sat</p>
+                <div class="data__wrapper">
+                  <div class="data__day--month">
+                    <span class="month">February</span>
+                    <span class="time">21:30:56</span>
+                  </div>
+                  <div class="data__sun">
+                    <div class="sunrise">
+                      <img src="./assets/icons/data__sunrise--sunset/dawn.svg" alt="sunrise" class="sunrise__icon">
+                      <span class="sunrise__time">07:04</span>
+                    </div>
+                    <div class="twilight">
+                      <img src="./assets/icons/data__sunrise--sunset/sunset.svg" alt="sunset" class="twilight__icon">
+                      <span class="twilight__time">17:05</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Конец секции Data -->
+              <!-- Начало  секции Quot -->
+              <div class="quote">
+                <blockquote class="quote__block">
+                  <p class="quote__text"></p>
+                  <cite class="quote__author"></cite>
+                </blockquote>
+              </div>
+              <!-- Конец секции Quot -->
+            </div>
+          </section>
+          <section id="second-page" class="visually-hidden">
+            <div class="AllFiveDays">
+              <!-- Начало  секции FiveDaysSmall -->
+              <h3 class="FiveDaysSmall__city-tablet">Kyiv, UA</h3>
+              <div class="FiveDaysSmall">
+                <h3 class="FiveDaysSmall__city-mobile">Kyiv, UA</h3>
+                <ul class="FiveDaysWeaterList">
+                  <li class="FiveDaysWeaterList__item">
+                    <div class="FiveDaysWeaterList__item--day">Day1</div>
+                    <div class="FiveDaysWeaterList__item--date">date 1</div>
+                    <div>
+                      <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
+                        alt="weather-ico" />
+                    </div>
+                    <div class="FiveDaysWeaterList__item--min-max-label">
+                      <span>min</span><span>max</span>
+                    </div>
+                    <div class="FiveDaysWeaterList__item--min-max">
+                      <span>-1</span><span>+1</span>
+                    </div>
+                    <button class="FiveDaysWeaterList__item--moreBtn">
+                      more info
+                    </button>
+                  </li>
+                  <li class="FiveDaysWeaterList__item">
+                    <div class="FiveDaysWeaterList__item--day">Day2</div>
+                    <div class="FiveDaysWeaterList__item--date">date 2</div>
+                    <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
+                      alt="weather-ico" />
+                    <div class="FiveDaysWeaterList__item--min-max-label">
+                      <span>min</span><span>max</span>
+                    </div>
+                    <div class="FiveDaysWeaterList__item--min-max">
+                      <span>-1</span><span>+1</span>
+                    </div>
+                    <button class="FiveDaysWeaterList__item--moreBtn">
+                      more info
+                    </button>
+                  </li>
+                  <li class="FiveDaysWeaterList__item">
+                    <div class="FiveDaysWeaterList__item--day">Day3</div>
+                    <div class="FiveDaysWeaterList__item--date">date 3</div>
+                    <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
+                      alt="weather-ico" />
+                    <div class="FiveDaysWeaterList__item--min-max-label">
+                      <span>min</span><span>max</span>
+                    </div>
+                    <div class="FiveDaysWeaterList__item--min-max">
+                      <span>-1</span><span>+1</span>
+                    </div>
+                    <button class="FiveDaysWeaterList__item--moreBtn">
+                      more info
+                    </button>
+                  </li>
+                  <li class="FiveDaysWeaterList__item">
+                    <!-- style="display: none;" -->
+                    <div class="FiveDaysWeaterList__item--day">Day4</div>
+                    <div class="FiveDaysWeaterList__item--date">date 4</div>
+                    <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
+                      alt="weather-ico" />
+                    <div class="FiveDaysWeaterList__item--min-max-label">
+                      <span>min</span><span>max</span>
+                    </div>
+                    <div class="FiveDaysWeaterList__item--min-max">
+                      <span>-1</span><span>+1</span>
+                    </div>
+                    <button class="FiveDaysWeaterList__item--moreBtn">
+                      more info
+                    </button>
+                  </li>
+                  <li class="FiveDaysWeaterList__item">
+                    <!-- style="display: none;" -->
+                    <div class="FiveDaysWeaterList__item--day">Day5</div>
+                    <div class="FiveDaysWeaterList__item--date">date 5</div>
+                    <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
+                      alt="weather-ico" />
+                    <div class="FiveDaysWeaterList__item--min-max-label">
+                      <span>min</span><span>max</span>
+                    </div>
+                    <div class="FiveDaysWeaterList__item--min-max">
+                      <span>-1</span><span>+1</span>
+                    </div>
+                    <button class="FiveDaysWeaterList__item--moreBtn">
+                      more info
+                    </button>
+                  </li>
+                </ul>
+                <button class="FiveDaysSmall__navBtn">
+                  <span class="FiveDaysSmall__navBtn--left">
+                    <pre></pre></span>
+                </button>
+                <button class="FiveDaysSmall__navBtn">
+                  <span class="FiveDaysSmall__navBtn--right">
+                    <pre></pre></span>
+                </button>
+              </div>
+              <!-- Конец  секции FiveDaysSmall -->
+              <!-- Начало  секции FiveDaysBig -->
+              <div class="MoreInfo none-MoreInfo">
+                <div class="gallery">
+                  <ul class="more-info-list">
+                    <li class="more-info-item more-info-item__time-00-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                    <li class="more-info-item more-info-item__time-04-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                    <li class="more-info-item more-info-item__time-08-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                    <li class="more-info-item more-info-item__time-12-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                    <li class="more-info-item more-info-item__time-15-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                    <li class="more-info-item more-info-item__time-19-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                    <li class="more-info-item more-info-item__time-22-00">
+                      <p class="more-info-item__set-time">00:00</p>
+                      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
+                      <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
+                      <div class="more-info-item__weather-details">
+                        <p class="more-info-item__pressure-value">772 <span>mm</span></p>
+                        <p class="more-info-item__humidity-value">54<span>%</span></p>
+                        <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="hourly-weather-btns">
+                  <button class="hourly-weather-prev-btn"></button>
+                  <button class="hourly-weather-next-btn"></button>
+                </div>
+              </div>
+              <!-- Конец  секции FiveDaysBig -->
+              <!-- Начало  секции Schedule -->
+              <div class="schedule none-schedule">
+                <div class="schedule__div">
+                  <button class="show-charts">Show Chart</button>
+                  <img class="ellipse-img" src="../src/assets/icons/ellipse/ellipse.png" alt="ellipse" width="28"
+                    height="28" />
+                </div>
+                <div class="schedule__legend schedule__legend-none">
+                  <h2 class="schedule__legend-title">AVERAGE:</h2>
+                  <ul class="schedule__legend-list">
+                    <li class="schedule__legend-item temperature">
+                      Temperature,
+                      <span class="schedule__legend-span temp">C°</span>
+                    </li>
+                    <li class="schedule__legend-item humidity">
+                      Humidity, <span class="schedule__legend-span hum">%</span>
+                    </li>
+                    <li class="schedule__legend-item windspeed">
+                      Wind Speed,
+                      <span class="schedule__legend-span ws">m/s</span>
+                    </li>
+                    <li class="schedule__legend-item atmosphere">
+                      Atmosphere Pressure,
+                      <span class="schedule__legend-span ap">m/m</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Конец  секции Schedule -->
+            </div>
+          </section>
         </div>
-        <!-- Конец favoritesList -->
-        <!-- Начало  секции WeatherInfo -->
-        <div class="none-pageOne">
-          <div class="weather-info" id="weather-info-today-init">
-            <div class="weather-today-wrapper">
-              <div class="current-weather-icon">
-                <img src="https://openweathermap.org/img/w/04n.png" alt="clouds">
-              </div>
-              <h3 class="current-city-name">Kiyv,UA</h3>
-              <div class="today-temperature">
-                <div class="today-current-temperature">-3</div>
-                <div class="minimax-block">
-                  <div class="today-min-temperature minimax"><span>min</span>-2</div>
-                  <div class="minimax-devider"></div>
-                  <div class="today-max-temperature minimax"><span>max</span>-3</div>
-                </div>
-              </div>
-            </div>
-            <div class="show-today-or-5-days-buttons">
-              <button class="weather-button weather-today weather-button-active">today</button>
-              <button class="weather-button five-days weather-button-unactive">5 days</button>
-            </div>
-          </div>
-          <!-- Начало  секции Data -->
-          <div class="data">
-            <p class="data__day">8 Sat</p>
-            <div class="data__wrapper">
-              <div class="data__day--month">
-                <span class="month">February</span>
-                <span class="time">21:30:56</span>
-              </div>
-              <div class="data__sun">
-                <div class="sunrise">
-                  <img src="./assets/icons/data__sunrise--sunset/dawn.svg" alt="sunrise" class="sunrise__icon">
-                  <span class="sunrise__time">07:04</span>
-                </div>
-                <div class="twilight">
-                  <img src="./assets/icons/data__sunrise--sunset/sunset.svg" alt="sunset" class="twilight__icon">
-                  <span class="twilight__time">17:05</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Конец секции Data -->
-          <!-- Начало  секции Quot -->
-          <div class="quote">
-            <blockquote class="quote__block">
-              <p class="quote__text"></p>
-              <cite class="quote__author"></cite>
-            </blockquote>
-          </div>
-          <!-- Конец секции Quot -->
-        </div>
-      </section>
-      <section id="second-page" class="visually-hidden">
-        <div class="AllFiveDays">
-          <!-- Начало  секции FiveDaysSmall -->
-          <h3 class="FiveDaysSmall__city-tablet">Kyiv, UA</h3>
-          <div class="FiveDaysSmall">
-            <h3 class="FiveDaysSmall__city-mobile">Kyiv, UA</h3>
-            <ul class="FiveDaysWeaterList">
-              <li class="FiveDaysWeaterList__item">
-                <div class="FiveDaysWeaterList__item--day">Day1</div>
-                <div class="FiveDaysWeaterList__item--date">date 1</div>
-                <div>
-                  <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
-                    alt="weather-ico" />
-                </div>
-                <div class="FiveDaysWeaterList__item--min-max-label">
-                  <span>min</span><span>max</span>
-                </div>
-                <div class="FiveDaysWeaterList__item--min-max">
-                  <span>-1</span><span>+1</span>
-                </div>
-                <button class="FiveDaysWeaterList__item--moreBtn">
-                  more info
-                </button>
-              </li>
-              <li class="FiveDaysWeaterList__item">
-                <div class="FiveDaysWeaterList__item--day">Day2</div>
-                <div class="FiveDaysWeaterList__item--date">date 2</div>
-                <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
-                  alt="weather-ico" />
-                <div class="FiveDaysWeaterList__item--min-max-label">
-                  <span>min</span><span>max</span>
-                </div>
-                <div class="FiveDaysWeaterList__item--min-max">
-                  <span>-1</span><span>+1</span>
-                </div>
-                <button class="FiveDaysWeaterList__item--moreBtn">
-                  more info
-                </button>
-              </li>
-              <li class="FiveDaysWeaterList__item">
-                <div class="FiveDaysWeaterList__item--day">Day3</div>
-                <div class="FiveDaysWeaterList__item--date">date 3</div>
-                <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
-                  alt="weather-ico" />
-                <div class="FiveDaysWeaterList__item--min-max-label">
-                  <span>min</span><span>max</span>
-                </div>
-                <div class="FiveDaysWeaterList__item--min-max">
-                  <span>-1</span><span>+1</span>
-                </div>
-                <button class="FiveDaysWeaterList__item--moreBtn">
-                  more info
-                </button>
-              </li>
-              <li class="FiveDaysWeaterList__item" >
-                <!-- style="display: none;" -->
-                <div class="FiveDaysWeaterList__item--day">Day4</div>
-                <div class="FiveDaysWeaterList__item--date">date 4</div>
-                <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
-                  alt="weather-ico" />
-                <div class="FiveDaysWeaterList__item--min-max-label">
-                  <span>min</span><span>max</span>
-                </div>
-                <div class="FiveDaysWeaterList__item--min-max">
-                  <span>-1</span><span>+1</span>
-                </div>
-                <button class="FiveDaysWeaterList__item--moreBtn">
-                  more info
-                </button>
-              </li>
-              <li class="FiveDaysWeaterList__item" >
-                <!-- style="display: none;" -->
-                <div class="FiveDaysWeaterList__item--day">Day5</div>
-                <div class="FiveDaysWeaterList__item--date">date 5</div>
-                <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
-                  alt="weather-ico" />
-                <div class="FiveDaysWeaterList__item--min-max-label">
-                  <span>min</span><span>max</span>
-                </div>
-                <div class="FiveDaysWeaterList__item--min-max">
-                  <span>-1</span><span>+1</span>
-                </div>
-                <button class="FiveDaysWeaterList__item--moreBtn">
-                  more info
-                </button>
-              </li>
-            </ul>
-            <button class="FiveDaysSmall__navBtn">
-              <span class="FiveDaysSmall__navBtn--left">
-                <pre></pre></span>
-            </button>
-            <button class="FiveDaysSmall__navBtn">
-              <span class="FiveDaysSmall__navBtn--right">
-                <pre></pre></span>
-            </button>
-          </div>
-          <!-- Конец  секции FiveDaysSmall -->
-          <!-- Начало  секции FiveDaysBig -->
-          <div class="MoreInfo none-MoreInfo">
-            <div class="gallery">
-            <ul class="more-info-list">
-              <li class="more-info-item more-info-item__time-00-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-              <li class="more-info-item more-info-item__time-04-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-              <li class="more-info-item more-info-item__time-08-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-              <li class="more-info-item more-info-item__time-12-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-             <li class="more-info-item more-info-item__time-15-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-              <li class="more-info-item more-info-item__time-19-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-              <li class="more-info-item more-info-item__time-22-00">
-                <p class="more-info-item__set-time">00:00</p>
-                <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
-                <div class="more-info-item__weather-details">
-                  <p class="more-info-item__pressure-value">772 <span>mm</span></p>
-                  <p class="more-info-item__humidity-value">54<span>%</span></p>
-                  <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
-                </div>
-              </li>
-            </ul>
-          </div>
-            <div class="hourly-weather-btns">
-              <button class="hourly-weather-prev-btn"></button>
-              <button class="hourly-weather-next-btn"></button>
-            </div>
-          </div>
-          <!-- Конец  секции FiveDaysBig -->
-          <!-- Начало  секции Schedule -->
-          <div class="schedule none-schedule">
-            <div class="schedule__div">
-              <button class="show-charts">Show Chart</button>
-              <img class="ellipse-img" src="../src/assets/icons/ellipse/ellipse.png" alt="ellipse" width="28"
-                height="28" />
-            </div>
-            <div class="schedule__legend schedule__legend-none">
-              <h2 class="schedule__legend-title">AVERAGE:</h2>
-              <ul class="schedule__legend-list">
-                <li class="schedule__legend-item temperature">
-                  Temperature,
-                  <span class="schedule__legend-span temp">C°</span>
-                </li>
-                <li class="schedule__legend-item humidity">
-                  Humidity, <span class="schedule__legend-span hum">%</span>
-                </li>
-                <li class="schedule__legend-item windspeed">
-                  Wind Speed,
-                  <span class="schedule__legend-span ws">m/s</span>
-                </li>
-                <li class="schedule__legend-item atmosphere">
-                  Atmosphere Pressure,
-                  <span class="schedule__legend-span ap">m/m</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Конец  секции Schedule -->
-        </div>
-      </section>
+      </div>
     </div>
   </div>
-  </div>
-</div>
 </body>
+
 </html>
