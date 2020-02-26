@@ -44,6 +44,7 @@
       }
     .quote__block {
         width: 372px;
+        margin-right: 59px;
     }
   
     .quote__text {
@@ -65,10 +66,15 @@
     .container {
       width: 1060px;
     }
+    
     /* .quote{
       padding-bottom: 135px;
     } */
     .quote{
       padding-bottom: 25px;
+    }
+
+    .quote__block {
+      margin-right: 0;
     }
   }
