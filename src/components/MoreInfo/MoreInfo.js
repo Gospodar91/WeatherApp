@@ -1,8 +1,6 @@
 import './MoreInfo.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 import res from '../../services.js';
-
-
 const refs = {
     moreInfoFirstDay: document.querySelector('.js-FiveDaysWeaterList__firstDay'),
     moreInfoSecondDay: document.querySelector('.js-FiveDaysWeaterList__secondDay'),
@@ -18,11 +16,11 @@ const refs = {
 }
 
 export default function showTemperature (res) {
-    refs.setTemperature.textContent = `${res.city}`;
+    refs.setTemperature.textContent = `${res.list[0].main.temp}`;
     refs.setPressure.textContent = `${res.list[0].main['pressure']}mm`;
     refs.setHumidity.textContent = `${res.list[0].main['humidity']}%`;
     refs.setWind.textContent = `${res.list[0].wind['speed']}m/s`;
-    console.log(res.list[0].wind['speed'])
+    console.log('ooooooo',res.list[0].wind['speed'])
   };
 
 refs.moreInfoFirstDay.addEventListener('click', handlerWeatherForFirstDay);
