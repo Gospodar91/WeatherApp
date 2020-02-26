@@ -14,9 +14,9 @@ fiveDaysWeatherBtn.addEventListener('click', onFiveDaysWeatherBtnClick);
 todayWeatherBtn.addEventListener('click', onTodayWeatherBtnClick);
 
 function onFiveDaysWeatherBtnClick(e) {
-  if (!todayWeatherData.fiveDay) {
+  // if (!todayWeatherData.fiveDay) {
     todayWeatherData.getFiveDayWeather(todayWeatherData.city);
-  }
+  // }
   weatherInfoToday.classList.add('visually-hidden');
   dataToday.classList.add('visually-hidden');
   quoteToday.classList.add('visually-hidden');
@@ -31,9 +31,9 @@ function onFiveDaysWeatherBtnClick(e) {
 }
 
 function onTodayWeatherBtnClick(e) {
-  if (!todayWeatherData.today) {
+  // if (!todayWeatherData.today) {
     todayWeatherData.getTodayWeather(todayWeatherData.city);
-  }
+  // }
   weatherInfoToday.classList.remove('visually-hidden');
   dataToday.classList.remove('visually-hidden');
   quoteToday.classList.remove('visually-hidden');
@@ -69,4 +69,5 @@ export default function renderDataInDom(data) {
   todayWeatherCurrentTemperature.textContent = `${Math.round(data.main.temp)}`;
   todayWeatherMinTemperature.textContent = `${Math.round(data.main.temp_min)}`;
   todayWeatherMaxTemperature.textContent = `${Math.round(data.main.temp_max)}`;
+console.log(data);
 }
