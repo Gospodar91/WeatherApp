@@ -8,17 +8,13 @@ const sunriseTime = document.querySelector('.sunrise__time');
 const sunsetTime = document.querySelector('.twilight__time');
 
 function buildDataWindowLayout(data) {
-  // const date = new Date(data.dt);
-  // const hoursTest = date.getHours();
-  // console.log(hoursTest);
-  // document.querySelector('.time').innerHTML = hoursTest;
-  const smth = new Date ()
-  const localTime = smth.getTime()
-  const localOffset = smth.getTimezoneOffset()*60000
+  const date = new Date ()
+  const localTime = date.getTime()
+  const localOffset = date.getTimezoneOffset()*60000
   const utc = localTime + localOffset
-  const shit = utc + (1000*data.timezone) 
-  const newShit = new Date(shit)
-  console.log(newShit)
+  const timeDifference = utc + (1000*data.timezone) 
+  const actualTime = new Date(timeDifference)
+  console.log(actualTime)
 }
 
 export default buildDataWindowLayout;
