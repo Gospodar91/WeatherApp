@@ -4,6 +4,7 @@ import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 
 
+
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
@@ -52,7 +53,16 @@ export default {
 
   getTodayWeather(city) {
     fetch(baseUrlForTodayWeather + city)
-      .then(res => res.json())
+    .then(res => {
+      //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+      if( res.status === 404){
+          PNotify.error({
+              title: 'NOTICE!',
+              text: 'Please write correct city!',
+          });
+      } 
+      return res.json();
+  })
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
@@ -67,11 +77,11 @@ export default {
   getFiveDayWeather(city) {
         fetch(baseUrlForFiveDayWeather + city)
         .then(res => {
-             console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
-            if(res.today.cod === 404){
+            //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+            if(res.status === 404){
                 PNotify.error({
                     title: 'NOTICE!',
-                    text: 'Please write correct country!',
+                    text: 'Please write correct city!',
                 });
             } 
             return res.json();
