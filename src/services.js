@@ -15,7 +15,7 @@ export default {
   city: 'Lviv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
@@ -53,6 +53,7 @@ export default {
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
+        buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
       })
       .catch(err => {
