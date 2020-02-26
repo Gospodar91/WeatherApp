@@ -1,3 +1,4 @@
+
 .quote__block {
     text-align: right;
     width: 204px;
@@ -5,10 +6,13 @@
     margin-right: 0;
     color: white;
     background-color: rgba(16, 33, 54, 0.8);
+   
     border-radius: 20px;
     padding: 10px;   
     height: 148px;
+   
 }
+
 
 .quote__text {
     font-size: 14px;
@@ -60,5 +64,11 @@
   @media (min-width: 1280px) {
     .container {
       width: 1060px;
+    }
+    /* .quote{
+      padding-bottom: 135px;
+    } */
+    .quote{
+      padding-bottom: 25px;
     }
   }

@@ -11,8 +11,8 @@ import './components/FavoriteList/FavoriteList';
 import './components/WeatherInfo/WeatherInfo';
 import './components/Quote/Quote';
 import './components/DataWindow/DataWindow';
-import './components/FiveDaysSmall/FiveDaysSmall';
-import './components/MoreInfo/MoreInfo';
+// import './components/FiveDaysSmall/FiveDaysSmall';
+// import './components/MoreInfo/MoreInfo';
 import './components/Schedule/Schedule';
 import './components/Geolocation/Geolocation';
 import './components/AnimationWeather/AnimationWeather';
@@ -26,8 +26,7 @@ import './components/BackgroundImg/BackgroundImg.css';
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 
 function searchWeatherData() {
-  services
-    .getCurrentCityForCurrentLocationCoord()
+  services.getCurrentCityForCurrentLocationCoord()
     .then(city => {
       if (services.blockSection === 'today') {
         services.getTodayWeather(city);
