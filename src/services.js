@@ -19,7 +19,7 @@ export default {
   city: 'Kyiv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
