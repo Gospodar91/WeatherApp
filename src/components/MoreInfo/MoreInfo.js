@@ -1,30 +1,40 @@
 import './MoreInfo.css';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-// /* конфигурация */
+import res from '../../services.js';
 
-// let width = 150; // ширина картинки
-// let count = 1; // видимое количество изображений
-// const refMoreInfo = document.querySelector('.MoreInfo');
 
-// let list = refMoreInfo.querySelector('.more-info-list');
-// let listElems = refMoreInfo.querySelectorAll('.more-info-item');
+const refs = {
+    moreInfoFirstDay: document.querySelector('.js-FiveDaysWeaterList__firstDay'),
+    moreInfoSecondDay: document.querySelector('.js-FiveDaysWeaterList__secondDay'),
+    containerWeatherForFirstDay: document.querySelector('.js-MoreInfoFirstDay'),
+    containerWeatherForSecondDay: document.querySelector('.js-MoreInfoSecondDay'),
+    containerWeatherForThirdDay: document.querySelector('.js-MoreInfoSecondDay'),
+    containerWeatherForForthDay: document.querySelector('.js-MoreInfoSecondDay'),
+    containerWeatherForFifthDay: document.querySelector('.js-MoreInfoSecondDay'),
+    setTemperature: document.querySelector('.more-info-item__set-temperature'),
+    setPressure: document.querySelector('.more-info-item__pressure-value'),
+    setHumidity: document.querySelector('.more-info-item__humidity-value'),
+    setWind: document.querySelector('.more-info-item__wind-value'),
+}
 
-// let position = 0; // положение ленты прокрутки
+export default function showTemperature (res) {
+    refs.setTemperature.textContent = `${res.city}`;
+    refs.setPressure.textContent = `${res.list[0].main['pressure']}mm`;
+    refs.setHumidity.textContent = `${res.list[0].main['humidity']}%`;
+    refs.setWind.textContent = `${res.list[0].wind['speed']}m/s`;
+    console.log(res.list[0].wind['speed'])
+  };
 
-// refMoreInfo.querySelector('.hourly-weather-prev-btn').onclick = function() {
-//   // сдвиг влево
-//   position += width * count;
-//   // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-//   position = Math.min(position, 0)
-//   list.style.marginLeft = position + 'px';
-// };
+refs.moreInfoFirstDay.addEventListener('click', handlerWeatherForFirstDay);
+refs.moreInfoSecondDay.addEventListener('click', handlerWeatherForSecondDay);
 
-// refMoreInfo.querySelector('.hourly-weather-next-btn').onclick = function() {
-//   // сдвиг вправо
-//   position -= width * count;
-//   // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-//   position = Math.max(position, -width * (listElems.length - count));
-//   list.style.marginLeft = position + 'px';
-// };
 
-// document.addEventListener("swap", function(event){alert('Swaped ' + event.detail.direction + ' at ' + event.target.id);}, false);
+function handlerWeatherForFirstDay(event) {
+    refs.containerWeatherForFirstDay.style.display = 'block';
+    refs.containerWeatherForSecondDay.style.display = 'none';
+}
+
+function handlerWeatherForSecondDay(event) {
+    refs.containerWeatherForFirstDay.style.display = 'none';
+    refs.containerWeatherForSecondDay.style.display = 'block';
+}
