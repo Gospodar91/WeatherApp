@@ -47,13 +47,13 @@ function onTodayWeatherBtnClick(e) {
   fiveDaysWeatherBtn.addEventListener('click', onFiveDaysWeatherBtnClick);
 }
 
-function getDataFromServices(incomingData) {
-  if (incomingData.blockSection === 'today') {
-    renderDataInDom(incomingData);
-  } else {
-    console.log(incomingData);
-  }
-}
+// function getDataFromServices(incomingData) {
+//   if (incomingData.blockSection === 'today') {
+//     renderDataInDom(incomingData);
+//   } else {
+//     console.log(incomingData);
+//   }
+// }
 
 const todayWeatherImg = document.querySelector('#weather-today-sky');
 const todayWeatherCity = document.querySelector('.current-city-name');
