@@ -2,6 +2,7 @@ import './FavoriteList.css';
 
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 import favoritesList from './favoritesLi.hbs';
+import favoritesLocal from './favoritesLocal.hbs';
 import PNotify from '../../../node_modules/pnotify/dist/es/PNotify.js';
 import PNotifyButtons from '../../../node_modules/pnotify/dist/es/PNotifyButtons.js';
 import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
@@ -14,16 +15,17 @@ const listBtn = document.querySelector('.favorite-next');
 favorites.addEventListener('click', onClickFavorites);
 let city;
 
-// function getDataFromLS() {
-//   const lsData = localStorage.getItem('town');
-//   if(lsData) {
-//     const parsedSettings = JSON.parse(lsData);
-//     city = parsedSettings;
-//     const markup = favoritesList({ city });
-//     favoritesUl.insertAdjacentHTML('beforeend', markup);
-//   }
-//   return [];
-// }
+function getDataFromLS() {
+  const lsData = localStorage.getItem('town');
+  if(lsData) {
+    const parsedSettings = JSON.parse(lsData);
+    city = parsedSettings;
+    const markup = favoritesLocal({ parsedSettings });
+    favoritesUl.insertAdjacentHTML('beforeend', markup);
+  }
+}
+getDataFromLS()
+
 function setDataInLS(city) {
   const lsData = localStorage.getItem('town');
   if (lsData) {
@@ -40,7 +42,6 @@ function onClickFavorites(e) {
     const markup = favoritesList({ city });
     favoritesUl.insertAdjacentHTML('beforeend', markup);
     setDataInLS(city);
-    // getDataFromLS()
   } else {
     PNotify.defaults.delay = 1200;
     PNotify.error({
@@ -49,15 +50,6 @@ function onClickFavorites(e) {
     });
   }
 }
-
-function savedStoreg() {
-  if (localStorage.getItem('town')) {
-    city = localStorage.getItem('town');
-    const markup = favoritesList({ city });
-    favoritesUl.insertAdjacentHTML('beforeend', markup);
-  }
-}
-savedStoreg();
 
 if (favoritesUl.children.length >= 1) {
   const favoritesBtn = document.querySelector('.favorites-list__item-close');
