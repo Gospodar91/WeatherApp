@@ -26,8 +26,7 @@ import './components/BackgroundImg/BackgroundImg.css';
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 
 function searchWeatherData() {
-  services
-    .getCurrentCityForCurrentLocationCoord()
+  services.getCurrentCityForCurrentLocationCoord()
     .then(city => {
       if (services.blockSection === 'today') {
         services.getTodayWeather(city);

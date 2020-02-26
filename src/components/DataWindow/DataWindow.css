@@ -135,6 +135,9 @@
   }
 
   .data {
+    /* new  data height */
+height: 218px;
+        /* new  data height */
     width: 600px;
     border-radius: 0px;
     border-top-right-radius: 35px;

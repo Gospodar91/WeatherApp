@@ -9,14 +9,16 @@
 </head>
 
 <body>
+  <div class="animationweather weather rain">
   <div class="background-image">
+    <div class="animationweather-special thunder opacity">
     <div class="container">
       <section id="first-page">
         <!-- Секция Search -->
         <div class="global-input">
           <div class="input-form">
             <form class="search__form" id="search-form">
-              <button class="search__form-geolocation" title="use geolocation"></button>
+              <button class="search__form-geolocation"></button>
               <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
               <button class="search__form-favourite"></button>
             </form>
@@ -82,11 +84,12 @@
           <!-- Конец секции Quot -->
         </div>
       </section>
-      <section id="second-page">
+      <section id="second-page" class="visually-hidden">
         <div class="AllFiveDays">
           <!-- Начало  секции FiveDaysSmall -->
+          <h3 class="FiveDaysSmall__city-tablet">Kyiv, UA</h3>
           <div class="FiveDaysSmall">
-            <h3 class="FiveDaysSmall__city">Kyiv, UA</h3>
+            <h3 class="FiveDaysSmall__city-mobile">Kyiv, UA</h3>
             <ul class="FiveDaysWeaterList">
               <li class="FiveDaysWeaterList__item">
                 <div class="FiveDaysWeaterList__item--day">Day1</div>
@@ -135,7 +138,8 @@
                   more info
                 </button>
               </li>
-              <li class="FiveDaysWeaterList__item" style="display: none;">
+              <li class="FiveDaysWeaterList__item" >
+                <!-- style="display: none;" -->
                 <div class="FiveDaysWeaterList__item--day">Day4</div>
                 <div class="FiveDaysWeaterList__item--date">date 4</div>
                 <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
@@ -150,7 +154,8 @@
                   more info
                 </button>
               </li>
-              <li class="FiveDaysWeaterList__item" style="display: none;">
+              <li class="FiveDaysWeaterList__item" >
+                <!-- style="display: none;" -->
                 <div class="FiveDaysWeaterList__item--day">Day5</div>
                 <div class="FiveDaysWeaterList__item--date">date 5</div>
                 <img class="FiveDaysWeaterList__item--icon" src="./assets/icons/star/star_border-24px.svg"
@@ -177,12 +182,13 @@
           </div>
           <!-- Конец  секции FiveDaysSmall -->
           <!-- Начало  секции FiveDaysBig -->
-          <div class="MoreInfo container none-MoreInfo">
+          <div class="MoreInfo none-MoreInfo">
+            <div class="gallery">
             <ul class="more-info-list">
               <li class="more-info-item more-info-item__time-00-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">1 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
@@ -192,17 +198,17 @@
               <li class="more-info-item more-info-item__time-04-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">2 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
                   <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
                 </div>
               </li>
-              <!-- <li class="more-info-item more-info-item__time-08-00">
+              <li class="more-info-item more-info-item__time-08-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">3 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
@@ -212,17 +218,17 @@
               <li class="more-info-item more-info-item__time-12-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">4 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
                   <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
                 </div>
               </li>
-              <li class="more-info-item more-info-item__time-15-00">
+             <li class="more-info-item more-info-item__time-15-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">5 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
@@ -232,7 +238,7 @@
               <li class="more-info-item more-info-item__time-19-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">6 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
@@ -242,14 +248,19 @@
               <li class="more-info-item more-info-item__time-22-00">
                 <p class="more-info-item__set-time">00:00</p>
                 <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/04n.png" alt="">
-                <p class="more-info-item__set-temperature">-2 <span>&#176</span></p>
+                <p class="more-info-item__set-temperature">7 <span>&#176</span></p>
                 <div class="more-info-item__weather-details">
                   <p class="more-info-item__pressure-value">772 <span>mm</span></p>
                   <p class="more-info-item__humidity-value">54<span>%</span></p>
                   <p class="more-info-item__wind-value">3,7 <span>m/s</span></p>
                 </div>
-              </li> -->
+              </li>
             </ul>
+          </div>
+            <div class="hourly-weather-btns">
+              <button class="hourly-weather-prev-btn"><</button>
+              <button class="hourly-weather-next-btn">></button>
+            </div>
           </div>
           <!-- Конец  секции FiveDaysBig -->
           <!-- Начало  секции Schedule -->
@@ -285,5 +296,14 @@
       </section>
     </div>
   </div>
+  <div class="loader is-hidden" id="spinner">
+      <div class="ball one"><div class="inner"></div></div>
+      <div class="ball two"><div class="inner"></div></div>
+      <div class="ball three"><div class="inner"></div></div>
+      <div class="ball four"><div class="inner"></div></div>
+      <div class="ball five"><div class="inner"></div></div>
+      <div class="ball six"><div class="inner"></div></div>
+      <div class="ball center"><div class="inner"></div></div>
+    </div>
 </body>
 </html>
