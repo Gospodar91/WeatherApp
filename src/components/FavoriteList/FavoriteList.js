@@ -10,7 +10,51 @@ import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
 const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
 const favoritesUl = document.querySelector('.favorites-list');
-const listBtn = document.querySelector('.favorite-next');
+const nextButton = document.querySelector('.favorite-next');
+const prevButton = document.querySelector('.favourite-prev');
+const mainDiv = document.querySelector('.js-width-conteiner');
+
+
+  // let quantityLi = favoritesUl.children.length;
+
+  // if(quantityLi <= 2 && mainDiv.offsetWidth <= 280){
+  //   nextButton.hidden = true,
+  //   prevButton.hidden = true
+    
+  // }else if(quantityLi <= 3 && mainDiv.offsetWidth <= 492){
+  //   nextButton.hidden = true,
+  //   prevButton.hidden = true
+ 
+  // }else if(quantityLi <= 4 && mainDiv.offsetWidth <= 520){
+  //   nextButton.hidden = true,
+  //   prevButton.hidden = true
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 favorites.addEventListener('click', onClickFavorites);
 let city;
