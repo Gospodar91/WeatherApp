@@ -14,6 +14,7 @@ fiveDaysWeatherBtn.addEventListener('click', onFiveDaysWeatherBtnClick);
 todayWeatherBtn.addEventListener('click', onTodayWeatherBtnClick);
 
 function onFiveDaysWeatherBtnClick(e) {
+  todayWeatherData.getImgBackground(todayWeatherData.city);
   if (!todayWeatherData.fiveDay) {
     todayWeatherData.getFiveDayWeather(todayWeatherData.city);
   }
