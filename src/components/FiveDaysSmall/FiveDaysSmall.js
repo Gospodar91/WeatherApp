@@ -16,11 +16,12 @@ function parseData(obj) {
     const PERIODS_IN_ONE_DAY = dataArray.length / SCREEN_VISIBLE_DAYS;// 8 
     const fiveDaysArr = dataArray.filter(day => dataArray.indexOf(day) % PERIODS_IN_ONE_DAY === 0);
 
-    const daysArr = fiveDaysArr.map(day => moment(day.dt * 1000).format('dddd'))
-    const datesArr = fiveDaysArr.map(day => moment(day.dt * 1000).format("Do MMM"));
+    const daysArr = fiveDaysArr.map(day => moment(day.dt * 1000).format('dddd'));
+    const datesArr = fiveDaysArr.map(day => moment(day.dt * 1000).format("DD MMM"));
     const iconsArr = fiveDaysArr.map(day => day.weather[0].icon);
     const minArr = fiveDaysArr.map(day => parseInt(day.main.temp_min));
     const maxArr = fiveDaysArr.map(day => parseInt(day.main.temp_max));
+    const daysForGalaArr = fiveDaysArr.map(day => moment(day.dt * 1000).format('D'));
     
     const fiveDaysData = [{}, {}, {}, {}, {}];
 
@@ -29,6 +30,7 @@ function parseData(obj) {
     iconsArr.forEach((el, i) => { fiveDaysData[i].icon = el });
     minArr.forEach((el, i) => { fiveDaysData[i].min = el });
     maxArr.forEach((el, i) => { fiveDaysData[i].max = el });
+    daysForGalaArr.forEach((el, i) => { fiveDaysData[i].dayForGala = el });
 
     const markUp = fiveDaysTemplate(fiveDaysData);
     fiveDaysList.innerHTML = '';
