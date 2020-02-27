@@ -5,17 +5,10 @@ import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 
 
 
-<<<<<<< HEAD
-choiseForm.addEventListener('submit', submitForm);
-function submitForm (event){
-    event.preventDefault();
-}
-=======
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
   'https://api.openweathermap.org/data/2.5/forecast?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
->>>>>>> 427cf53e8a2940bb37dca7bb38ce825ed4f8167f
 
 const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
   const APIKEY = '67daddc6-334a-4325-8705-7fd9afb2f209';
