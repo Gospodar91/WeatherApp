@@ -70,11 +70,18 @@ export default {
         renderDataInDom(res);
         buildDataWindowLayout(res);
 <<<<<<< HEAD
+<<<<<<< HEAD
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
 =======
         // console.log('getTodayWeather ', this);
 >>>>>>> dev
+=======
+
+        console.log('getTodayWeather ', this);
+        GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
+
+>>>>>>> 110cba0d0ca19b6fea0d87638627c2102008ba2f
       })
   
       .catch(err => {
