@@ -32,6 +32,7 @@ function onFiveDaysWeatherBtnClick(e) {
 }
 
 function onTodayWeatherBtnClick(e) {
+  // todayWeatherData.getImgBackground(todayWeatherData.city);
   if (!todayWeatherData.today) {
     todayWeatherData.getTodayWeather(todayWeatherData.city);
   }

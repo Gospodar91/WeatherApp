@@ -52,6 +52,8 @@ export default {
   },
 
   getTodayWeather(city) {
+    this.today = null;
+    this.fiveDay = null;
     fetch(baseUrlForTodayWeather + city)
       .then(res => {
         //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
@@ -76,27 +78,29 @@ export default {
   },
 
   getFiveDayWeather(city) {
-        fetch(baseUrlForFiveDayWeather + city)
-        .then(res => {
-            //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
-            if(res.status === 404){
-                PNotify.error({
-                    title: 'NOTICE!',
-                    text: 'Please write correct city!',
-                });
-            } 
-            return res.json();
-        })
-        .then(res => {
-          this.fiveDay = res;
-          this.blockSection = 'fiveDay';
-          GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
-          // showTemperature(res);
-          console.log('getFiveDayWeather', this);    
-        }) .catch(error => {
-            console.error('error', error)
-        });
-      
+    this.fiveDay = null;
+    this.today = null;
+    fetch(baseUrlForFiveDayWeather + city)
+      .then(res => {
+        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+        if (res.status === 404) {
+          PNotify.error({
+            title: 'NOTICE!',
+            text: 'Please write correct city!',
+          });
+        }
+        return res.json();
+      })
+      .then(res => {
+        this.fiveDay = res;
+        this.blockSection = 'fiveDay';
+        GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
+        // showTemperature(res);
+        console.log('getFiveDayWeather', this);
+      })
+      .catch(error => {
+        console.error('error', error);
+      });
   },
 
   getImgBackground(cityName) {
@@ -117,4 +121,3 @@ export default {
       });
   },
 };
-
