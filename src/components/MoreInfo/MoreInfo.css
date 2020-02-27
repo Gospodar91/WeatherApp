@@ -1,20 +1,15 @@
 .MoreInfo {
   box-sizing: content-box;
-  border-radius: 35px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
   background-color: rgb(16, 33, 54);
   opacity: 0.8;
   padding-left: 10px;
   padding-right: 10px;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
-}
-
-.js-MoreInfoFirstDay,
-.js-MoreInfoSecondDay,
-.js-MoreInfoThirdDay,
-.js-MoreInfoForthDay,
-.js-MoreInfoFifthDay{
   display: none;
 }
+
 
 .more-info-list {
   margin-top: 20px;

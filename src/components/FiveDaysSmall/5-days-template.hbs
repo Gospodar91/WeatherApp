@@ -1,19 +1,19 @@
 {{#each this}}
 <li class="FiveDaysWeaterList__item" data-day="{{this.dayForGala}}">
-    <div class="FiveDaysWeaterList__item--day">{{this.day}}</div>
-    <div class="FiveDaysWeaterList__item--date">{{this.date}}</div>
-    <div>
+    <div class="FiveDaysWeaterList__item--day" data-day="{{this.dayForGala}}">{{this.day}}</div>
+    <div class="FiveDaysWeaterList__item--date" data-day="{{this.dayForGala}}">{{this.date}}</div>
+    <div data-day="{{this.dayForGala}}">
         <img class="FiveDaysWeaterList__item--icon" src="https://openweathermap.org/img/w/{{this.icon}}.png"
-            alt="weather-ico" />
+            alt="weather-ico" data-day="{{this.dayForGala}}"/>
     </div>
-    <div class="FiveDaysWeaterList__item--min-max-label">
-        <span>min</span><span>max</span>
+    <div class="FiveDaysWeaterList__item--min-max-label" data-day="{{this.dayForGala}}">
+        <span data-day="{{this.dayForGala}}">min</span><span data-day="{{this.dayForGala}}">max</span>
     </div>
-    <div class="FiveDaysWeaterList__item--min-max">
-        <span>{{this.min}} &deg;</span>
-        <span>{{this.max}} &deg;</span>
+    <div class="FiveDaysWeaterList__item--min-max" data-day="{{this.dayForGala}}">
+        <span data-day="{{this.dayForGala}}">{{this.min}} &deg;</span>
+        <span data-day="{{this.dayForGala}}">{{this.max}} &deg;</span>
     </div>
-    <button class="FiveDaysWeaterList__item--moreBtn">
+    <button class="FiveDaysWeaterList__item--moreBtn" data-day="{{this.dayForGala}}">
         more info
     </button>
 </li>

@@ -89,9 +89,8 @@ export default {
         .then(res => {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
-          showTemperature(res);
           console.log('getFiveDayWeather', this); 
-          FiveDaysSmall(res);   
+          FiveDaysSmall(res); 
         }) .catch(error => {
             console.error('error', error)
         });

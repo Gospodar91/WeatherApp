@@ -1,5 +1,6 @@
 .FiveDaysSmall {
-  border-radius: 35px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
   background-color: rgb(16, 33, 54);
   opacity: 0.8;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);

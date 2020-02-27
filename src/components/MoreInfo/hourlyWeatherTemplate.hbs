@@ -1,0 +1,12 @@
+{{#each this}}
+<li class="more-info-item more-info-item__time-00-00">
+  {{!-- <p class="more-info-item__set-time"></p> --}}
+  <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/{{this.weather[0].icon}}.png" alt="">
+  {{!-- <p class="more-info-item__set-temperature"></p><span class="degrees">&#176</span> --}}
+  <div class="more-info-item__weather-details">
+    {{!-- <p class="more-info-item__pressure-value">772mm</p> --}}
+    {{!-- <p class="more-info-item__humidity-value">54%</p> --}}
+    <p class="more-info-item__wind-value"></p>
+  </div>
+</li>
+{{/each}}
