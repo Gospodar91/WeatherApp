@@ -1,9 +1,5 @@
 .MoreInfo {
   box-sizing: content-box;
-  border-bottom-left-radius: 35px;
-  border-bottom-right-radius: 35px;
-  background-color: rgb(16, 33, 54);
-  opacity: 0.8;
   padding-left: 10px;
   padding-right: 10px;
   display: none;

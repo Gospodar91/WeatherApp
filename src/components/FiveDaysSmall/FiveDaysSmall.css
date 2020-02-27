@@ -1,11 +1,14 @@
 .FiveDaysSmall {
-  border-top-left-radius: 35px;
-  border-top-right-radius: 35px;
-  background-color: rgb(16, 33, 54);
-  opacity: 0.8;
   height: 272px;
   text-align: center;
   padding: 30px 0px 15px;
+}
+
+.FiveDaysSmallAndMoreInfo{
+  border-radius: 35px;
+  background-color: rgb(16, 33, 54);
+  opacity: 0.8;
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
 }
 
 .FiveDaysWeaterList {
@@ -19,6 +22,11 @@
   display: flex;
   flex-direction: column;
   width: 58px;
+  border-radius: 25px;
+}
+
+.FiveDaysWeaterList__item:hover {
+  background-color:rgb(255, 255, 255, 0.12);
 }
 
 .FiveDaysSmall__city-mobile {

@@ -66,7 +66,7 @@ export default {
         this.today = res;
         this.blockSection = 'today';
         buildDataWindowLayout(res);
-        console.log('getTodayWeather ', this);
+        //console.log('getTodayWeather ', this);
       })
       .catch(err => {
         console.error('hellooo');
@@ -87,7 +87,7 @@ export default {
         .then(res => {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
-          console.log('getFiveDayWeather', this); 
+          //console.log('getFiveDayWeather', this); 
           FiveDaysSmall(res); 
         }) .catch(error => {
             console.error('error', error)
@@ -103,7 +103,7 @@ export default {
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
-        console.log('parsedResponse', parsedResponse);
+        //console.log('parsedResponse', parsedResponse);
         const rand = Math.floor(Math.random() * parsedResponse.hits.length);
         const mainDiv = document.querySelector('.background-image');
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
