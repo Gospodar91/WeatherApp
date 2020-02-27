@@ -3,6 +3,7 @@ import services from '../../services';
 
 import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
+import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 
 const choiseForm = document.querySelector('#search-form');
  const choiseInput = document.querySelector('#search-input');
@@ -12,9 +13,9 @@ choiseForm.addEventListener('submit', submitForm);
 function onInput(event) {
   PNotify.closeAll();
 }
-
+GlobalEmitter.on(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, submitForm);
 function submitForm(event) {
-  // alert('qwdqwdqw');
+  // alert('qwdqwdqw', event);
   event.preventDefault();
   if(choiseInput.value=== ''){
     PNotify.error({

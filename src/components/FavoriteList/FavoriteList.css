@@ -28,6 +28,7 @@
   margin-right: 12px;
   color: #ffffff;
   font-family: 'Lato', sans-serif;
+  cursor: pointer;
 }
 .favorites-list__item-link::after {
   content: '';
@@ -71,6 +72,9 @@
   background-position: center;
   transform: rotate(180deg);
   outline: none;
+}
+.bgNew{
+  background-image: url(../../assets/icons/star-filled/star-24px.svg);
 }
 /* .list-button{
   display: none;

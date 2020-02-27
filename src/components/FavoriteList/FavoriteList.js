@@ -1,7 +1,7 @@
 import './FavoriteList.css';
+import services from '../../services';
 
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-import favoritesList from './favoritesLi.hbs';
 import favoritesLocal from './favoritesLocal.hbs';
 import PNotify from '../../../node_modules/pnotify/dist/es/PNotify.js';
 import PNotifyButtons from '../../../node_modules/pnotify/dist/es/PNotifyButtons.js';
@@ -10,61 +10,36 @@ import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
 const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
 const favoritesUl = document.querySelector('.favorites-list');
+const favoritesForm = document.querySelector('#search-form');
 const nextButton = document.querySelector('.favorite-next');
 const prevButton = document.querySelector('.favourite-prev');
 const mainDiv = document.querySelector('.js-width-conteiner');
 
+// let quantityLi = favoritesUl.children.length;
 
-  // let quantityLi = favoritesUl.children.length;
+// if(quantityLi <= 2 && mainDiv.offsetWidth <= 280){
+//   nextButton.hidden = true,
+//   prevButton.hidden = true
 
-  // if(quantityLi <= 2 && mainDiv.offsetWidth <= 280){
-  //   nextButton.hidden = true,
-  //   prevButton.hidden = true
-    
-  // }else if(quantityLi <= 3 && mainDiv.offsetWidth <= 492){
-  //   nextButton.hidden = true,
-  //   prevButton.hidden = true
- 
-  // }else if(quantityLi <= 4 && mainDiv.offsetWidth <= 520){
-  //   nextButton.hidden = true,
-  //   prevButton.hidden = true
-  // }
+// }else if(quantityLi <= 3 && mainDiv.offsetWidth <= 492){
+//   nextButton.hidden = true,
+//   prevButton.hidden = true
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// }else if(quantityLi <= 4 && mainDiv.offsetWidth <= 520){
+//   nextButton.hidden = true,
+//   prevButton.hidden = true
+// }
 
 favorites.addEventListener('click', onClickFavorites);
-let city;
+let city = input;
 
 function onClickFavorites(e) {
   city = input.value;
   if (city.length >= 1) {
-    const markup = favoritesList({ city });
-    favoritesUl.insertAdjacentHTML('beforeend', markup);
+    favoritesUl.innerHTML = '';
     setDataInLS(city);
+    getDataFromLS();
+    favorites.classList.add('bgNew');
   } else {
     PNotify.defaults.delay = 1200;
     PNotify.error({
@@ -102,17 +77,25 @@ function getDataFromLS() {
 }
 getDataFromLS();
 
-
 if (favoritesUl.children.length) {
-  const favoritesBtn = document.querySelector('.favorites-list__item-close');
-  const li = document.querySelector('.favorites-list__item');
+  favoritesUl.addEventListener('click', onClickLink);
 
-  favoritesBtn.addEventListener('click', btnDelet);
-  function btnDelet(e) {
-    const lsData = JSON.parse(localStorage.getItem('town'));
-    const lsDataFilter = lsData.filter(arr => arr.indexOf([1]));
-
-    li.remove();
-    localStorage.removeItem('town', lsDataFilter);
+  function onClickLink(e) {
+    e.preventDefault();
+    if (e.target === e.currentTarget) {
+      return;
+    } else if (e.target.tagName === 'BUTTON') {
+      // console.log('e.target.dataset.text ', e.target.dataset.text);
+      // console.log('e.target.parentNode ', e.target.parentNode);
+      // console.log('e.target.closest(".favorites-list__item")', e.target.closest('.favorites-list__item'));
+      const lsData = JSON.parse(localStorage.getItem('town'));
+      const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
+      localStorage.setItem('town', JSON.stringify(lsDataFilter));
+      e.target.parentNode.remove();
+    } else {
+      services.city = input.value = e.target.textContent;
+      GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+      favorites.classList.add('bgNew');
+    }
   }
 }
