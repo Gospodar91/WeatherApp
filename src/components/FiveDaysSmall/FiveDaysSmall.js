@@ -1,4 +1,17 @@
 import './FiveDaysSmall.css';
+
+// const $ = require("jquery");
+// import  'slick-carousel/slick/slick.css'
+// import slick from 'slick-carousel/slick/slick.js'
+
+//   $('.FiveDaysWeaterList').slick({
+//     infinite: true,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     prevArrow: '.FiveDaysSmall__navBtn--left',
+//     nextArrow: '.FiveDaysSmall__navBtn--right'
+//   });
+
 import fiveDaysTemplate from './5-days-template.hbs';
 const moment = require('moment');
 const fiveDaysList = document.querySelector('.FiveDaysWeaterList');
@@ -38,17 +51,3 @@ function parseData(obj) {
 }
 
 export default parseData;
-
-
-
-//Math.sign()
-
-// import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-// const $ = require("jquery");
-// import slick from 'slick-carousel/slick/slick.js'
-
-//   $('.FiveDaysWeaterList').slick({
-//     infinite: true,
-//     slidesToShow: 3,
-//     slidesToScroll: 1
-//   });

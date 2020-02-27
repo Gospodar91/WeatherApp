@@ -28,7 +28,7 @@ function handlerWeatherDay(event) {
 //     (acc, city) => acc + hourlyWeatherTemp(city),
 //     "",);
 
-    console.log('hghgjhgj', markupHourlyWeather)
+   // console.log('hghgjhgj', markupHourlyWeather)
 
 //   refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
 }
