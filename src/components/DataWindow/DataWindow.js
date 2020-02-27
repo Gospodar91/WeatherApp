@@ -1,5 +1,4 @@
 import './DataWindow.css';
-// import data from './data.json';
 
 const dayNow = document.querySelector('.data__day');
 const monthNow = document.querySelector('.month');
@@ -21,9 +20,10 @@ const months = [
   'November',
   'December',
 ];
-
+let resetInterval;
 function buildDataWindowLayout(data) {
-  setInterval(() => {
+  clearInterval(resetInterval);
+  resetInterval = setInterval(() => {
     const date = new Date();
     const localTime = date.getTime();
     const localOffset = date.getTimezoneOffset() * 60000;
@@ -48,7 +48,7 @@ function buildDataWindowLayout(data) {
   const sunriseTimeZone = sunriseUtc + 1000 * data.timezone;
   const actualSunriseTime = new Date(sunriseTimeZone);
   sunriseTime.textContent =
-    actualSunriseTime.getHours() + `:` + actualSunriseTime.getMinutes();
+    pad(actualSunriseTime.getHours()) + `:` + pad(actualSunriseTime.getMinutes());
 
   const sunsetTimeMs = data.sys.sunset;
   const currentSunset = new Date(sunsetTimeMs * 1000);
@@ -58,7 +58,7 @@ function buildDataWindowLayout(data) {
   const sunsetTimeZone = sunsetUtc + 1000 * data.timezone;
   const actualSunsetTime = new Date(sunsetTimeZone);
   sunsetTime.textContent =
-    actualSunsetTime.getHours() + `:` + actualSunsetTime.getMinutes();
+  pad(actualSunsetTime.getHours()) + `:` + pad(actualSunsetTime.getMinutes());
 }
 
 function pad(value) {
