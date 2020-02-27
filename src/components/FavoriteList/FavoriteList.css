@@ -1,7 +1,8 @@
 .favorites {
-  padding-top: 13px;
+  padding-bottom: 13px;
   display: flex;
   justify-content: space-between;
+  max-width: 280px;
 }
 .favorites-list {
   margin-left: 24px;
@@ -57,6 +58,18 @@
   background-image: url(../../assets/icons/chevron-left/chevron_right-24px.svg);
   background-repeat: no-repeat;
   background-position: center;
+  outline: none;
+}
+
+.favourite-prev {
+  border-radius: 50%;
+  border: none;
+  width: 27px;
+  height: 27px;
+  background-image: url(../../assets/icons/chevron-left/chevron_right-24px.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg);
   outline: none;
 }
 /* .list-button{

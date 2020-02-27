@@ -8,7 +8,6 @@ const choiseInput=document.querySelector('#search-input');
 choiseForm.addEventListener('submit', submitForm);
 function submitForm (event){
     event.preventDefault();
-    console.log(choiseInput.value);
 }
 
 
