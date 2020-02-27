@@ -3,12 +3,8 @@ import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
-<<<<<<< HEAD
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
 
-=======
-import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
->>>>>>> dev
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -97,16 +93,10 @@ export default {
         .then(res => {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
-<<<<<<< HEAD
           // showTemperature(res);
           console.log('getFiveDayWeather', this);
           GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.list[0].weather[0].main);
     
-=======
-          GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
-          // showTemperature(res);
-          console.log('getFiveDayWeather', this);    
->>>>>>> dev
         }) .catch(error => {
             console.error('error', error)
         });

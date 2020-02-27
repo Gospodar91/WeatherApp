@@ -11,6 +11,8 @@ class AnimationWeather {
     // this.weather =
   }
   animationBuildRain() {
+    document.querySelector('.animationweather-special').classList.remove('thunder');
+
     if(document.querySelector('.sky')){
       document.querySelector('.sky').innerHTML = '';
     }
@@ -28,6 +30,8 @@ class AnimationWeather {
   }
 
   animationBuildClouds() {
+    document.querySelector('.animationweather-special').classList.remove('thunder');
+
     if(document.querySelector('.sky')){
       document.querySelector('.sky').innerHTML = '';
     }
@@ -40,6 +44,8 @@ class AnimationWeather {
     );
   }
   animationBuildSnow() {
+    document.querySelector('.animationweather-special').classList.remove('thunder');
+
     if(document.querySelector('.sky')){
       document.querySelector('.sky').innerHTML = '';
     }
@@ -55,9 +61,23 @@ class AnimationWeather {
 
     // document.querySelector('.animationweather-special').classList.add('opacity');
   }
+  
+  animationBuildClear() {
+    document.querySelector('.animationweather-special').classList.remove('thunder');
+
+    if(document.querySelector('.sky')){
+      document.querySelector('.sky').innerHTML = '';
+    }
+    
+    document.querySelector('.animationweather').classList.remove('weather');
+    document.querySelector('.animationweather').classList.remove('rain');
+    document.querySelector('.animationweather').classList.remove('snow');
+
+  }
+
   startAnimation(weather) {
     if (weather === 'Clear') {
-      return;
+      this.animationBuildClear();
     } else if (weather === 'Rain') {
       this.animationBuildRain();
     }
