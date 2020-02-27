@@ -1,5 +1,7 @@
+import renderDataInDom from '../src/components/WeatherInfo/WeatherInfo';
 import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
+import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 
 const baseUrlForTodayWeather =
@@ -13,7 +15,7 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
 };
 
 export default {
-  city: 'Lviv',
+  city: 'Kyiv',
   today: null,
   fiveDay: null,
   blockSection: 'today',
@@ -50,10 +52,20 @@ export default {
 
   getTodayWeather(city) {
     fetch(baseUrlForTodayWeather + city)
-      .then(res => res.json())
+      .then(res => {
+        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+        if (res.status === 404) {
+          PNotify.error({
+            title: 'NOTICE!',
+            text: 'Please write correct city!',
+          });
+        }
+        return res.json();
+      })
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
+        renderDataInDom(res);
         buildDataWindowLayout(res);
         // console.log('getTodayWeather ', this);
       })
@@ -63,25 +75,26 @@ export default {
   },
 
   getFiveDayWeather(city) {
-        fetch(baseUrlForFiveDayWeather + city)
-        .then(res => {
-            // console.log('getFiveDayWeather ', res);
-            if(res.status === 404){
-                PNotify.error({
-                    title: 'NOTICE!',
-                    text: 'Please write correct country!',
-                });
-            } 
-            return res.json();
-        })
-        .then(res => {
-          this.fiveDay = res;
-          this.blockSection = 'fiveDay';
-          console.log('getFiveDayWeather', this);    
-        }) .catch(error => {
-            console.error('error')
-        });
-      
+    fetch(baseUrlForFiveDayWeather + city)
+      .then(res => {
+        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+        if (res.status === 404) {
+          PNotify.error({
+            title: 'NOTICE!',
+            text: 'Please write correct city!',
+          });
+        }
+        return res.json();
+      })
+      .then(res => {
+        this.fiveDay = res;
+        this.blockSection = 'fiveDay';
+        // showTemperature(res);
+        console.log('getFiveDayWeather', this);
+      })
+      .catch(error => {
+        console.error('error', error);
+      });
   },
 
   getImgBackground(cityName) {
@@ -92,9 +105,13 @@ export default {
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
+        console.log('parsedResponse', parsedResponse);
         const rand = Math.floor(Math.random() * parsedResponse.hits.length);
         const mainDiv = document.querySelector('.background-image');
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+      })
+      .catch(error => {
+        console.error('getImgBackground error', error);
       });
   },
 };
