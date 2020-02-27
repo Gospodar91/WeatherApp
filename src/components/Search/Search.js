@@ -25,8 +25,11 @@ function submitForm(event) {
   /////////виправляв Стахура///////////////////////
   if (choiseInput.value !== services.city) {
     services.city = choiseInput.value;
-    services.getTodayWeather(services.city);
-    services.getFiveDayWeather(services.city);
+    if (services.blockSection === 'today') {
+        services.getTodayWeather(services.city);
+      } else {
+        services.getFiveDayWeather(services.city);
+      }
     services.getImgBackground(services.city);
   }
   // if (services.blockSection === 'today') {
