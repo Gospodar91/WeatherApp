@@ -68,7 +68,7 @@ export default {
         this.blockSection = 'today';
         renderDataInDom(res);
         buildDataWindowLayout(res);
-        console.log('getTodayWeather ', this);
+        // console.log('getTodayWeather ', this);
       })
       .catch(err => {
         console.error('hellooo');
