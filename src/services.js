@@ -55,7 +55,7 @@ export default {
         this.today = res;
         this.blockSection = 'today';
         buildDataWindowLayout(res);
-        console.log('getTodayWeather ', this);
+        // console.log('getTodayWeather ', this);
       })
       .catch(err => {
         console.error('hellooo');
