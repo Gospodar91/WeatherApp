@@ -58,7 +58,7 @@ export default {
         if (res.status === 404) {
           PNotify.error({
             title: 'NOTICE!',
-            text: 'Please write correct city!',
+            text: "Can't show such city!",
           });
         }
         return res.json();
