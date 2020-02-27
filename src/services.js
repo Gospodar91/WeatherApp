@@ -3,6 +3,7 @@ import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
+import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -75,26 +76,27 @@ export default {
   },
 
   getFiveDayWeather(city) {
-    fetch(baseUrlForFiveDayWeather + city)
-      .then(res => {
-        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
-        if (res.status === 404) {
-          PNotify.error({
-            title: 'NOTICE!',
-            text: 'Please write correct city!',
-          });
-        }
-        return res.json();
-      })
-      .then(res => {
-        this.fiveDay = res;
-        this.blockSection = 'fiveDay';
-        // showTemperature(res);
-        console.log('getFiveDayWeather', this);
-      })
-      .catch(error => {
-        console.error('error', error);
-      });
+        fetch(baseUrlForFiveDayWeather + city)
+        .then(res => {
+            //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+            if(res.status === 404){
+                PNotify.error({
+                    title: 'NOTICE!',
+                    text: 'Please write correct city!',
+                });
+            } 
+            return res.json();
+        })
+        .then(res => {
+          this.fiveDay = res;
+          this.blockSection = 'fiveDay';
+          GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
+          // showTemperature(res);
+          console.log('getFiveDayWeather', this);    
+        }) .catch(error => {
+            console.error('error', error)
+        });
+      
   },
 
   getImgBackground(cityName) {
