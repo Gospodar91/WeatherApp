@@ -11,23 +11,42 @@ class AnimationWeather {
     // this.weather =
   }
   animationBuildRain() {
-    this.element.insertAdjacentHTML(
+    if(document.querySelector('.sky')){
+      document.querySelector('.sky').innerHTML = '';
+    }
+    document.querySelector('.animationweather').classList.remove('weather');
+    document.querySelector('.animationweather').classList.remove('snow');
+    document.querySelector('.sky').insertAdjacentHTML(
       'afterBegin',
-      `<div class="sky"><div class="clouds_two"></div><div class="clouds_one"></div><div class="clouds_three"></div>`,
+      `<div class="clouds_two"></div><div class="clouds_one"></div><div class="clouds_three">`,
     );
     document.querySelector('.animationweather').classList.add('weather');
     document.querySelector('.animationweather').classList.add('rain');
-    // document.querySelector('.animationweather-special').classList.add('opacity');
+    if (Math.random() >= 0.5){
+    document.querySelector('.animationweather-special').classList.add('thunder');
+  }
   }
 
   animationBuildClouds() {
-    this.element.insertAdjacentHTML(
+    if(document.querySelector('.sky')){
+      document.querySelector('.sky').innerHTML = '';
+    }
+    document.querySelector('.animationweather').classList.remove('weather');
+    document.querySelector('.animationweather').classList.remove('rain');
+    document.querySelector('.animationweather').classList.add('snow');
+    document.querySelector('.sky').insertAdjacentHTML(
       'afterBegin',
       `<div class="sky"><div class="clouds_two"></div><div class="clouds_one"></div><div class="clouds_three"></div>`,
     );
   }
   animationBuildSnow() {
-    this.element.insertAdjacentHTML(
+    if(document.querySelector('.sky')){
+      document.querySelector('.sky').innerHTML = '';
+    }
+    
+    document.querySelector('.animationweather').classList.remove('weather');
+    document.querySelector('.animationweather').classList.remove('rain');
+    document.querySelector('.sky').insertAdjacentHTML(
       'afterBegin',
       `<div class="sky"><div class="clouds_two"></div><div class="clouds_one"></div><div class="clouds_three"></div>`,
     );
