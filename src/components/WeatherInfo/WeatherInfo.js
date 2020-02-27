@@ -59,7 +59,7 @@ const todayWeatherMaxTemperature = document.querySelector('#today-max');
 export default function renderDataInDom(data) {
   todayWeatherImg.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
   todayWeatherCity.textContent = `${data.name}, ${data.sys.country}`;
-  todayWeatherCurrentTemperature.textContent = `${Math.round(data.main.temp)}`+todayWeatherCurrentTemperature.textContent;
-  todayWeatherMinTemperature.textContent = `${Math.round(data.main.temp_min)}`+' '+todayWeatherMinTemperature.textContent;
-  todayWeatherMaxTemperature.textContent = `${Math.round(data.main.temp_max)}`+' '+todayWeatherMaxTemperature.textContent;
+  todayWeatherCurrentTemperature.textContent = `${Math.round(data.main.temp)}`;
+  todayWeatherMinTemperature.textContent = `${Math.round(data.main.temp_min)}`;
+  todayWeatherMaxTemperature.textContent = `${Math.round(data.main.temp_max)}`;
 }

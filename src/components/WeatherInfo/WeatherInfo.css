@@ -40,6 +40,13 @@ input[type="radio"].visually-hidden {
   margin-bottom: 20px;
 }
 
+.current-temperature{
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-start; */
+  font-size: 60px;
+}
+
 .today-current-temperature {
   font-size: 45px;
   line-height: 0.489;
@@ -63,6 +70,10 @@ input[type="radio"].visually-hidden {
   font-size: 18px;
   line-height: 1;
   flex-grow: 1;
+}
+
+.minimax div{
+  display: flex;
 }
 
 .today-temperature span {
@@ -129,6 +140,7 @@ input[type="radio"].visually-hidden {
   .today-current-temperature {
     margin-bottom: 30px;
     font-size: 90px;
+    line-height: 1;
   }
 
   .minimax-block {
