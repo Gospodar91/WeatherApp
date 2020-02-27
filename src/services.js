@@ -1,3 +1,4 @@
+import renderDataInDom from '../src/components/WeatherInfo/WeatherInfo';
 import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
@@ -19,7 +20,7 @@ export default {
   city: 'Kyiv',
   today: null,
   fiveDay: null,
-  blockSection: 'fiveDay',
+  blockSection: 'today',
 
   getCurrentCityForCurrentLocationCoord() {
     const option = {
@@ -53,19 +54,20 @@ export default {
 
   getTodayWeather(city) {
     fetch(baseUrlForTodayWeather + city)
-    .then(res => {
-      //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
-      if( res.status === 404){
+      .then(res => {
+        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+        if (res.status === 404) {
           PNotify.error({
-              title: 'NOTICE!',
-              text: 'Please write correct city!',
+            title: 'NOTICE!',
+            text: 'Please write correct city!',
           });
-      } 
-      return res.json();
-  })
+        }
+        return res.json();
+      })
       .then(res => {
         this.today = res;
         this.blockSection = 'today';
+        renderDataInDom(res);
         buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
       })
@@ -112,8 +114,9 @@ export default {
         const rand = Math.floor(Math.random() * parsedResponse.hits.length);
         const mainDiv = document.querySelector('.background-image');
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
-      }) .catch(error => {
-        console.error('getImgBackground error', error)
-    });;
+      })
+      .catch(error => {
+        console.error('getImgBackground error', error);
+      });
   },
 };
