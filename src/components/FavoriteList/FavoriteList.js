@@ -16,48 +16,38 @@ const prevButton = document.querySelector('.favourite-prev');
 const mainDiv = document.querySelector('.js-width-conteiner');
 
 
+
 nextButton.hidden = false;
-// prevButton.hidden = true;
+prevButton.hidden = true;
+let widthUl = 0;
+let widthArray=[0];
+let lineWidth =0;
+let offset=0;
+let step = 0;
+
+
 nextButton.addEventListener('click', onClickNextBtn);
-function onClickNextBtn (event){
-  let choiseLii = favoritesUl.children;
-  choiseLii.forEach(li=> {
-        li.style.transform = 'translateX(-40px)';
-        li.style.transitionDuration = 1+'s';
-        console.log('OOOO', choiseLii)
-  });
-  // let choiseLii = favoritesUl.children[0];
-  // choiseLii.classList.add('active');
-  // if(choiseLii.nextElementSibling){
-  //   choiseLii.style.left = choiseLii.length;
-  //   choiseLii.classList.remove('active');
-  //   choiseLii.nextElementSibling.classList.add('active');
-  //   this.classList.remove('no_active');
-  //   prevButton.classList.remove('no_active');
-  //   if(!choiseLii.nextElementSibling.nextElementSibling) {
-  //     this.classList.add('no_active');
-  //  }
-//   }
-  // let choiseLii = favoritesUl.children;
-  // choiseLii.forEach(li=> {
-  //   li.style.transform = 'translateX(-20px)';
-  //   li.style.transitionDuration = 3+'s';
-  // });
+function onClickNextBtn (event){ 
+  let searchLi = document.querySelectorAll('.favorites-list__item')
+  for(let i= 0; i<searchLi.length; i++){
+  widthArray.push(searchLi[i].offsetWidth)
+  lineWidth += searchLi[i].offsetWidth;
+
+favoritesUl.style.width = lineWidth + 'px';
+console.log(widthArray);
+offset=(offset+widthArray[step]);
+console.log('OFFSET',offset)
+favoritesUl.style.left = -offset + 'px';
+step ++;
+  }
 }
-// onClickNextBtn();
+
 prevButton.addEventListener('click', onClickPrevBtn);
 function onClickPrevBtn (event){
-  nextButton.hidden = true;
-  let choiseLii = favoritesUl.children;
-  choiseLii.forEach(li=> {
-    li.style.transform = 'translateX(40px)';
-    li.style.transitionDuration = 1+'s';
-  });
+
 }
-
-
-
-
+// let searchLi = document.querySelectorAll('.favorites-list__item');
+//   console.log('PPPPPP', searchLi[0].offsetWidth);
 
 
 
