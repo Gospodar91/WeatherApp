@@ -53,6 +53,11 @@ margin-bottom: 13px;
     background-image: url(../../assets/icons/star/star_border-24px.svg);
     background-position: center;
     outline: none;
+    cursor: pointer;
+}
+
+.fovourite-icon:hover{
+    fill: gold;
 }
   
 @media (min-width: 768px) {

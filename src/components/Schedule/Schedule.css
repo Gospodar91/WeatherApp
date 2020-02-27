@@ -24,7 +24,9 @@
 .fadeOut {
   animation-name: fadeOut;
 }
-
+.none-chart {
+  display: none;
+}
 .schedule {
   margin-top: 26px;
   width: 280px;
@@ -33,16 +35,14 @@
   filter: drop-shadow(0px 8px 21.5px rgba(16, 33, 54, 0.59));
   background-color: rgba(16, 34, 55, 0.8);
   animation-name: fadeIn;
-  animation-duration: 0.4s;
+  animation-duration: 2s;
 }
-
 .none-schedule {
   height: 60px;
   background-color: transparent;
   animation-name: fadeOut;
-  animation-duration: 0.4s;
+  animation-duration: 2s;
 }
-
 .schedule__div {
   opacity: 1;
   display: flex;
@@ -63,106 +63,26 @@
   border: none;
   cursor: pointer;
 }
-
 .ellipse-img {
   margin-left: 10px;
   cursor: pointer;
   transform: rotate(0deg);
-  transition: transform 0.4s linear;
+  transition: transform 2s linear;
 }
 .ellipse-img-open {
   transform: rotate(180deg);
-  transition: transform 0.4s linear;
+  transition: transform 2s linear;
 }
-
-.schedule__legend {
-  margin-top: 10px;
-  margin-left: 16px;
-  line-height: 22px;
-  color: rgba(255, 255, 255, 0.54);
+.chartDiv {
+  height: 500px;
 }
-
-.schedule__legend-none {
-  display: none;
-}
-
-.schedule__legend-title {
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.schedule__legend-list {
-  margin-top: 12px;
-  font-size: 14px;
-  text-decoration: line-through;
-}
-
-.temp {
-  color: #ff6b08;
-  text-decoration: line-through;
-}
-.hum {
-  color: royalblue;
-  text-decoration: line-through;
-}
-.ws {
-  color: #eb9b05;
-  text-decoration: line-through;
-}
-.ap {
-  color: #057806;
-  text-decoration: line-through;
-}
-
-.schedule__legend-item::before {
-  margin-right: 30px;
-  content: '';
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  vertical-align: middle;
-}
-
-.temperature::before {
-  background-color: #ff6b08;
-}
-.humidity::before {
-  background-color: #0906ea;
-}
-.windspeed::before {
-  background-color: #eb9b05;
-}
-.atmosphere::before {
-  background-color: #057806;
-}
-
-.schedule__legend-item::after {
-  content: '';
-  display: inline-block;
-  width: 12px;
-  height: 1px;
-  background-color: rgba(247, 247, 247, 0.2);
-  vertical-align: middle;
-  position: relative;
-}
-
-.temperature::after {
-  right: 126px;
-}
-.humidity::after {
-  right: 101px;
-}
-.windspeed::after {
-  right: 132px;
-}
-.atmosphere::after {
-  right: 193px;
-}
-
 @media (min-width: 768px) {
+  .none-chart {
+    display: none;
+  }
   .schedule {
     width: 608px;
-    height: 454px;
+    height: 534px;
   }
   @keyframes fadeIn {
     from {
@@ -174,47 +94,23 @@
       height: 454px;
     }
   }
-
-  .schedule__legend-list{
-      margin-top: 0;
-      width: 462px;
-      display: flex;
-      flex-wrap: wrap;
-      
-  }
-
-  .schedule__legend{
-    margin-top: 28px;
-      display: flex;
-      justify-content: center;
-  }
-
-  .schedule__legend-title{
-      padding-right: 28px;
-  }
-  .schedule__legend-none {
+}
+@media (min-width: 1280px) {
+  .none-chart {
     display: none;
   }
-}
-
-@media(min-width: 1280px){
-    .schedule {
-        width: 1060px;
-        height: 550px;
-      }
-
-      .schedule__legend-list{
-          width: 750px;
-      }
-
-      @keyframes fadeIn {
-        from {
-          background-color: rgba(16, 34, 55, 0);
-          height: 60px;
-        }
-        to {
-          background-color: rgba(16, 34, 55, 0.8);
-          height: 550px;
-        }
-      }
+  .schedule {
+    width: 1060px;
+    height: 550px;
+  }
+  @keyframes fadeIn {
+    from {
+      background-color: rgba(16, 34, 55, 0);
+      height: 60px;
+    }
+    to {
+      background-color: rgba(16, 34, 55, 0.8);
+      height: 550px;
+    }
+  }
 }

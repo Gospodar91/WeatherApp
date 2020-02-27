@@ -19,7 +19,7 @@ const fetchImage = () => {
 
         const rand = Math.floor(Math.random() * imgArr.length);
 
-        mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].fullHDURL})`
+        mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`
         // console.dir(mainDiv.style)
         })
     };
