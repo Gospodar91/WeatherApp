@@ -44,9 +44,11 @@
   }
   
   .sky {
-    /* height: 150px; */
+    height: 150px;
+    width: 100%;
     opacity: 0.8;
-    position: relative;
+    position: absolute;
+    top: 0px;
     overflow: hidden;
     -webkit-animation: sky_background 50s ease-out infinite;
     -moz-animation: sky_background 50s ease-out infinite;
@@ -62,7 +64,7 @@
     position: absolute;
     left: 0;
     top: 0;
-
+    height: 100%;
     width: 300%;
     -webkit-animation: cloud_one 50s linear infinite;
     -moz-animation: cloud_one 50s linear infinite;
@@ -79,7 +81,8 @@
     position: absolute;
     left: 0;
     top: 0;
- 
+    height: 100%;
+
     width: 300%;
     -webkit-animation: cloud_two 75s linear infinite;
     -moz-animation: cloud_two 75s linear infinite;
@@ -96,7 +99,8 @@
     position: absolute;
     left: 0;
     top: 0;
- 
+    height: 100%;
+
     width: 300%;
     -webkit-animation: cloud_three 100s linear infinite;
     -moz-animation: cloud_three 100s linear infinite;

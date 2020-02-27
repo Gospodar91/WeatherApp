@@ -17,7 +17,7 @@ class AnimationWeather {
     );
     document.querySelector('.animationweather').classList.add('weather');
     document.querySelector('.animationweather').classList.add('rain');
-    document.querySelector('.animationweather-special').classList.add('opacity');
+    // document.querySelector('.animationweather-special').classList.add('opacity');
   }
 
   animationBuildClouds() {
@@ -34,7 +34,7 @@ class AnimationWeather {
     document.querySelector('.animationweather').classList.add('weather');
     document.querySelector('.animationweather').classList.add('snow');
 
-    document.querySelector('.animationweather-special').classList.add('opacity');
+    // document.querySelector('.animationweather-special').classList.add('opacity');
   }
   startAnimation(weather) {
     if (weather === 'Clear') {

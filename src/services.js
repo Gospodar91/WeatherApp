@@ -2,7 +2,7 @@ import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
-
+import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
 
 
 const baseUrlForTodayWeather =
@@ -69,6 +69,7 @@ export default {
         buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
       })
+  
       .catch(err => {
         console.error('hellooo');
       });
@@ -90,7 +91,9 @@ export default {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
           // showTemperature(res);
-          console.log('getFiveDayWeather', this);    
+          console.log('getFiveDayWeather', this);
+          GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.list[0].weather[0].main);
+    
         }) .catch(error => {
             console.error('error', error)
         });
