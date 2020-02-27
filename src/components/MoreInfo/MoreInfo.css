@@ -11,9 +11,10 @@
 }
 
 
-.more-info-list {
+.hourly-weather {
   margin-top: 20px;
   display: flex;
+  justify-content: center;
   padding-bottom: 30px;
   overflow-x: scroll;
 }
@@ -137,6 +138,9 @@
 }
 
 @media (min-width: 1280px) {
+.more-info-item {
+  margin-right: 10px;
+}
   .hourly-weather-btns {
     display: none;
   }

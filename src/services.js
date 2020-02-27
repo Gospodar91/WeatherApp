@@ -54,7 +54,6 @@ export default {
   getTodayWeather(city) {
     fetch(baseUrlForTodayWeather + city)
     .then(res => {
-      //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
       if( res.status === 404){
           PNotify.error({
               title: 'NOTICE!',
@@ -77,7 +76,6 @@ export default {
   getFiveDayWeather(city) {
         fetch(baseUrlForFiveDayWeather + city)
         .then(res => {
-            //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
             if(res.status === 404){
                 PNotify.error({
                     title: 'NOTICE!',

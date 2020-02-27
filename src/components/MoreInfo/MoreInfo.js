@@ -1,9 +1,7 @@
 import './MoreInfo.css';
-import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 import res from '../../services.js';
-const moment = require('moment');
+import moment from 'moment';
 let day;
-// import hourlyWeatherTemp from './hourlyWeatherTemplate.hbs';
 
 const refs = {
   fiveDaysList: document.querySelector('.FiveDaysWeaterList'),
@@ -22,15 +20,25 @@ function handlerWeatherDay(event) {
   const dataAtribute = event.target.getAttribute('data-day');
   day = dataAtribute;
   const newArray = filterArray(res.fiveDay['list'], day);
-  console.log(newArray);
+  clearHourlyWeatherContainer();
 
-//   const markupHourlyWeather = newArray.reduce(
-//     (acc, city) => acc + hourlyWeatherTemp(city),
-//     "",);
+  const markupHourlyWeather = newArray.reduce(
+    (acc, city) => {
+      return acc + `<li class="more-info-item more-info-item__time-00-00">
+      <p class="more-info-item__set-time">${moment(city.dt).format('hh:mm')}</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/${city.weather[0].icon}.png" alt="">
+      <p class="more-info-item__set-temperature">${parseInt(city.main.temp)}&deg;</p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">${city.main.pressure}mm</p>
+        <p class="more-info-item__humidity-value">${city.main.humidity}%</p>
+        <p class="more-info-item__wind-value">${city.wind.speed}m/s</p>
+      </div>
+    </li>`
+    },
+    "",);
 
-    console.log('hghgjhgj', markupHourlyWeather)
 
-//   refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
+  refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
 }
 
 function filterArray(array, letDay) {
@@ -38,5 +46,5 @@ function filterArray(array, letDay) {
 }
 
 function clearHourlyWeatherContainer() {
-  refs.country.innerHTML = '';
+  refs.hourlyWeather.innerHTML = '';
 }
