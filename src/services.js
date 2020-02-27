@@ -59,7 +59,7 @@ export default {
         if (res.status === 404) {
           PNotify.error({
             title: 'NOTICE!',
-            text: 'Please write correct city!',
+            text: "Can't show such city!",
           });
         }
         return res.json();
@@ -69,8 +69,12 @@ export default {
         this.blockSection = 'today';
         renderDataInDom(res);
         buildDataWindowLayout(res);
+<<<<<<< HEAD
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
+=======
+        // console.log('getTodayWeather ', this);
+>>>>>>> dev
       })
   
       .catch(err => {
@@ -121,3 +125,4 @@ export default {
       });
   },
 };
+
