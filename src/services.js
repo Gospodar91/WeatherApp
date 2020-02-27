@@ -76,7 +76,6 @@ export default {
   },
 
   getFiveDayWeather(city) {
-<<<<<<< HEAD
         fetch(baseUrlForFiveDayWeather + city)
         .then(res => {
             //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
@@ -98,28 +97,6 @@ export default {
             console.error('error', error)
         });
       
-=======
-    fetch(baseUrlForFiveDayWeather + city)
-      .then(res => {
-        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
-        if (res.status === 404) {
-          PNotify.error({
-            title: 'NOTICE!',
-            text: 'Please write correct city!',
-          });
-        }
-        return res.json();
-      })
-      .then(res => {
-        this.fiveDay = res;
-        this.blockSection = 'fiveDay';
-        // showTemperature(res);
-        console.log('getFiveDayWeather', this);
-      })
-      .catch(error => {
-        console.error('error', error);
-      });
->>>>>>> dev
   },
 
   getImgBackground(cityName) {
