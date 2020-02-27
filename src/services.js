@@ -93,6 +93,7 @@ export default {
         .then(res => {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
+          GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
           // showTemperature(res);
           console.log('getFiveDayWeather', this);
           GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.list[0].weather[0].main);
