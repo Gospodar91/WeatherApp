@@ -15,27 +15,6 @@ const listBtn = document.querySelector('.favorite-next');
 favorites.addEventListener('click', onClickFavorites);
 let city;
 
-function getDataFromLS() {
-  const lsData = localStorage.getItem('town');
-  if(lsData) {
-    const parsedSettings = JSON.parse(lsData);
-    city = parsedSettings;
-    const markup = favoritesLocal({ parsedSettings });
-    favoritesUl.insertAdjacentHTML('beforeend', markup);
-  }
-}
-getDataFromLS()
-
-function setDataInLS(city) {
-  const lsData = localStorage.getItem('town');
-  if (lsData) {
-    const parsedDataFromLs = JSON.parse(lsData);
-    localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
-  } else {
-    localStorage.setItem('town', JSON.stringify([city]));
-  }
-}
-
 function onClickFavorites(e) {
   city = input.value;
   if (city.length >= 1) {
@@ -51,13 +30,45 @@ function onClickFavorites(e) {
   }
 }
 
-if (favoritesUl.children.length >= 1) {
-  const favoritesBtn = document.querySelector('.favorites-list__item-close');
-  const Ul = document.querySelector('.favorites-list__item');
+function setDataInLS(city) {
+  const lsData = localStorage.getItem('town');
+  if (lsData) {
+    const parsedDataFromLs = JSON.parse(lsData);
+    if (parsedDataFromLs.includes(city)) {
+      PNotify.defaults.delay = 1200;
+      PNotify.error({
+        title: 'Oh No!',
+        text: 'This city you have already added!',
+      });
+      return;
+    }
+    localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
+  } else {
+    localStorage.setItem('town', JSON.stringify([city]));
+  }
+}
 
-  favoritesBtn.addEventListener('click', btn);
-  function btn() {
-    Ul.remove();
-    localStorage.removeItem('town');
+function getDataFromLS() {
+  const lsData = localStorage.getItem('town');
+  if (lsData) {
+    const parsedSettings = JSON.parse(lsData);
+    const markup = favoritesLocal({ parsedSettings });
+    favoritesUl.insertAdjacentHTML('beforeend', markup);
+  }
+}
+getDataFromLS();
+
+
+if (favoritesUl.children.length) {
+  const favoritesBtn = document.querySelector('.favorites-list__item-close');
+  const li = document.querySelector('.favorites-list__item');
+
+  favoritesBtn.addEventListener('click', btnDelet);
+  function btnDelet(e) {
+    const lsData = JSON.parse(localStorage.getItem('town'));
+    const lsDataFilter = lsData.filter(arr => arr.indexOf([1]));
+
+    li.remove();
+    localStorage.removeItem('town', lsDataFilter);
   }
 }
