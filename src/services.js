@@ -2,6 +2,7 @@ import PNotify from 'pnotify/dist/es/PNotify.js';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
+import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
 
 
 
@@ -89,6 +90,7 @@ export default {
         .then(res => {
           this.fiveDay = res;
           this.blockSection = 'fiveDay';
+          GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
           // showTemperature(res);
           console.log('getFiveDayWeather', this);    
         }) .catch(error => {
