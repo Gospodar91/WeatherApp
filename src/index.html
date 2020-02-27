@@ -9,9 +9,12 @@
 </head>
 
 <body>
-  <div class="animationweather weather rain"></div>
+  <div class="animationweather"></div>
   <div class="background-image">
     <div class="animationweather-special">
+      <div class="sky"></div>
+    </div>
+
       <div class="container">
         <section id="first-page">
           <!-- Секция Search -->
@@ -52,7 +55,7 @@
                 <h3 class="current-city-name">Kiyv,UA</h3>
                 <div class="today-temperature">
                   <div class="current-temperature">
-                    <div class="today-current-temperature"></div>&deg;
+                    <div class="today-current-temperature"></div><sup class="degree-symbol">&deg;</sup>
                   </div>
                   <div class="minimax-block">
                     <div class="today-min-temperature minimax"><span>min</span>
@@ -135,27 +138,28 @@
               </div>
             </div>
             <!-- Конец  секции FiveDaysBig -->
-            <!-- Начало  секции Schedule -->
+            <!-- Начало  секции Schedule !!-->
             <div class="schedule__div">
               <button class="show-charts">Show Chart</button>
               <img class="ellipse-img" src="../src/assets/icons/ellipse/ellipse.png" alt="ellipse" width="28"
                 height="28" />
             </div>
             <div id="schedule">
-              <div class="chartDiv none-chart" width="auto">
-                <canvas id="myChart" width="auto"></canvas>
+              <div class="chartDiv none-chart" >
+                <canvas id="myChart" ></canvas>
               </div>
-              <!-- </div> -->
-              <!-- <div id="curve_chart" ></div> -->
+              
             </div>
             <!-- Конец  секции Schedule -->
           </div>
         </section>
       </div>
     </div>
-  </div>
+  
 
-  <div class="loader is-hidden" id="spinner">
+
+
+  <div class="loader is-hidden" id="PreLoaderspinner">
     <div class="ball one">
       <div class="inner"></div>
     </div>
