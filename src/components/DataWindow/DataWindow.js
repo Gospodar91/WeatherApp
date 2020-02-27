@@ -5,7 +5,7 @@ const monthNow = document.querySelector('.month');
 const timeNow = document.querySelector('.time');
 const sunriseTime = document.querySelector('.sunrise__time');
 const sunsetTime = document.querySelector('.twilight__time');
-const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = [
   'January',
   'February',
@@ -30,9 +30,10 @@ function buildDataWindowLayout(data) {
     const utc = localTime + localOffset;
     const timeDifference = utc + 1000 * data.timezone;
     const actualTime = new Date(timeDifference);
-    dayNow.textContent = actualTime.getDate() + ` ` + days[actualTime.getDay()];
-    monthNow.textContent = months[actualTime.getMonth()];
-    timeNow.textContent =
+    dayNow.innerHTML = days[actualTime.getDay()] + ` ` + actualTime.getDate();
+    monthNow.innerHTML = months[actualTime.getMonth()];
+
+    timeNow.innerHTML =
       pad(actualTime.getHours()) +
       `:` +
       pad(actualTime.getMinutes()) +
@@ -48,7 +49,9 @@ function buildDataWindowLayout(data) {
   const sunriseTimeZone = sunriseUtc + 1000 * data.timezone;
   const actualSunriseTime = new Date(sunriseTimeZone);
   sunriseTime.textContent =
-    pad(actualSunriseTime.getHours()) + `:` + pad(actualSunriseTime.getMinutes());
+    pad(actualSunriseTime.getHours()) +
+    `:` +
+    pad(actualSunriseTime.getMinutes());
 
   const sunsetTimeMs = data.sys.sunset;
   const currentSunset = new Date(sunsetTimeMs * 1000);
@@ -58,7 +61,7 @@ function buildDataWindowLayout(data) {
   const sunsetTimeZone = sunsetUtc + 1000 * data.timezone;
   const actualSunsetTime = new Date(sunsetTimeZone);
   sunsetTime.textContent =
-  pad(actualSunsetTime.getHours()) + `:` + pad(actualSunsetTime.getMinutes());
+    pad(actualSunsetTime.getHours()) + `:` + pad(actualSunsetTime.getMinutes());
 }
 
 function pad(value) {
