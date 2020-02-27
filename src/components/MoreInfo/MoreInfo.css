@@ -6,7 +6,6 @@
   opacity: 0.8;
   padding-left: 10px;
   padding-right: 10px;
-  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
   display: none;
 }
 
@@ -19,21 +18,9 @@
   overflow-x: scroll;
 }
 
-/* ::-webkit-scrollbar {
-  height: 2px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgb(255, 255, 255, 0.2);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 107, 8);
-} */
-
 .more-info-item {
   padding: 15px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Lato';
   color: rgba(255, 255, 255, 0.541);
   text-align: center;
@@ -45,6 +32,7 @@
 
 .more-info-item:hover {
   background-color:rgb(255, 255, 255, 0.12);
+
 }
 
 .more-info-item:last-child {
@@ -70,6 +58,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.more-info-item__set-time {
+  color: #fff;
 }
 
 .more-info-item__pressure-value::before,
@@ -132,6 +124,10 @@
   background-position: center;
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* .hourly-weather-next-btn {
+  background-image: url(../src/assets/icons/chevron-left//chevron_right-black-18dp/2x/baseline_chevron_right_black_18dp.png);
+} */
 
 .gallery {
   overflow: hidden;

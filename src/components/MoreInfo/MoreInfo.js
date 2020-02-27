@@ -25,7 +25,7 @@ function handlerWeatherDay(event) {
   const markupHourlyWeather = newArray.reduce(
     (acc, city) => {
       return acc + `<li class="more-info-item more-info-item__time-00-00">
-      <p class="more-info-item__set-time">${moment(city.dt).format('hh:mm')}</p>
+      <p class="more-info-item__set-time">${moment(city['dt'] * 1000).format('LT')}</p>
       <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/${city.weather[0].icon}.png" alt="">
       <p class="more-info-item__set-temperature">${parseInt(city.main.temp)}&deg;</p>
       <div class="more-info-item__weather-details">
