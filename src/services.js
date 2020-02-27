@@ -69,8 +69,10 @@ export default {
         this.blockSection = 'today';
         renderDataInDom(res);
         buildDataWindowLayout(res);
+
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
+
       })
   
       .catch(err => {
@@ -121,3 +123,4 @@ export default {
       });
   },
 };
+

@@ -2,8 +2,8 @@
   width: 280px;
   height: 190px;
   border-radius: 35px;
-  background-color: rgba(16, 33, 54, .6);
-  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, .6);
+  background-color: rgba(16, 33, 54, 0.6);
+  box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@
 }
 
 .sunrise__time,
-.twilight__time{
+.twilight__time {
   margin-top: 22px;
 }
 
@@ -136,8 +136,8 @@
 
   .data {
     /* new  data height */
-height: 218px;
-        /* new  data height */
+    height: 218px;
+    /* new  data height */
     width: 600px;
     border-radius: 0px;
     border-top-right-radius: 35px;
@@ -178,5 +178,4 @@ height: 218px;
     width: 430px;
     justify-content: space-between;
   }
-
 }
