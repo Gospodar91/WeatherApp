@@ -40,9 +40,17 @@ input[type="radio"].visually-hidden {
   margin-bottom: 20px;
 }
 
+.current-temperature{
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-start; */
+  font-size: 60px;
+}
+
 .today-current-temperature {
   font-size: 45px;
   line-height: 0.489;
+  text-align: center;
 }
 
 .today-min-temperature {
@@ -62,6 +70,10 @@ input[type="radio"].visually-hidden {
   font-size: 18px;
   line-height: 1;
   flex-grow: 1;
+}
+
+.minimax div{
+  display: flex;
 }
 
 .today-temperature span {
@@ -113,6 +125,7 @@ input[type="radio"].visually-hidden {
   .weather-info {
     padding-top: 104px;
   }
+
   .weather-today-wrapper {
     width: 492px;
   }
@@ -127,6 +140,7 @@ input[type="radio"].visually-hidden {
   .today-current-temperature {
     margin-bottom: 30px;
     font-size: 90px;
+    line-height: 1;
   }
 
   .minimax-block {
@@ -136,7 +150,8 @@ input[type="radio"].visually-hidden {
   .reject {
     position: static;
   }
-  .pudding-for-five-days{
+
+  .pudding-for-five-days {
     padding-top: 310px;
   }
 }
