@@ -1,23 +1,21 @@
-@media(max-width: 767px){
+@media(min-width:1280px){
+    .gw-part,
+    .gw-part__item {
+    z-index: 0;
+    background-color: transparent;
+    width: 110px;
+    height: 110px;
+    border-radius: 15px;
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% - 10px);
+    transform: translateX(0) translateY(0);
+    border: 10px solid white;
+};
+}
+@media(max-width:1279px){
     .gw-part,
     .gw-part__item{
         display: none;
     }
-}
-@media(min-width: 768px){
-    .gw-part,
-.gw-part__item {
-    background-color: yellowgreen;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top: 25px;
-    position: absolute;
-    font-weight: 30px;
-    font-size: large;
-    top: calc(50% - 10px);
-    left: calc(50% - 10px);
-    transform: translateX(0) translateY(0);
 };
-}
