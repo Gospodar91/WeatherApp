@@ -102,7 +102,7 @@ export default {
         GlobalEmitter.emit(
           GlobalEmitter.ON_WEATHER_READY,
           res.list[0].weather[0].main,
-        );
+        );0
       })
       .catch(error => {
         console.error('error', error);
