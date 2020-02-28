@@ -62,6 +62,7 @@ export default {
             title: 'NOTICE!',
             text: "Can't show such city!",
           });
+          
         }
         return res.json();
       })
@@ -73,7 +74,6 @@ export default {
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
       })
-
       .catch(err => {
         console.error('hellooo');
       });
