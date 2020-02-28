@@ -72,7 +72,8 @@ export default {
         buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
-        document.querySelector('#wrapper-body').classList.remove('visually-hidden');
+        // document.querySelector('#wrapper-body').classList.remove('visually-hidden');
+        document.querySelector('#wrapper-body').removeAttribute('style');
       })
 
       .catch(err => {
