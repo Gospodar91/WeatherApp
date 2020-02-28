@@ -1,11 +1,14 @@
 .FiveDaysSmall {
+  height: 272px;
+  text-align: center;
+  padding: 30px 0px 15px;
+}
+
+.FiveDaysSmallAndMoreInfo{
   border-radius: 35px;
   background-color: rgb(16, 33, 54);
   opacity: 0.8;
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.59);
-  height: 272px;
-  text-align: center;
-  padding: 30px 0px 15px;
 }
 
 .FiveDaysWeaterList {
@@ -19,6 +22,11 @@
   display: flex;
   flex-direction: column;
   width: 58px;
+  border-radius: 25px;
+}
+
+.FiveDaysWeaterList__item:hover {
+  background-color:rgb(255, 255, 255, 0.12);
 }
 
 .FiveDaysSmall__city-mobile {
@@ -30,12 +38,11 @@
 }
 
 .FiveDaysWeaterList__item--date {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .FiveDaysWeaterList__item--icon {
   margin: 0 auto;
-  margin-bottom: 10px;
 }
 
 .FiveDaysWeaterList__item--min-max-label {
@@ -58,7 +65,7 @@
 .FiveDaysWeaterList__item--min-max {
   width: 58px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 7px;
 }
 
@@ -149,7 +156,7 @@
   .FiveDaysWeaterList__item--date {
     font-size: 25px;
     line-height: 1.2;
-    margin-bottom: 26px;
+    margin-bottom: 8px;
   }
   .FiveDaysWeaterList__item--min-max-label,
   .FiveDaysWeaterList__item--moreBtn {
@@ -163,7 +170,7 @@
     line-height: 1.2;
   }
   .FiveDaysWeaterList__item--icon {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   .FiveDaysWeaterList__item--moreBtn{
     margin-bottom: 10px;
