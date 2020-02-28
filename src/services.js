@@ -18,7 +18,8 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
   const APIKEY = '67daddc6-334a-4325-8705-7fd9afb2f209';
   return `https://graphhopper.com/api/1/geocode?reverse=true&point=${latitude},${longitude}&debug=true&key=${APIKEY}`;
 };
-
+const mainDiv1 = document.querySelector('.background-image-buffer');
+mainDiv1.querySelector('img').addEventListener('load', onBgReady);
 export default {
   city: 'Kyiv',
   today: null,
@@ -121,15 +122,15 @@ export default {
         document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
       });
   },
-
+  
   getImgBackground(cityName) {
     const baseUrl = 'https://pixabay.com/api/';
     const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
-    const requestParams = `?image_type=photo&orientation=horizontal&q=${cityName}&page=1&per_page=40`;
-
+    const requestParams = `?image_type=photo&orientation=horizontal&category=travel&q=${cityName}&page=1&per_page=30`;
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
+        
         console.log('parsedResponse', parsedResponse);
         let rand = Math.floor(Math.random() * parsedResponse.hits.length);
         // console.log(rand);
@@ -137,11 +138,25 @@ export default {
           
 
         const mainDiv = document.querySelector('.background-image');
+<<<<<<< HEAD
+       
+       // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       mainDiv1.style.height = mainDiv.clientHeight + 'px';
+       mainDiv1.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       mainDiv1.querySelector('img').src = parsedResponse.hits[rand].largeImageURL;
+=======
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
         // document.querySelector('#wrapper-body').classList.remove('visually-hidden');
+>>>>>>> dev
       })
       .catch(error => {
         console.error('getImgBackground error', error);
-      });
+      }); 
   },
 };
+
+
+function onBgReady(e){
+  const mainDiv = document.querySelector('.background-image');
+  mainDiv.style.backgroundImage = `url(${mainDiv1.querySelector('img').src})`;
+}
