@@ -24,6 +24,7 @@ import services from './services';
 
 
 document.addEventListener('DOMContentLoaded', searchWeatherData);
+document.addEventListener('click', buildWeatherAnimayionHour);
 
 function searchWeatherData() {
   services.getCurrentCityForCurrentLocationCoord()
@@ -50,5 +51,12 @@ function showQuote() {
     ...quoteData[Math.floor(Math.random() * quoteData.length)],
   });
 }
+
+function buildWeatherAnimayionHour(e){
+  GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.id)
+}
+
+
+
 setInterval(showQuote, 8000);
 showQuote();
