@@ -69,16 +69,6 @@
   margin-left: 10px;
 }
 
-.twilight__icon::before {
-  content: '';
-  background-color: rgb(231, 232, 235);
-  opacity: 0.4;
-  position: absolute;
-  width: 1px;
-  height: 20px;
-  left: 0px;
-}
-
 .time::before {
   content: '';
   background-color: rgb(231, 232, 235);

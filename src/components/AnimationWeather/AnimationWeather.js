@@ -77,6 +77,7 @@ class AnimationWeather {
 
   startAnimation(weather) {
     if (weather === 'Clear') {
+      qubeAnimation();
       this.animationBuildClear();
     } else if (weather === 'Rain') {
       this.animationBuildRain();

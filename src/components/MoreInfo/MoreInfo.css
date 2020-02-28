@@ -1,20 +1,17 @@
 .MoreInfo {
-  box-sizing: content-box;
   padding-left: 10px;
   padding-right: 10px;
   display: none;
 }
 
-
-.hourly-weather {
+.hourly-weather-list {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
-  overflow-x: scroll;
 }
 
-.more-info-item {
+.hourly-weather-item {
   padding: 15px;
   font-size: 16px;
   font-family: 'Lato';
@@ -26,21 +23,19 @@
   margin-right: 20px;
 }
 
-.more-info-item:hover {
-  background-color:rgb(255, 255, 255, 0.12);
-
+.hourly-weather-item:hover {
+  background-color: rgb(255, 255, 255, 0.12);
 }
 
-.more-info-item:last-child {
+.hourly-weather-item:last-child {
   margin-right: 0;
 }
 
-.more-info-item__set-img {
+.hourly-weather-item__set-img {
   margin: 0 auto;
 }
 
-.more-info-item__set-temperature,
-.degrees {
+.hourly-weather-item__set-temperature {
   display: inline-block;
   font-size: 18px;
   font-family: 'Lato';
@@ -48,7 +43,7 @@
   font-weight: bold;
 }
 
-.more-info-item__weather-details {
+.hourly-weather-item__weather-details {
   width: 88px;
   text-align: left;
   display: flex;
@@ -56,14 +51,14 @@
   justify-content: space-between;
 }
 
-.more-info-item__set-time {
+.hourly-weather-item__set-time {
   color: #fff;
 }
 
-.more-info-item__pressure-value::before,
-.more-info-item__humidity-value::before,
-.more-info-item__wind-value::before {
-  content:'';
+.hourly-weather-item__pressure-value::before,
+.hourly-weather-item__humidity-value::before,
+.hourly-weather-item__wind-value::before {
+  content: '';
   display: inline-block;
   width: 28px;
   height: 24px;
@@ -72,22 +67,22 @@
   margin-right: 4px;
 }
 
-.more-info-item__pressure-value::before {
+.hourly-weather-item__pressure-value::before {
   background-image: url(./img/pressure.png);
 }
 
-.more-info-item__humidity-value::before {
+.hourly-weather-item__humidity-value::before {
   background-image: url(./img/humidity.png);
   margin-left: 5px;
 }
 
-.more-info-item__wind-value::before {
+.hourly-weather-item__wind-value::before {
   background-image: url(./img/wind.png);
 }
 
-.more-info-item__pressure-value,
-.more-info-item__humidity-value,
-.more-info-item__wind-value {
+.hourly-weather-item__pressure-value,
+.hourly-weather-item__humidity-value,
+.hourly-weather-item__wind-value {
   margin-top: 4px;
   margin-bottom: 4px;
   display: flex;
@@ -95,18 +90,16 @@
 }
 
 .hourly-weather-btns {
-  display: block;
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 26px;
-    border-radius: 50px;
-    
+  display: flex;
+  justify-content: center;
+  padding-bottom: 26px;
+  border-radius: 50px;
 }
 
 .hourly-weather-prev-btn:hover,
 .hourly-weather-next-btn:hover {
-    background-color: rgb(255, 255, 255, 0.5);
-    color: #fff;
+  background-color: rgb(255, 255, 255, 0.5);
+  color: #fff;
 }
 
 .hourly-weather-prev-btn,
@@ -121,22 +114,29 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* .hourly-weather-next-btn {
-  background-image: url(../src/assets/icons/chevron-left//chevron_right-black-18dp/2x/baseline_chevron_right_black_18dp.png);
-} */
+.hourly-weather-prev-btn {
+  margin-right: 5px;
+}
+
+.hourly-weather-next-btn {
+  margin-left: 5px;
+}
 
 .gallery {
   overflow: hidden;
+  text-align: left;
 }
 
 @media (min-width: 1280px) {
-.more-info-item {
-  margin-right: 10px;
-}
+  .hourly-weather-item {
+    margin-right: 10px;
+  }
+
   .hourly-weather-btns {
     display: none;
   }
-  .more-info-list {
+
+  .hourly-weather-list {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
