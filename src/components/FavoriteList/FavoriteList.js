@@ -1,6 +1,5 @@
 import './FavoriteList.css';
 import services from '../../services';
-
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 import favoritesLocal from './favoritesLocal.hbs';
 import PNotify from '../../../node_modules/pnotify/dist/es/PNotify.js';
@@ -10,36 +9,87 @@ import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
 const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
 const favoritesUl = document.querySelector('.favorites-list');
-const favoritesForm = document.querySelector('#search-form');
 const nextButton = document.querySelector('.favorite-next');
 const prevButton = document.querySelector('.favourite-prev');
-const mainDiv = document.querySelector('.js-width-conteiner');
 
-// let quantityLi = favoritesUl.children.length;
+nextButton.hidden = true;
+prevButton.hidden = true;
 
-// if(quantityLi <= 2 && mainDiv.offsetWidth <= 280){
-//   nextButton.hidden = true,
-//   prevButton.hidden = true
+let qtyClickBtn = 0;
+let choiseLii = favoritesUl.children;
+let lenghtLiChild = favoritesUl.children.length;
+let clientWidth = document.documentElement.clientWidth;
+let widthArray = [];
 
-// }else if(quantityLi <= 3 && mainDiv.offsetWidth <= 492){
-//   nextButton.hidden = true,
-//   prevButton.hidden = true
+function receiveLenghtLi(event) {
+  let searchLi = document.querySelectorAll('.favorites-list__item');
+  for (let i = 0; i < searchLi.length; i++) {
+    widthArray.push(searchLi[i].offsetWidth);
+  }
+}
 
-// }else if(quantityLi <= 4 && mainDiv.offsetWidth <= 520){
-//   nextButton.hidden = true,
-//   prevButton.hidden = true
-// }
+//функция для появления и удаления кнопок
+function checkQtyLi() {
+  if (favoritesUl.children.length) {
+    let key = JSON.parse(localStorage.getItem('town'));
+    if (clientWidth < 771) {
+      if (key.length > 2) {
+        nextButton.hidden = false;
+      }
+    } else if (clientWidth > 771) {
+      if (key.length > 4) {
+        nextButton.hidden = false;
+      }
+    }
+  }
+}
+
+//назад кнопка
+prevButton.addEventListener('click', onClickPrevBtn);
+function onClickPrevBtn(event) {
+  qtyClickBtn--;
+  if (qtyClickBtn < lenghtLiChild + 1) {
+    prevButton.hidden = true;
+    //когда дошел до конца слайда PREV пропала
+  }
+  nextButton.hidden = false;
+  choiseLii.forEach(li => {
+    li.style.transform += 'translateX(113px)';
+    li.style.transitionDuration = 500 + 'ms';
+  });
+}
+
+//вперед кнопка
+nextButton.addEventListener('click', onClickNextBtn);
+function onClickNextBtn(event) {
+  let clientWidth = document.documentElement.clientWidth;
+  let lenghtLiChild = favoritesUl.children.length;
+  qtyClickBtn++;
+  if (qtyClickBtn > lenghtLiChild - 3 && clientWidth < 770) {
+    nextButton.hidden = true;
+    // когда долистал до конца пропала кнопка Next
+  } else if (qtyClickBtn > lenghtLiChild - 5 && clientWidth > 771) {
+    nextButton.hidden = true;
+  }
+  prevButton.hidden = false;
+  //когда пролистал вправо появилась PREV
+  choiseLii.forEach(li => {
+    li.style.transform += 'translateX(-113px)';
+    li.style.transitionDuration = 500 + 'ms';
+  });
+  receiveLenghtLi();
+}
 
 favorites.addEventListener('click', onClickFavorites);
 let city = input;
-
 function onClickFavorites(e) {
   city = input.value;
   if (city.length >= 1) {
     favoritesUl.innerHTML = '';
     setDataInLS(city);
     getDataFromLS();
-    favorites.classList.add('bgNew');
+    // favorites.classList.add('bgNew');
+    checkQtyLi();
   } else {
     PNotify.defaults.delay = 1200;
     PNotify.error({
@@ -73,21 +123,18 @@ function getDataFromLS() {
     const parsedSettings = JSON.parse(lsData);
     const markup = favoritesLocal({ parsedSettings });
     favoritesUl.insertAdjacentHTML('beforeend', markup);
+    checkQtyLi();
   }
 }
 getDataFromLS();
 
 if (favoritesUl.children.length) {
   favoritesUl.addEventListener('click', onClickLink);
-
   function onClickLink(e) {
     e.preventDefault();
     if (e.target === e.currentTarget) {
       return;
     } else if (e.target.tagName === 'BUTTON') {
-      // console.log('e.target.dataset.text ', e.target.dataset.text);
-      // console.log('e.target.parentNode ', e.target.parentNode);
-      // console.log('e.target.closest(".favorites-list__item")', e.target.closest('.favorites-list__item'));
       const lsData = JSON.parse(localStorage.getItem('town'));
       const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
       localStorage.setItem('town', JSON.stringify(lsDataFilter));
