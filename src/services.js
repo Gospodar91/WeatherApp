@@ -98,13 +98,13 @@ export default {
       .then(res => {
         this.fiveDay = res;
         this.blockSection = 'fiveDay';
+        FiveDaysSmall(res);
         GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
         console.log('getFiveDayWeather', this);
         GlobalEmitter.emit(
           GlobalEmitter.ON_WEATHER_READY,
           res.list[0].weather[0].main,
         );
-        FiveDaysSmall(res);
       })
       .catch(error => {
         console.error('error', error);
