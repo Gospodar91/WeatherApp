@@ -49,6 +49,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "chart.js": "^2.9.3",
     "core-js": "^3.3.4",
     "gsap": "^3.2.0",
     "handlebars": "^4.5.3",
