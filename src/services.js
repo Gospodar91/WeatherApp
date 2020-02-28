@@ -7,6 +7,8 @@ import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import FiveDaysSmall from './components/FiveDaysSmall/FiveDaysSmall';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
 
+import {onClickFavorites} from './components/FavoriteList/FavoriteList';
+
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
@@ -64,6 +66,7 @@ export default {
             title: 'NOTICE!',
             text: "Can't show such city!",
           });
+          document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
         }
         return res.json();
       })
@@ -74,10 +77,12 @@ export default {
         buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
+        document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
       })
 
       .catch(err => {
         console.error('hellooo');
+        document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
       });
   },
 
@@ -92,6 +97,7 @@ export default {
             title: 'NOTICE!',
             text: 'Please write correct city!',
           });
+          document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
         }
         return res.json();
       })
@@ -105,9 +111,11 @@ export default {
           GlobalEmitter.ON_WEATHER_READY,
           res.list[0].weather[0].main,
         );
+        document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
       })
       .catch(error => {
         console.error('error', error);
+        document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
       });
   },
 

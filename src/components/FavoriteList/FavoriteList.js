@@ -80,9 +80,9 @@ function onClickNextBtn(event) {
   receiveLenghtLi();
 }
 
-favorites.addEventListener('click', onClickFavorites);
+// favorites.addEventListener('click', onClickFavorites);
 let city = input;
-function onClickFavorites(e) {
+export function onClickFavorites() {
   city = input.value;
   if (city.length >= 1) {
     favoritesUl.innerHTML = '';
@@ -114,6 +114,7 @@ function setDataInLS(city) {
     localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
   } else {
     localStorage.setItem('town', JSON.stringify([city]));
+    document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
   }
 }
 
@@ -128,21 +129,19 @@ function getDataFromLS() {
 }
 getDataFromLS();
 
-if (favoritesUl.children.length) {
-  favoritesUl.addEventListener('click', onClickLink);
-  function onClickLink(e) {
-    e.preventDefault();
-    if (e.target === e.currentTarget) {
-      return;
-    } else if (e.target.tagName === 'BUTTON') {
-      const lsData = JSON.parse(localStorage.getItem('town'));
-      const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
-      localStorage.setItem('town', JSON.stringify(lsDataFilter));
-      e.target.parentNode.remove();
-    } else {
-      services.city = input.value = e.target.textContent;
-      GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
-      favorites.classList.add('bgNew');
-    }
+favoritesUl.addEventListener('click', onClickLink);
+function onClickLink(e) {
+  e.preventDefault();
+  if (e.target === e.currentTarget) {
+    return;
+  } else if (e.target.tagName === 'BUTTON') {
+    const lsData = JSON.parse(localStorage.getItem('town'));
+    const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
+    localStorage.setItem('town', JSON.stringify(lsDataFilter));
+    e.target.parentNode.remove();
+  } else {
+    services.city = input.value = e.target.textContent;
+    GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+    favorites.classList.add('bgNew');
   }
 }
