@@ -5,7 +5,6 @@ import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
 
-
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
 const baseUrlForFiveDayWeather =
@@ -53,6 +52,8 @@ export default {
   },
 
   getTodayWeather(city) {
+    this.today = null;
+    this.fiveDay = null;
     fetch(baseUrlForTodayWeather + city)
       .then(res => {
         //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
@@ -72,36 +73,40 @@ export default {
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
       })
-  
+
       .catch(err => {
         console.error('hellooo');
       });
   },
 
   getFiveDayWeather(city) {
-        fetch(baseUrlForFiveDayWeather + city)
-        .then(res => {
-            //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
-            if(res.status === 404){
-                PNotify.error({
-                    title: 'NOTICE!',
-                    text: 'Please write correct city!',
-                });
-            } 
-            return res.json();
-        })
-        .then(res => {
-          this.fiveDay = res;
-          this.blockSection = 'fiveDay';
-          GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
-          // showTemperature(res);
-          console.log('getFiveDayWeather', this);
-          GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.list[0].weather[0].main);
-    
-        }) .catch(error => {
-            console.error('error', error)
-        });
-      
+    this.fiveDay = null;
+    this.today = null;
+    fetch(baseUrlForFiveDayWeather + city)
+      .then(res => {
+        //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
+        if (res.status === 404) {
+          PNotify.error({
+            title: 'NOTICE!',
+            text: 'Please write correct city!',
+          });
+        }
+        return res.json();
+      })
+      .then(res => {
+        this.fiveDay = res;
+        this.blockSection = 'fiveDay';
+        GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
+        // showTemperature(res);
+        console.log('getFiveDayWeather', this);
+        GlobalEmitter.emit(
+          GlobalEmitter.ON_WEATHER_READY,
+          res.list[0].weather[0].main,
+        );
+      })
+      .catch(error => {
+        console.error('error', error);
+      });
   },
 
   getImgBackground(cityName) {
@@ -122,4 +127,3 @@ export default {
       });
   },
 };
-
