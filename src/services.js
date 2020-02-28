@@ -4,14 +4,8 @@ import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
-<<<<<<< HEAD
 import  '../src/components/Loader/loader.css'
 import loader from  '../src/components/Loader/loader.js'
-=======
-import FiveDaysSmall from './components/FiveDaysSmall/FiveDaysSmall';
-
-import {onClickFavorites} from './components/FavoriteList/FavoriteList';
->>>>>>> dev
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
