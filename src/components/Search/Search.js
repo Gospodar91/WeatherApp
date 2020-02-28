@@ -30,8 +30,9 @@ function submitForm(event) {
     } else if (services.blockSection === 'fiveDay') {
       services.getFiveDayWeather(services.city);
     }
+    services.getImgBackground(services.city);
   }
-  services.getImgBackground(services.city);
+  
 
   // if (services.blockSection === 'today') {
   //   services.getTodayWeather(services.city);

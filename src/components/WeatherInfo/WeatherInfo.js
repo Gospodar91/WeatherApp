@@ -12,12 +12,17 @@ const fiveDaysWeatherBtn = document.querySelector('.five-days');
 const todayWeatherBtn = document.querySelector('.weather-today');
 fiveDaysWeatherBtn.addEventListener('click', onFiveDaysWeatherBtnClick);
 todayWeatherBtn.addEventListener('click', onTodayWeatherBtnClick);
+let currentCity;
 
 function onFiveDaysWeatherBtnClick(e) {
-  todayWeatherData.getImgBackground(todayWeatherData.city);
-  if (!todayWeatherData.fiveDay) {
-    todayWeatherData.getFiveDayWeather(todayWeatherData.city);
+  // todayWeatherData.getImgBackground(todayWeatherData.city);
+  if (currentCity !== todayWeatherData.city) {
+    if (!todayWeatherData.fiveDay) {
+      todayWeatherData.getFiveDayWeather(todayWeatherData.city);
+      currentCity = todayWeatherData.city;
+    }
   }
+  todayWeatherData.blockSection='fiveDay';
   weatherInfoToday.classList.add('visually-hidden');
   dataToday.classList.add('visually-hidden');
   quoteToday.classList.add('visually-hidden');
@@ -33,9 +38,13 @@ function onFiveDaysWeatherBtnClick(e) {
 
 function onTodayWeatherBtnClick(e) {
   // todayWeatherData.getImgBackground(todayWeatherData.city);
-  if (!todayWeatherData.today) {
-    todayWeatherData.getTodayWeather(todayWeatherData.city);
+  if (currentCity !== todayWeatherData.city) {
+    if (!todayWeatherData.today) {
+      todayWeatherData.getTodayWeather(todayWeatherData.city);
+      currentCity = todayWeatherData.city;
+    }
   }
+  todayWeatherData.blockSection='today';
   weatherInfoToday.classList.remove('visually-hidden');
   dataToday.classList.remove('visually-hidden');
   quoteToday.classList.remove('visually-hidden');
