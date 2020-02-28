@@ -22,7 +22,7 @@ import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter'
 import quoteData from './components/Quote/data';
 import services from './services';
 
-import './components/BackgroundImg/BackgroundImg.css';
+
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 
 function searchWeatherData() {
