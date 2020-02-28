@@ -4,6 +4,8 @@ import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
+import  '../src/components/Loader/loader.css'
+import loader from  '../src/components/Loader/loader.js'
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -14,7 +16,8 @@ const makeUrlForDetectedCityFromCurrentCoord = (latitude, longitude) => {
   const APIKEY = '67daddc6-334a-4325-8705-7fd9afb2f209';
   return `https://graphhopper.com/api/1/geocode?reverse=true&point=${latitude},${longitude}&debug=true&key=${APIKEY}`;
 };
-
+const mainDiv1 = document.querySelector('.background-image-buffer');
+mainDiv1.querySelector('img').addEventListener('load', onBgReady);
 export default {
   city: 'Kyiv',
   today: null,
@@ -52,6 +55,7 @@ export default {
   },
 
   getTodayWeather(city) {
+    loader.show();
     this.today = null;
     this.fiveDay = null;
     fetch(baseUrlForTodayWeather + city)
@@ -66,6 +70,7 @@ export default {
         return res.json();
       })
       .then(res => {
+        loader.hide();
         this.today = res;
         this.blockSection = 'today';
         renderDataInDom(res);
@@ -108,22 +113,32 @@ export default {
         console.error('error', error);
       });
   },
-
+  
   getImgBackground(cityName) {
     const baseUrl = 'https://pixabay.com/api/';
     const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
-    const requestParams = `?image_type=photo&orientation=horizontal&q=${cityName}&page=1&per_page=40`;
-
+    const requestParams = `?image_type=photo&orientation=horizontal&category=travel&q=${cityName}&page=1&per_page=30`;
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
+        
         console.log('parsedResponse', parsedResponse);
         const rand = Math.floor(Math.random() * parsedResponse.hits.length);
         const mainDiv = document.querySelector('.background-image');
-        mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       
+       // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       mainDiv1.style.height = mainDiv.clientHeight + 'px';
+       mainDiv1.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       mainDiv1.querySelector('img').src = parsedResponse.hits[rand].largeImageURL;
       })
       .catch(error => {
         console.error('getImgBackground error', error);
-      });
+      }); 
   },
 };
+
+
+function onBgReady(e){
+  const mainDiv = document.querySelector('.background-image');
+  mainDiv.style.backgroundImage = `url(${mainDiv1.querySelector('img').src})`;
+}

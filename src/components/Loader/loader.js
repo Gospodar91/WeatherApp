@@ -1,6 +1,6 @@
 import css from './loader.css'
-import { LoaderOptionsPlugin } from "webpack";
-const spinner = document.querySelector('#spinner');
+
+const spinner = document.querySelector('#PreLoaderspinner');
 
 export default {
     show(){

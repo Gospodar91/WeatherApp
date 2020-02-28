@@ -49,11 +49,17 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "aws-sdk": "^2.628.0",
     "chart.js": "^2.9.3",
+    "child_process": "^1.0.2",
     "core-js": "^3.3.4",
+    "fs": "0.0.1-security",
     "gsap": "^3.2.0",
     "handlebars": "^4.5.3",
+    "module": "^1.2.5",
     "moment": "^2.24.0",
-    "pnotify": "^4.0.0"
+    "net": "^1.0.2",
+    "pnotify": "^4.0.0",
+    "tls": "0.0.1"
   }
 }
