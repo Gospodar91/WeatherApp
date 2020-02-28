@@ -4,5 +4,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  
+}
+
+.background-image-buffer {
+    height:50px;
+    width:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:absolute;
+    top:0px;
+    z-index:-1;
 }
