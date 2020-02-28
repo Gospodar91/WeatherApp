@@ -33,8 +33,8 @@ export default function findScheduleData(data) {
   dataArray.map(day => {
     const dt = day.dt_txt.split(' ')[0];
     tempAverage[dt] = tempAverage[dt]
-      ? tempAverage[dt] + day.main.temp / SCREEN_VISIBLE_DAYS
-      : day.main.temp / SCREEN_VISIBLE_DAYS;
+      ? tempAverage[dt] + day.main.temp / PERIODS_IN_ONE_DAY
+      : day.main.temp / PERIODS_IN_ONE_DAY;
   });
 
   dataArray.map(day => {
