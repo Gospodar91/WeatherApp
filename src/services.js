@@ -120,7 +120,7 @@ export default {
       .then(parsedResponse => {
         console.log('parsedResponse', parsedResponse);
         let rand = Math.floor(Math.random() * parsedResponse.hits.length);
-        console.log(rand);
+        // console.log(rand);
             // if(parsedResponse.hits[rand].tags.match(/(girl)(boobs)/g)!==null||parsedResponse.hits[rand].pageURL.match(/(photos)/) !== null){rand = Math.floor(Math.random() * parsedResponse.hits.length);}
           
 

@@ -53,7 +53,6 @@ function showQuote() {
 }
 
 function buildWeatherAnimayionHour(e){
-  console.log(e.target.id);
   GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.id)
 }
 
