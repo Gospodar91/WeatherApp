@@ -77,6 +77,8 @@ export default {
         buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
+        // document.querySelector('#wrapper-body').classList.remove('visually-hidden');
+        document.querySelector('#wrapper-body').removeAttribute('style');
         document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
       })
 
@@ -136,6 +138,7 @@ export default {
 
         const mainDiv = document.querySelector('.background-image');
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+        // document.querySelector('#wrapper-body').classList.remove('visually-hidden');
       })
       .catch(error => {
         console.error('getImgBackground error', error);
