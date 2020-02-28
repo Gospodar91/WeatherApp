@@ -10,82 +10,91 @@ import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
 const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
 const favoritesUl = document.querySelector('.favorites-list');
-const favoritesForm = document.querySelector('#search-form');
 const nextButton = document.querySelector('.favorite-next');
 const prevButton = document.querySelector('.favourite-prev');
-const mainDiv = document.querySelector('.js-width-conteiner');
 
-
-
-nextButton.hidden = false;
+nextButton.hidden = true;
 prevButton.hidden = true;
-let widthUl = 0;
+
+let qtyClickBtn = 0;
+let choiseLii = favoritesUl.children;
+let lenghtLiChild = favoritesUl.children.length;
+let clientWidth = document.documentElement.clientWidth;
+
+
 let widthArray=[0];
-let lineWidth =0;
-let offset=0;
-let step = 0;
 
-
-nextButton.addEventListener('click', onClickNextBtn);
-function onClickNextBtn (event){ 
-  let searchLi = document.querySelectorAll('.favorites-list__item')
+function receiveLenghtLi (){ 
+  let searchLi = document.querySelectorAll('.favorites-list__item');
   for(let i= 0; i<searchLi.length; i++){
-  widthArray.push(searchLi[i].offsetWidth)
-  lineWidth += searchLi[i].offsetWidth;
-
-favoritesUl.style.width = lineWidth + 'px';
-console.log(widthArray);
-offset=(offset+widthArray[step]);
-console.log('OFFSET',offset)
-favoritesUl.style.left = -offset + 'px';
-step ++;
+  widthArray.push(searchLi[i].offsetWidth);
   }
 }
 
-prevButton.addEventListener('click', onClickPrevBtn);
-function onClickPrevBtn (event){
 
+//функция для отрисовки и удаления кнопок
+function checkQtyLi() {
+  if (favoritesUl.children.length) {
+    console.log('OOOO', favoritesUl.lastElementChild.lastChild);
+    let key = JSON.parse(localStorage.getItem('town'));
+    console.log(key.length);
+    if (clientWidth < 771) {
+      if (key.length > 2) {
+        nextButton.hidden = false;
+      }
+    } else if (clientWidth > 771) {
+      if (key.length > 4) {
+        nextButton.hidden = false;
+      }
+    }
+  }
 }
-// let searchLi = document.querySelectorAll('.favorites-list__item');
-//   console.log('PPPPPP', searchLi[0].offsetWidth);
+
+//назад кнопка
+prevButton.addEventListener('click', onClickPrevBtn);
+function onClickPrevBtn(event) {
+  qtyClickBtn--;
+  if (qtyClickBtn < lenghtLiChild + 1) {
+    prevButton.hidden = true;
+    //когда дошел до конца слайда PREV пропала
+  }
+  nextButton.hidden = false;
+  choiseLii.forEach(li => {
+    li.style.transform += 'translateX(113px)';
+    li.style.transitionDuration = 500 + 'ms';
+  });
+  
+}
+
+//вперед кнопка
+nextButton.addEventListener('click', onClickNextBtn);
+function onClickNextBtn(event) {
+  let clientWidth = document.documentElement.clientWidth;
+  let lenghtLiChild = favoritesUl.children.length;
+  // console.log(lenghtLiChild);
+  qtyClickBtn++;
+  if (qtyClickBtn > lenghtLiChild - 3 && clientWidth < 770) {
+    nextButton.hidden = true;
+    // console.log(' work MOB');
+    // когда долистал до конца пропала кнопка Next
+  } else if (qtyClickBtn > lenghtLiChild - 5 && clientWidth > 771) {
+    nextButton.hidden = true;
+    // console.log('work TABLET');
+  }
+
+  prevButton.hidden = false;
+  //когда пролистал вправо появилась PREV
+  console.log(widthArray);
+  
+  choiseLii.forEach(li => {
+    li.style.transform += 'translateX(-113px)';
+    li.style.transitionDuration = 500 + 'ms';
+  });
+  receiveLenghtLi();
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let quantityLi = favoritesUl.children.length;
-// if(quantityLi <= 2 && mainDiv.offsetWidth <= 280){
-//   nextButton.hidden = true,
-//   prevButton.hidden = true
-// }else if(quantityLi <= 3 && mainDiv.offsetWidth <= 492){
-//   nextButton.hidden = true,
-//   prevButton.hidden = true
-// }else if(quantityLi <= 4 && mainDiv.offsetWidth <= 520){
-//   nextButton.hidden = true,
-//   prevButton.hidden = true
-// }
 favorites.addEventListener('click', onClickFavorites);
 let city = input;
 function onClickFavorites(e) {
@@ -94,6 +103,8 @@ function onClickFavorites(e) {
     favoritesUl.innerHTML = '';
     setDataInLS(city);
     getDataFromLS();
+    favorites.classList.add('bgNew');
+    checkQtyLi();
   } else {
     PNotify.defaults.delay = 1200;
     PNotify.error({
@@ -101,6 +112,7 @@ function onClickFavorites(e) {
       text: 'Enter city!',
     });
   }
+
 }
 function setDataInLS(city) {
   const lsData = localStorage.getItem('town');
@@ -126,26 +138,27 @@ function getDataFromLS() {
     const markup = favoritesLocal({ parsedSettings });
     favoritesUl.insertAdjacentHTML('beforeend', markup);
   }
+  checkQtyLi();
 }
 getDataFromLS();
 if (favoritesUl.children.length) {
-  const favoritesBtn = document.querySelector('.favorites-list__item-close');
-  const li = document.querySelector('.favorites-list__item');
-  const favoritesLink = document.querySelector('.favorites-list__item-link');
   favoritesUl.addEventListener('click', onClickLink);
   function onClickLink(e) {
     e.preventDefault();
     if (e.target === e.currentTarget) {
       return;
+    } else if (e.target.tagName === 'BUTTON') {
+      // console.log('e.target.dataset.text ', e.target.dataset.text);
+      // console.log('e.target.parentNode ', e.target.parentNode);
+      // console.log('e.target.closest(".favorites-list__item")', e.target.closest('.favorites-list__item'));
+      const lsData = JSON.parse(localStorage.getItem('town'));
+      const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
+      localStorage.setItem('town', JSON.stringify(lsDataFilter));
+      e.target.parentNode.remove();
+    } else {
+      services.city = input.value = e.target.textContent;
+      GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+      favorites.classList.add('bgNew');
     }
-    services.city = input.value = e.target.textContent;
-    GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
-  }
-  favoritesBtn.addEventListener('click', btnDelet);
-  function btnDelet(e) {
-    const lsData = JSON.parse(localStorage.getItem('town'));
-    const lsDataFilter = lsData.filter(arr => arr.indexOf([1]));
-    li.remove();
-    localStorage.removeItem('town', lsDataFilter);
   }
 }
