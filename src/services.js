@@ -118,7 +118,11 @@ export default {
       .then(response => response.json())
       .then(parsedResponse => {
         console.log('parsedResponse', parsedResponse);
-        const rand = Math.floor(Math.random() * parsedResponse.hits.length);
+        let rand = Math.floor(Math.random() * parsedResponse.hits.length);
+        console.log(rand);
+            // if(parsedResponse.hits[rand].tags.match(/(girl)(boobs)/g)!==null||parsedResponse.hits[rand].pageURL.match(/(photos)/) !== null){rand = Math.floor(Math.random() * parsedResponse.hits.length);}
+          
+
         const mainDiv = document.querySelector('.background-image');
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
       })
