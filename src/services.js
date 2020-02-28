@@ -5,6 +5,7 @@ import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
 import FiveDaysSmall from './components/FiveDaysSmall/FiveDaysSmall';
+import {repaintNewHoursWeatherOnSubmitForm} from './components/MoreInfo/MoreInfo';
 
 import {onClickFavorites} from './components/FavoriteList/FavoriteList';
 
@@ -105,6 +106,7 @@ export default {
         this.blockSection = 'fiveDay';
         GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
         FiveDaysSmall(res);
+        repaintNewHoursWeatherOnSubmitForm(res);
         console.log('getFiveDayWeather', this);
         GlobalEmitter.emit(
           GlobalEmitter.ON_WEATHER_READY,
