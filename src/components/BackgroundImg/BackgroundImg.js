@@ -1,8 +1,4 @@
-import css from'./BackgroundImg.css';
-import spinner from '../Loader/loader.css';
-import spinner from '../Loader/loader.js';
-
-
+import './BackgroundImg.css';
 
 const baseUrl = 'https://pixabay.com/api/';
 const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';

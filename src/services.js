@@ -57,7 +57,6 @@ export default {
   },
 
   getTodayWeather(city) {
-    loader.show();
     this.today = null;
     this.fiveDay = null;
     fetch(baseUrlForTodayWeather + city)
@@ -73,7 +72,6 @@ export default {
         return res.json();
       })
       .then(res => {
-        loader.hide();
         this.today = res;
         this.blockSection = 'today';
         renderDataInDom(res);
