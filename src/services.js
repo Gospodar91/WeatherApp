@@ -4,8 +4,14 @@ import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons.js';
 import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
+<<<<<<< HEAD
 import  '../src/components/Loader/loader.css'
 import loader from  '../src/components/Loader/loader.js'
+=======
+import FiveDaysSmall from './components/FiveDaysSmall/FiveDaysSmall';
+
+import {onClickFavorites} from './components/FavoriteList/FavoriteList';
+>>>>>>> dev
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -66,6 +72,7 @@ export default {
             title: 'NOTICE!',
             text: "Can't show such city!",
           });
+          document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
         }
         return res.json();
       })
@@ -77,10 +84,12 @@ export default {
         buildDataWindowLayout(res);
         console.log('getTodayWeather ', this);
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
+        document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
       })
 
       .catch(err => {
         console.error('hellooo');
+        document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
       });
   },
 
@@ -95,6 +104,7 @@ export default {
             title: 'NOTICE!',
             text: 'Please write correct city!',
           });
+          document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
         }
         return res.json();
       })
@@ -102,15 +112,17 @@ export default {
         this.fiveDay = res;
         this.blockSection = 'fiveDay';
         GlobalEmitter.emit(GlobalEmitter.ON_GRAPH_READY, res);
-        // showTemperature(res);
+        FiveDaysSmall(res);
         console.log('getFiveDayWeather', this);
         GlobalEmitter.emit(
           GlobalEmitter.ON_WEATHER_READY,
           res.list[0].weather[0].main,
         );
+        document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
       })
       .catch(error => {
         console.error('error', error);
+        document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
       });
   },
   
@@ -123,7 +135,11 @@ export default {
       .then(parsedResponse => {
         
         console.log('parsedResponse', parsedResponse);
-        const rand = Math.floor(Math.random() * parsedResponse.hits.length);
+        let rand = Math.floor(Math.random() * parsedResponse.hits.length);
+        // console.log(rand);
+            // if(parsedResponse.hits[rand].tags.match(/(girl)(boobs)/g)!==null||parsedResponse.hits[rand].pageURL.match(/(photos)/) !== null){rand = Math.floor(Math.random() * parsedResponse.hits.length);}
+          
+
         const mainDiv = document.querySelector('.background-image');
        
        // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
