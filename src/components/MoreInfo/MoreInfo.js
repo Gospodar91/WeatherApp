@@ -1,38 +1,50 @@
 import './MoreInfo.css';
-import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
 import res from '../../services.js';
+import moment from 'moment';
+let day;
+
 const refs = {
-    moreInfoFirstDay: document.querySelector('.js-FiveDaysWeaterList__firstDay'),
-    moreInfoSecondDay: document.querySelector('.js-FiveDaysWeaterList__secondDay'),
-    containerWeatherForFirstDay: document.querySelector('.js-MoreInfoFirstDay'),
-    containerWeatherForSecondDay: document.querySelector('.js-MoreInfoSecondDay'),
-    containerWeatherForThirdDay: document.querySelector('.js-MoreInfoSecondDay'),
-    containerWeatherForForthDay: document.querySelector('.js-MoreInfoSecondDay'),
-    containerWeatherForFifthDay: document.querySelector('.js-MoreInfoSecondDay'),
-    setTemperature: document.querySelector('.more-info-item__set-temperature'),
-    setPressure: document.querySelector('.more-info-item__pressure-value'),
-    setHumidity: document.querySelector('.more-info-item__humidity-value'),
-    setWind: document.querySelector('.more-info-item__wind-value'),
+  fiveDaysList: document.querySelector('.FiveDaysWeaterList'),
+  hourlyWeather: document.querySelector('.hourly-weather'),
+  fiveDaysItem: document.querySelector('.FiveDaysWeaterList__item'),
+  containerMoreInfo: document.querySelector('.MoreInfo'),
+};
+
+refs.fiveDaysList.addEventListener('click', handlerWeatherDay);
+
+function handlerWeatherDay(event) {
+  if (event.currentTarget === event.target) {
+    return;
+  }
+  refs.containerMoreInfo.style.display = 'block';
+  const dataAtribute = event.target.getAttribute('data-day');
+  day = dataAtribute;
+  const newArray = filterArray(res.fiveDay['list'], day);
+  clearHourlyWeatherContainer();
+
+  const markupHourlyWeather = newArray.reduce(
+    (acc, city) => {
+      return acc + `<li class="more-info-item more-info-item__time-00-00">
+      <p class="more-info-item__set-time">${moment(city['dt'] * 1000).format('LT')}</p>
+      <img class="more-info-item__set-img" src="https://openweathermap.org/img/w/${city.weather[0].icon}.png" alt="">
+      <p class="more-info-item__set-temperature">${parseInt(city.main.temp)}&deg;</p>
+      <div class="more-info-item__weather-details">
+        <p class="more-info-item__pressure-value">${city.main.pressure}mm</p>
+        <p class="more-info-item__humidity-value">${city.main.humidity}%</p>
+        <p class="more-info-item__wind-value">${city.wind.speed}m/s</p>
+      </div>
+    </li>`
+    },
+    "",);
+
+
+  refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
 }
 
-export default function showTemperature (res) {
-    refs.setTemperature.textContent = `${res.list[0].main.temp}`;
-    refs.setPressure.textContent = `${res.list[0].main['pressure']}mm`;
-    refs.setHumidity.textContent = `${res.list[0].main['humidity']}%`;
-    refs.setWind.textContent = `${res.list[0].wind['speed']}m/s`;
-    console.log('ooooooo',res.list[0].wind['speed'])
-  };
-
-// refs.moreInfoFirstDay.addEventListener('click', handlerWeatherForFirstDay);
-// refs.moreInfoSecondDay.addEventListener('click', handlerWeatherForSecondDay);
-
-
-function handlerWeatherForFirstDay(event) {
-    refs.containerWeatherForFirstDay.style.display = 'block';
-    refs.containerWeatherForSecondDay.style.display = 'none';
+function filterArray(array, letDay) {
+  return array.filter(item => moment(item['dt'] * 1000).format('D') == letDay);
 }
 
-function handlerWeatherForSecondDay(event) {
-    refs.containerWeatherForFirstDay.style.display = 'none';
-    refs.containerWeatherForSecondDay.style.display = 'block';
+function clearHourlyWeatherContainer() {
+  refs.hourlyWeather.innerHTML = '';
 }
