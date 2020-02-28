@@ -30,10 +30,10 @@ function buildDataWindowLayout(data) {
     const utc = localTime + localOffset;
     const timeDifference = utc + 1000 * data.timezone;
     const actualTime = new Date(timeDifference);
-    dayNow.innerHTML = days[actualTime.getDay()] + ` ` + actualTime.getDate();
-    monthNow.innerHTML = months[actualTime.getMonth()];
+    dayNow.textContent = days[actualTime.getDay()] + ` ` + actualTime.getDate();
+    monthNow.textContent = months[actualTime.getMonth()];
 
-    timeNow.innerHTML =
+    timeNow.textContent =
       pad(actualTime.getHours()) +
       `:` +
       pad(actualTime.getMinutes()) +
