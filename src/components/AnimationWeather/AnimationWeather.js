@@ -93,7 +93,5 @@ class AnimationWeather {
 const exStartAnimation = new AnimationWeather('.animationweather-special');
 GlobalEmitter.on(GlobalEmitter.ON_WEATHER_READY, exStartAnimation.startAnimation.bind(exStartAnimation));
 
-function buildWeatherAnimayionHour(e){
-  console.log(e);
-}
+
 
