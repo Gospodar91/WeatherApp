@@ -75,9 +75,7 @@
   transform: rotate(180deg);
   transition: transform 0.5s linear;
 }
-.myChart{
-  
-}
+
 .chartDiv {
   padding-top: 20px;
   height: 500px;
@@ -122,7 +120,7 @@
   }
   .schedule {
     width: 1060px;
-    height: 550px;
+    height: 520px;
   }
   .chartDiv::before{
     left: 100px;

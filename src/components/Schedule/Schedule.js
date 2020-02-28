@@ -33,29 +33,29 @@ export default function findScheduleData(data) {
   dataArray.map(day => {
     const dt = day.dt_txt.split(' ')[0];
     tempAverage[dt] = tempAverage[dt]
-      ? tempAverage[dt] + day.main.temp / SCREEN_VISIBLE_DAYS
-      : day.main.temp / SCREEN_VISIBLE_DAYS;
+      ? tempAverage[dt] + day.main.temp / PERIODS_IN_ONE_DAY
+      : day.main.temp / PERIODS_IN_ONE_DAY;
   });
 
   dataArray.map(day => {
     const dt = day.dt_txt.split(' ')[0];
     humidityAverage[dt] = humidityAverage[dt]
-      ? humidityAverage[dt] + day.main.humidity / SCREEN_VISIBLE_DAYS
-      : day.main.humidity / SCREEN_VISIBLE_DAYS;
+      ? humidityAverage[dt] + day.main.humidity / PERIODS_IN_ONE_DAY
+      : day.main.humidity / PERIODS_IN_ONE_DAY;
   });
 
   dataArray.map(day => {
     const dt = day.dt_txt.split(' ')[0];
     windspeedAverage[dt] = windspeedAverage[dt]
-      ? windspeedAverage[dt] + day.wind.speed / SCREEN_VISIBLE_DAYS
-      : day.wind.speed / SCREEN_VISIBLE_DAYS;
+      ? windspeedAverage[dt] + day.wind.speed / PERIODS_IN_ONE_DAY
+      : day.wind.speed / PERIODS_IN_ONE_DAY;
   });
 
   dataArray.map(day => {
     const dt = day.dt_txt.split(' ')[0];
     pressureAverage[dt] = pressureAverage[dt]
-      ? pressureAverage[dt] + day.main.pressure / SCREEN_VISIBLE_DAYS
-      : day.main.pressure / SCREEN_VISIBLE_DAYS;
+      ? pressureAverage[dt] + day.main.pressure / PERIODS_IN_ONE_DAY
+      : day.main.pressure / PERIODS_IN_ONE_DAY;
   });
 
   const datesArr = fiveDaysArr.map(day =>
