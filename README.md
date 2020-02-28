@@ -1,6 +1,6 @@
 ## Правила работы на проекте
 Для начала нужно создать ветку и  склонировать реппозиторий 
-Работа с гитом https://docs.google.com/document/d/1y-nMdpPIIP83rbqPYt6kM_KXMC83UPbkbxKqgaHlnfI/edit
+Работа с гитом https://docs.google.com/docu css'ment/d/1y-nMdpPIIP83rbqPYt6kM_KXMC83UPbkbxKqgaHlnfI/edit
 1)Работаем по BEM.Обязательно
 2)ваши файлы находяться по адресу /src/components/название вашей секции
 !!ВНИМАНИЕ!! 

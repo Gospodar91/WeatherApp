@@ -1,39 +1,74 @@
 import './Schedule.css';
+import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter.js';
 import moment from 'moment';
 import Chart from 'chart.js';
 const ctx = document.getElementById('myChart');
 const chartDiv = document.querySelector('.chartDiv');
 import datajson from './data.json';
-console.log('Schedule data', datajson);
 const scheduleButtons = document.querySelector('.schedule__div');
 const scheduleButtonText = document.querySelector('.show-charts');
 const ellipse = document.querySelector('.ellipse-img');
 const scheduleSection = document.querySelector('#schedule');
-import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-// GlobalEmitter.on(GlobalEmitter.ON_GRAPH_READY, onGraphReady);
-// function onGraphReady(data){
-// }
 let initData;
+let tempAverage = {};
+let humidityAverage = {};
+let windspeedAverage = {};
+let pressureAverage = {};
+GlobalEmitter.on(GlobalEmitter.ON_GRAPH_READY, findScheduleData);
 
-function findScheduleData(data) {
+export default function findScheduleData(data) {
+  tempAverage = {};
+  humidityAverage = {};
+  windspeedAverage = {};
+  pressureAverage = {};
   const dataArray = data.list;
   const SCREEN_VISIBLE_DAYS = 5;
   const PERIODS_IN_ONE_DAY = dataArray.length / SCREEN_VISIBLE_DAYS; // 8
   const fiveDaysArr = dataArray.filter(
     day => dataArray.indexOf(day) % PERIODS_IN_ONE_DAY === 0,
   );
-  const daysArr = fiveDaysArr.map(day => moment(day.dt * 1000).format('dddd'));
+  console.log('Data', data);
+  console.log('DataArray', dataArray);
+
+  dataArray.map(day => {
+    const dt = day.dt_txt.split(' ')[0];
+    tempAverage[dt] = tempAverage[dt]
+      ? tempAverage[dt] + day.main.temp / PERIODS_IN_ONE_DAY
+      : day.main.temp / PERIODS_IN_ONE_DAY;
+  });
+
+  dataArray.map(day => {
+    const dt = day.dt_txt.split(' ')[0];
+    humidityAverage[dt] = humidityAverage[dt]
+      ? humidityAverage[dt] + day.main.humidity / PERIODS_IN_ONE_DAY
+      : day.main.humidity / PERIODS_IN_ONE_DAY;
+  });
+
+  dataArray.map(day => {
+    const dt = day.dt_txt.split(' ')[0];
+    windspeedAverage[dt] = windspeedAverage[dt]
+      ? windspeedAverage[dt] + day.wind.speed / PERIODS_IN_ONE_DAY
+      : day.wind.speed / PERIODS_IN_ONE_DAY;
+  });
+
+  dataArray.map(day => {
+    const dt = day.dt_txt.split(' ')[0];
+    pressureAverage[dt] = pressureAverage[dt]
+      ? pressureAverage[dt] + day.main.pressure / PERIODS_IN_ONE_DAY
+      : day.main.pressure / PERIODS_IN_ONE_DAY;
+  });
+
   const datesArr = fiveDaysArr.map(day =>
-    moment(day.dt * 1000).format('Do MMM'),
+    moment(day.dt * 1000).format('Do MMM YYYY'),
   );
-  const temp = fiveDaysArr.map(day => parseInt(day.main.temp));
-  const humidity = fiveDaysArr.map(day => parseInt(day.main.humidity));
-  const pressure = fiveDaysArr.map(day => parseInt(day.main.pressure));
-  const wind = fiveDaysArr.map(day => parseInt(day.wind.speed));
-   initData = {
+  const temp = Object.values(tempAverage).map(temp => Math.floor(temp));
+  const humidity = Object.values(humidityAverage).map(hum => Math.round(hum));
+  const pressure = Object.values(pressureAverage).map(pres => Math.round(pres));
+  const wind = Object.values(windspeedAverage).map(wind => Math.round(wind));
+  initData = {
     type: 'line',
     data: {
-      labels: [...daysArr],
+      labels: [...datesArr],
       datasets: [
         {
           data: [...temp],
@@ -62,6 +97,18 @@ function findScheduleData(data) {
       ],
     },
   };
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    ctx.height = 100;
+    myChart = new Chart(ctx, initData);
+  }
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    ctx.height = 100;
+    myChart = new Chart(ctx, initData);
+  }
+  if (window.matchMedia('(min-width: 320px)').matches) {
+    ctx.height = 500;
+    myChart = new Chart(ctx, initData);
+  }
 }
 
 let myChart;
@@ -79,19 +126,4 @@ function openChart(e) {
     scheduleSection.classList.add('none-schedule');
   }
   chartDiv.classList.toggle('none-chart');
-}
-if (window.matchMedia('(min-width: 1280px)').matches) {
-  findScheduleData(datajson)
-  ctx.height = 100;
-  myChart = new Chart(ctx, initData);
-}
-if (window.matchMedia('(min-width: 768px)').matches) {
-  findScheduleData(datajson)
-  ctx.height = 100;
-  myChart = new Chart(ctx, initData);
-}
-if (window.matchMedia('(min-width: 320px)').matches) {
-  findScheduleData(datajson)
-  ctx.height = 500;
-  myChart = new Chart(ctx, initData);
 }
