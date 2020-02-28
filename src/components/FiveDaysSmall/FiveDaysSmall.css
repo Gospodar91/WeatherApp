@@ -21,7 +21,7 @@
 .FiveDaysWeaterList__item {
   display: flex;
   flex-direction: column;
-  width: 58px;
+  width: 60px;
   border-radius: 25px;
 }
 
@@ -110,7 +110,7 @@
     padding: 43px 0px 45px;
   }
   .FiveDaysWeaterList__item {
-    width: 78px;
+    width: 80px;
   }
   .FiveDaysWeaterList{
     margin: 0 auto;
@@ -147,7 +147,7 @@
   .FiveDaysWeaterList__item,
   .FiveDaysWeaterList__item--min-max-label,
   .FiveDaysWeaterList__item--min-max {
-    width: 105px;
+    width: 108px;
   }
   .FiveDaysWeaterList__item--day {
     font-size: 18px;
