@@ -1,7 +1,8 @@
 .FiveDaysSmall {
   height: 272px;
   text-align: center;
-  padding: 30px 0px 15px;
+  padding: 30px 20px 15px;
+  overflow: hidden;
 }
 
 .FiveDaysSmallAndMoreInfo{
@@ -12,8 +13,7 @@
 }
 
 .FiveDaysWeaterList {
-  width: 224px;
-  margin: 0 auto;
+  width: 225px;
   display: flex;
   justify-content: space-between;
 }
@@ -21,8 +21,12 @@
 .FiveDaysWeaterList__item {
   display: flex;
   flex-direction: column;
-  width: 58px;
+  width: 60px;
   border-radius: 25px;
+}
+
+.FiveDaysWeaterList__item:not(:last-child){
+  margin-right: 25px;
 }
 
 .FiveDaysWeaterList__item:hover {
@@ -46,14 +50,14 @@
 }
 
 .FiveDaysWeaterList__item--min-max-label {
-  width: 58px;
+  width: 60px;
   display: flex;
   justify-content: space-between;
   position: relative;
 }
 .FiveDaysWeaterList__item--min-max-label::after {
   content: '';
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   opacity: 0.2;
   position: absolute;
   width: 1px;
@@ -63,7 +67,7 @@
 }
 
 .FiveDaysWeaterList__item--min-max {
-  width: 58px;
+  width: 60px;
   display: flex;
   justify-content: space-around;
   margin-bottom: 7px;
@@ -75,6 +79,7 @@
   text-decoration: underline;
   cursor: pointer;
   margin-bottom: 4px;
+  outline: none;
 }
 
 .FiveDaysSmall__navBtn {
@@ -85,7 +90,21 @@
   width: 32px;
   height: 32px;
   margin: 0px 13px;
+  outline: none;
+  border-radius: 50%;
 }
+
+.FiveDaysSmall__navBtn:hover{
+  background-color:rgb(255, 255, 255, 0.12);
+}
+
+.FiveDaysSmall__navBtn--left,
+.FiveDaysSmall__navBtn--right{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
 
 @media (max-width: 768px) {
   .FiveDaysSmall__city-tablet {
@@ -110,7 +129,7 @@
     padding: 43px 0px 45px;
   }
   .FiveDaysWeaterList__item {
-    width: 78px;
+    width: 80px;
   }
   .FiveDaysWeaterList{
     margin: 0 auto;
@@ -142,12 +161,13 @@
     padding: 36px 0px 0px;
   }
   .FiveDaysWeaterList{
+    justify-content: space-between;
     width: 855px;
   }
   .FiveDaysWeaterList__item,
   .FiveDaysWeaterList__item--min-max-label,
   .FiveDaysWeaterList__item--min-max {
-    width: 105px;
+    width: 108px;
   }
   .FiveDaysWeaterList__item--day {
     font-size: 18px;
