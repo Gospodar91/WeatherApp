@@ -54,7 +54,7 @@ nextArrow.addEventListener('click', handlerNextHour);
 prevArrow.addEventListener('click', handlerPrevHour);
 
 function handlerNextHour(event) {
-  if(currentStep >= 3){
+  if(currentStep >= 2){
     return
   }
   currentStep++;
@@ -68,11 +68,11 @@ function handlerPrevHour(event) {
   setPositionLeft();
 }
 function setPositionRight() {
-  fiveDaysList.style.transform += `translateX(-60px)`;
+  fiveDaysList.style.transform += `translateX(-84px)`;
   fiveDaysList.style.transitionDuration = '500ms';
 }
 function setPositionLeft() {
-  fiveDaysList.style.transform += `translateX(60px)`;
+  fiveDaysList.style.transform += `translateX(84px)`;
   fiveDaysList.style.transitionDuration = '500ms';
 }
 ///////////SLIDER//
