@@ -1,5 +1,4 @@
 .favorites {
-  padding-bottom: 13px;
   display: flex;
   justify-content: space-between;
   width: 280px;
@@ -13,6 +12,7 @@
   overflow-y: scroll;
   margin: 0 auto;
   width: 220px;
+  height: 47px;
 }
 
 .favorites-list::-webkit-scrollbar { 
@@ -41,6 +41,7 @@
   color: #ffffff;
   font-family: 'Lato', sans-serif;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .favorites-list__item-close {
@@ -67,8 +68,8 @@
   outline: none;
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
-
 .favourite-prev {
   border-radius: 50%;
   border: none;
@@ -80,8 +81,8 @@
   transform: rotate(180deg);
   outline: none;
   position: absolute;
+  cursor: pointer;
 }
-
 
 @media (min-width: 768px) {
   .favorites {

@@ -35,9 +35,7 @@ function receiveLenghtLi (){
 //функция для отрисовки и удаления кнопок
 function checkQtyLi() {
   if (favoritesUl.children.length) {
-    console.log('OOOO', favoritesUl.lastElementChild.lastChild);
     let key = JSON.parse(localStorage.getItem('town'));
-    console.log(key.length);
     if (clientWidth < 771) {
       if (key.length > 2) {
         nextButton.hidden = false;
@@ -52,7 +50,8 @@ function checkQtyLi() {
 
 //назад кнопка
 prevButton.addEventListener('click', onClickPrevBtn);
-function onClickPrevBtn(event) {
+function onClickPrevBtn() {
+  checkQtyLi();
   qtyClickBtn--;
   if (qtyClickBtn < lenghtLiChild + 1) {
     prevButton.hidden = true;
@@ -63,8 +62,9 @@ function onClickPrevBtn(event) {
     li.style.transform += 'translateX(113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
-  
+ 
 }
+
 
 //вперед кнопка
 nextButton.addEventListener('click', onClickNextBtn);
@@ -84,15 +84,12 @@ function onClickNextBtn(event) {
 
   prevButton.hidden = false;
   //когда пролистал вправо появилась PREV
-  console.log(widthArray);
-  
   choiseLii.forEach(li => {
     li.style.transform += 'translateX(-113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
   receiveLenghtLi();
 }
-
 
 
 favorites.addEventListener('click', onClickFavorites);
@@ -103,7 +100,6 @@ function onClickFavorites(e) {
     favoritesUl.innerHTML = '';
     setDataInLS(city);
     getDataFromLS();
-    favorites.classList.add('bgNew');
     checkQtyLi();
   } else {
     PNotify.defaults.delay = 1200;
@@ -130,6 +126,7 @@ function setDataInLS(city) {
   } else {
     localStorage.setItem('town', JSON.stringify([city]));
   }
+
 }
 function getDataFromLS() {
   const lsData = localStorage.getItem('town');
@@ -137,9 +134,12 @@ function getDataFromLS() {
     const parsedSettings = JSON.parse(lsData);
     const markup = favoritesLocal({ parsedSettings });
     favoritesUl.insertAdjacentHTML('beforeend', markup);
+    checkQtyLi();
   }
   checkQtyLi();
+
 }
+
 getDataFromLS();
 if (favoritesUl.children.length) {
   favoritesUl.addEventListener('click', onClickLink);
@@ -148,9 +148,6 @@ if (favoritesUl.children.length) {
     if (e.target === e.currentTarget) {
       return;
     } else if (e.target.tagName === 'BUTTON') {
-      // console.log('e.target.dataset.text ', e.target.dataset.text);
-      // console.log('e.target.parentNode ', e.target.parentNode);
-      // console.log('e.target.closest(".favorites-list__item")', e.target.closest('.favorites-list__item'));
       const lsData = JSON.parse(localStorage.getItem('town'));
       const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
       localStorage.setItem('town', JSON.stringify(lsDataFilter));
