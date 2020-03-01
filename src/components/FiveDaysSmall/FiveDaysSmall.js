@@ -1,15 +1,4 @@
 import './FiveDaysSmall.css';
-// const $ = require("jquery");
-// import  'slick-carousel/slick/slick.css'
-// import slick from 'slick-carousel/slick/slick.js'
-
-//   $('.FiveDaysWeaterList').slick({
-//     infinite: true,
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     prevArrow: '.FiveDaysSmall__navBtn--left',
-//     nextArrow: '.FiveDaysSmall__navBtn--right'
-//   });
 import fiveDaysTemplate from './5-days-template.hbs';
 const moment = require('moment');
 const fiveDaysList = document.querySelector('.FiveDaysWeaterList');
@@ -31,16 +20,14 @@ function parseData(obj) {
   const datesArr = fiveDaysArr.map(day => moment(day.dt * 1000).format("DD MMM"));
   const iconsArr = fiveDaysArr.map(day => day.weather[0].icon);
   const daysForGalaArr = fiveDaysArr.map(day => moment(day.dt * 1000).format('D'));
-  const MaxTempFromFiveDaysArr = daysForGalaArr.map(DAY => { 
+  const MaxTempFromFiveDaysArr = daysForGalaArr.map(DAY => {
     const maxArray = dataArray.filter(day => moment(day.dt * 1000).format('D') == DAY).map(day => day.main.temp_max);
-    return Math.round(Math.max(...maxArray)); 
+    return Math.round(Math.max(...maxArray));
   });
-  const MinTempFromFiveDaysArr = daysForGalaArr.map(DAY => { 
+  const MinTempFromFiveDaysArr = daysForGalaArr.map(DAY => {
     const maxArray = dataArray.filter(day => moment(day.dt * 1000).format('D') == DAY).map(day => day.main.temp_max);
-    return Math.round(Math.min(...maxArray)); 
+    return Math.round(Math.min(...maxArray));
   });
-  //const minArr = fiveDaysArr.map(day => Math.round(day.main.temp_min));
-  //const maxArr = fiveDaysArr.map(day => Math.round(day.main.temp_max));
 
   const fiveDaysData = [{}, {}, {}, {}, {}];
 
@@ -57,3 +44,35 @@ function parseData(obj) {
 }
 
 export default parseData;
+
+///////////SLIDER//
+const prevArrow = document.querySelector('.FiveDaysSmall__navBtn--left'); 
+const nextArrow = document.querySelector('.FiveDaysSmall__navBtn--right'); 
+let currentStep = 0;
+
+nextArrow.addEventListener('click', handlerNextHour);
+prevArrow.addEventListener('click', handlerPrevHour);
+
+function handlerNextHour(event) {
+  if(currentStep >= 2){
+    return
+  }
+  currentStep++;
+  setPositionRight();
+}
+function handlerPrevHour(event) {
+  if(currentStep <= 0){
+    return
+  }
+  currentStep--;
+  setPositionLeft();
+}
+function setPositionRight() {
+  fiveDaysList.style.transform += `translateX(-84px)`;
+  fiveDaysList.style.transitionDuration = '500ms';
+}
+function setPositionLeft() {
+  fiveDaysList.style.transform += `translateX(84px)`;
+  fiveDaysList.style.transitionDuration = '500ms';
+}
+///////////SLIDER//

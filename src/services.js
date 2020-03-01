@@ -138,8 +138,16 @@ export default {
           
 
         const mainDiv = document.querySelector('.background-image');
+<<<<<<< HEAD
         mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
         // document.querySelector('#wrapper-body').classList.remove('visually-hidden');
+=======
+       
+       // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       mainDiv1.style.height = mainDiv.clientHeight + 'px';
+       mainDiv1.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+       mainDiv1.querySelector('img').src = parsedResponse.hits[rand].largeImageURL;
+>>>>>>> 08ef0c273674d519d96a5a4375edbc84175fe672
       })
       .catch(error => {
         console.error('getImgBackground error', error);
