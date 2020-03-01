@@ -27,8 +27,8 @@ export default function findScheduleData(data) {
   const fiveDaysArr = dataArray.filter(
     day => dataArray.indexOf(day) % PERIODS_IN_ONE_DAY === 0,
   );
-  console.log('Data', data);
-  console.log('DataArray', dataArray);
+  // console.log('Data', data);
+  // console.log('DataArray', dataArray);
 
   dataArray.map(day => {
     const dt = day.dt_txt.split(' ')[0];

@@ -126,12 +126,12 @@ export default {
   getImgBackground(cityName) {
     const baseUrl = 'https://pixabay.com/api/';
     const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
-    const requestParams = `?image_type=photo&orientation=horizontal&category=travel&q=${cityName}&page=1&per_page=30`;
+    const requestParams = `?image_type=photo&orientation=horizontal&category=buildings&q=${cityName}&page=1&per_page=30`;
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
         
-        console.log('parsedResponse', parsedResponse);
+        // console.log('parsedResponse', parsedResponse);
         let rand = Math.floor(Math.random() * parsedResponse.hits.length);
         // console.log(rand);
             // if(parsedResponse.hits[rand].tags.match(/(girl)(boobs)/g)!==null||parsedResponse.hits[rand].pageURL.match(/(photos)/) !== null){rand = Math.floor(Math.random() * parsedResponse.hits.length);}
