@@ -6,7 +6,6 @@ import PNotify from '../../../node_modules/pnotify/dist/es/PNotify.js';
 import PNotifyButtons from '../../../node_modules/pnotify/dist/es/PNotifyButtons.js';
 import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
 
-
 const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
 const favoritesUl = document.querySelector('.favorites-list');
@@ -21,18 +20,7 @@ let choiseLii = favoritesUl.children;
 let lenghtLiChild = favoritesUl.children.length;
 let clientWidth = document.documentElement.clientWidth;
 
-
-let widthArray=[0];
-
-function receiveLenghtLi (){ 
-  let searchLi = document.querySelectorAll('.favorites-list__item');
-  for(let i= 0; i<searchLi.length; i++){
-  widthArray.push(searchLi[i].offsetWidth);
-  }
-}
-
-
-//функция для отрисовки и удаления кнопок
+//function for drawing and deleting buttons
 function checkQtyLi() {
   if (favoritesUl.children.length) {
     let key = JSON.parse(localStorage.getItem('town'));
@@ -48,58 +36,46 @@ function checkQtyLi() {
   }
 }
 
-//назад кнопка
+//left button
 prevButton.addEventListener('click', onClickPrevBtn);
-function onClickPrevBtn() {
-  checkQtyLi();
+function onClickPrevBtn(event) {
   qtyClickBtn--;
   if (qtyClickBtn < lenghtLiChild + 1) {
     prevButton.hidden = true;
-    //когда дошел до конца слайда PREV пропала
   }
   nextButton.hidden = false;
   choiseLii.forEach(li => {
     li.style.transform += 'translateX(113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
- 
 }
 
-
-//вперед кнопка
+//right button
 nextButton.addEventListener('click', onClickNextBtn);
 function onClickNextBtn(event) {
   let clientWidth = document.documentElement.clientWidth;
   let lenghtLiChild = favoritesUl.children.length;
-  // console.log(lenghtLiChild);
   qtyClickBtn++;
   if (qtyClickBtn > lenghtLiChild - 3 && clientWidth < 770) {
     nextButton.hidden = true;
-    // console.log(' work MOB');
-    // когда долистал до конца пропала кнопка Next
   } else if (qtyClickBtn > lenghtLiChild - 5 && clientWidth > 771) {
     nextButton.hidden = true;
-    // console.log('work TABLET');
   }
-
   prevButton.hidden = false;
-  //когда пролистал вправо появилась PREV
   choiseLii.forEach(li => {
     li.style.transform += 'translateX(-113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
-  receiveLenghtLi();
 }
 
-
-favorites.addEventListener('click', onClickFavorites);
 let city = input;
-function onClickFavorites(e) {
+export function onClickFavorites() {
   city = input.value;
   if (city.length >= 1) {
     favoritesUl.innerHTML = '';
     setDataInLS(city);
     getDataFromLS();
+    favorites.classList.add('bgNew');
     checkQtyLi();
   } else {
     PNotify.defaults.delay = 1200;
@@ -108,7 +84,6 @@ function onClickFavorites(e) {
       text: 'Enter city!',
     });
   }
-
 }
 function setDataInLS(city) {
   const lsData = localStorage.getItem('town');
@@ -126,7 +101,6 @@ function setDataInLS(city) {
   } else {
     localStorage.setItem('town', JSON.stringify([city]));
   }
-
 }
 function getDataFromLS() {
   const lsData = localStorage.getItem('town');
@@ -134,12 +108,9 @@ function getDataFromLS() {
     const parsedSettings = JSON.parse(lsData);
     const markup = favoritesLocal({ parsedSettings });
     favoritesUl.insertAdjacentHTML('beforeend', markup);
-    checkQtyLi();
   }
   checkQtyLi();
-
 }
-
 getDataFromLS();
 if (favoritesUl.children.length) {
   favoritesUl.addEventListener('click', onClickLink);
