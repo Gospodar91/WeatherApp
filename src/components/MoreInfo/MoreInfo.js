@@ -164,6 +164,7 @@ function handlerPrevHour(event) {
   refs.btnNext.style.display = 'block';
   setPosition();
 }
+
 let list = refs.hourlyWeather;
 function setPosition() {
   if (currentStep < 1) {

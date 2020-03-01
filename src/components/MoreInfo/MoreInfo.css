@@ -115,6 +115,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
 }
 
 .hourly-weather-prev-btn {
@@ -151,6 +152,7 @@
   position: absolute;
   top: 8px;
   right: 10px;
+  outline: none;
 }
 
 @media (min-width: 1280px) {
