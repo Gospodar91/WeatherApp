@@ -32,7 +32,7 @@ function handlerWeatherDay(event) {
   refs.galleryForItems.classList.add('visually');
 
   function handlerCloseHourlyWeather(event){
-    refs.containerMoreInfo.style.display = 'none';
+    refs.containerMoreInfo.classList.add('visually-hidden');;
     pLi.classList.add('closedMoreInfo');
   }
 
