@@ -15,6 +15,8 @@ const refs = {
   galleryForItems: document.querySelector('.gallery'),
 };
 
+
+
 refs.fiveDaysList.addEventListener('click', handlerWeatherDay);
 
 function handlerWeatherDay(event) {
@@ -22,20 +24,21 @@ function handlerWeatherDay(event) {
     return;
   }
   refs.btnClose.style.display = 'block';
+  refs.containerMoreInfo.classList.remove('visually-hidden');
   refs.containerMoreInfo.style.display = 'block';
   refs.divBtns.classList.remove('visually-hidden');
-  refs.btnClose.addEventListener('click', handlerCloseHourluWeather);
+  refs.btnClose.addEventListener('click', handlerCloseHourlyWeather);
   refs.galleryForItems.style.display = 'block';
   refs.galleryForItems.classList.add('visually');
 
-  function handlerCloseHourluWeather(event){
+  function handlerCloseHourlyWeather(event){
     refs.containerMoreInfo.style.display = 'none';
     pLi.classList.add('closedMoreInfo');
   }
 
   const dataAtribute = event.target.getAttribute('data-day');
   day = dataAtribute;
-  const newArray = (ourDays = filterArray(res.fiveDay['list'], day));
+  const newArray = ourDays = filterArray(res.fiveDay['list'], day);
 
   const elemLi = newArray.find(elem =>
     document.querySelector(`[data-day="${dataAtribute}"]`),
