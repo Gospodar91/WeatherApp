@@ -1,14 +1,14 @@
 .MoreInfo {
   padding-left: 10px;
   padding-right: 10px;
-  display: none;
+  /* display: none; */
   position: relative;
 }
 
 .hourly-weather-list {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   padding-bottom: 36px;
 }
 
@@ -140,8 +140,8 @@
 .hourly-weather-close {
   display: none;
   text-align: center;
-  width: 17px;
-  height: 17px;
+  width: 24px;
+  height: 18px;
   border-radius: 20px;
   border: none;
   color: #000;
@@ -154,6 +154,14 @@
   right: 10px;
   outline: none;
 }
+
+@media (min-width: 768px){
+  .hourly-weather-item {
+margin-right: 33px;
+  }
+}
+
+
 
 @media (min-width: 1280px) {
   .hourly-weather-item {
