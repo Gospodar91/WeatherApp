@@ -2,13 +2,14 @@
   padding-left: 10px;
   padding-right: 10px;
   display: none;
+  position: relative;
 }
 
 .hourly-weather-list {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  padding-bottom: 30px;
+  padding-bottom: 36px;
 }
 
 .hourly-weather-item {
@@ -92,12 +93,14 @@
 .hourly-weather-btns {
   display: flex;
   justify-content: center;
-  padding-bottom: 26px;
-  border-radius: 50px;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
 }
 
 .hourly-weather-prev-btn:hover,
-.hourly-weather-next-btn:hover {
+.hourly-weather-next-btn:hover,
+.hourly-weather-close:hover {
   background-color: rgb(255, 255, 255, 0.5);
   color: #fff;
 }
@@ -122,9 +125,32 @@
   margin-left: 5px;
 }
 
+.visually {
+  display: flex;
+  justify-content: left;
+}
+
 .gallery {
+  padding-top: 20px;
   overflow: hidden;
-  text-align: left;
+  display: none;
+}
+
+.hourly-weather-close {
+  display: none;
+  text-align: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 20px;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 8px;
+  right: 10px;
 }
 
 @media (min-width: 1280px) {
@@ -139,6 +165,21 @@
   .hourly-weather-list {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
+}
+
+/* class for the day  */
+
+.coloredDay p {
+  color: rgb(255, 107, 8);
+  font-weight: 600;
+}
+
+.coloredDay button {
+  color: #fff;
+}
+
+.closedMoreInfo button{
+  color: rgba(255, 255, 255, 0.3);
 }
