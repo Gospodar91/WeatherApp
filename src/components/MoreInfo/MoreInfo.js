@@ -15,6 +15,8 @@ const refs = {
   galleryForItems: document.querySelector('.gallery'),
 };
 
+
+
 refs.fiveDaysList.addEventListener('click', handlerWeatherDay);
 
 function handlerWeatherDay(event) {
@@ -22,20 +24,21 @@ function handlerWeatherDay(event) {
     return;
   }
   refs.btnClose.style.display = 'block';
-  refs.containerMoreInfo.style.display = 'block';
+  refs.containerMoreInfo.classList.remove('visually-hidden');
+  // refs.containerMoreInfo.style.display = 'block';
   refs.divBtns.classList.remove('visually-hidden');
-  refs.btnClose.addEventListener('click', handlerCloseHourluWeather);
+  refs.btnClose.addEventListener('click', handlerCloseHourlyWeather);
   refs.galleryForItems.style.display = 'block';
   refs.galleryForItems.classList.add('visually');
 
-  function handlerCloseHourluWeather(event){
-    refs.containerMoreInfo.style.display = 'none';
+  function handlerCloseHourlyWeather(event){
+    refs.containerMoreInfo.classList.add('visually-hidden');;
     pLi.classList.add('closedMoreInfo');
   }
 
   const dataAtribute = event.target.getAttribute('data-day');
   day = dataAtribute;
-  const newArray = (ourDays = filterArray(res.fiveDay['list'], day));
+  const newArray = ourDays = filterArray(res.fiveDay.list, day);
 
   const elemLi = newArray.find(elem =>
     document.querySelector(`[data-day="${dataAtribute}"]`),
@@ -159,13 +162,17 @@ function handlerNextHour(event) {
   setPosition();
 }
 
+let list = refs.hourlyWeather;
+
 function handlerPrevHour(event) {
   currentStep--;
   refs.btnNext.style.display = 'block';
+  
+  list.style.transitionDuration = '500ms';
   setPosition();
 }
 
-let list = refs.hourlyWeather;
+
 function setPosition() {
   if (currentStep < 1) {
     refs.btnPrev.style.display = 'none';
@@ -173,39 +180,40 @@ function setPosition() {
   if (currentStep + 2 >= ourDays.length) {
     refs.btnNext.style.display = 'none';
   }
-  list.style.marginLeft = -currentStep * 160 + 'px';
+  list.style.marginLeft = -currentStep * 140 + 'px';
+  list.style.transitionDuration = '500ms';
 }
 
 // for submit form, repaint hours weather
-export function repaintNewHoursWeatherOnSubmitForm(res) {
-  refs.containerMoreInfo.style.display = 'block';
-  const newArray = (ourDays = filterArray(res.list, day));
-  clearHourlyWeatherContainer();
-  const markupHourlyWeather = newArray.reduce((acc, city) => {
-    return (
-      acc +
-      `<li class="hourly-weather-item">
-      <p class="hourly-weather-item__set-time">${moment(
-        city['dt'] * 1000,
-      ).format('LT')}</p>
-      <img class="hourly-weather-item__set-img" src="https://openweathermap.org/img/w/${
-        city.weather[0].icon
-      }.png" alt="">
-      <p class="hourly-weather-item__set-temperature">${parseInt(
-        city.main.temp,
-      )}&deg;</p>
-      <div class="hourly-weather-item__weather-details">
-        <p class="hourly-weather-item__pressure-value">${
-          city.main.pressure
-        }mm</p>
-        <p class="hourly-weather-item__humidity-value">${
-          city.main.humidity
-        }%</p>
-        <p class="hourly-weather-item__wind-value">${city.wind.speed}m/s</p>
-      </div>
-    </li>`
-    );
-  }, '');
+// export function repaintNewHoursWeatherOnSubmitForm(res) {
+//   refs.containerMoreInfo.style.display = 'block';
+//   const newArray = (ourDays = filterArray(res.list, day));
+//   clearHourlyWeatherContainer();
+//   const markupHourlyWeather = newArray.reduce((acc, city) => {
+//     return (
+//       acc +
+//       `<li class="hourly-weather-item">
+//       <p class="hourly-weather-item__set-time">${moment(
+//         city['dt'] * 1000,
+//       ).format('LT')}</p>
+//       <img class="hourly-weather-item__set-img" src="https://openweathermap.org/img/w/${
+//         city.weather[0].icon
+//       }.png" alt="">
+//       <p class="hourly-weather-item__set-temperature">${parseInt(
+//         city.main.temp,
+//       )}&deg;</p>
+//       <div class="hourly-weather-item__weather-details">
+//         <p class="hourly-weather-item__pressure-value">${
+//           city.main.pressure
+//         }mm</p>
+//         <p class="hourly-weather-item__humidity-value">${
+//           city.main.humidity
+//         }%</p>
+//         <p class="hourly-weather-item__wind-value">${city.wind.speed}m/s</p>
+//       </div>
+//     </li>`
+//     );
+//   }, '');
 
-  refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
-}
+//   refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
+// }
