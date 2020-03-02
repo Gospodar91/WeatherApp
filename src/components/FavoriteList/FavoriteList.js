@@ -19,19 +19,13 @@ let qtyClickBtn = 0;
 let choiseLii = favoritesUl.children;
 let lenghtLiChild = favoritesUl.children.length;
 let clientWidth = document.documentElement.clientWidth;
-let widthArray = [];
 
-function receiveLenghtLi(event) {
-  let searchLi = document.querySelectorAll('.favorites-list__item');
-  for (let i = 0; i < searchLi.length; i++) {
-    widthArray.push(searchLi[i].offsetWidth);
-  }
-}
-
-//функция для появления и удаления кнопок
 function checkQtyLi() {
   if (favoritesUl.children.length) {
-    let key = JSON.parse(localStorage.getItem('town'));
+    let key = localStorage.getItem('town');
+    if(key) {
+     key = JSON.parse(key)
+    }
     if (clientWidth < 771) {
       if (key.length > 2) {
         nextButton.hidden = false;
@@ -44,13 +38,12 @@ function checkQtyLi() {
   }
 }
 
-//назад кнопка
+
 prevButton.addEventListener('click', onClickPrevBtn);
 function onClickPrevBtn(event) {
   qtyClickBtn--;
   if (qtyClickBtn < lenghtLiChild + 1) {
     prevButton.hidden = true;
-    //когда дошел до конца слайда PREV пропала
   }
   nextButton.hidden = false;
   choiseLii.forEach(li => {
@@ -59,7 +52,6 @@ function onClickPrevBtn(event) {
   });
 }
 
-//вперед кнопка
 nextButton.addEventListener('click', onClickNextBtn);
 function onClickNextBtn(event) {
   let clientWidth = document.documentElement.clientWidth;
@@ -67,28 +59,25 @@ function onClickNextBtn(event) {
   qtyClickBtn++;
   if (qtyClickBtn > lenghtLiChild - 3 && clientWidth < 770) {
     nextButton.hidden = true;
-    // когда долистал до конца пропала кнопка Next
   } else if (qtyClickBtn > lenghtLiChild - 5 && clientWidth > 771) {
     nextButton.hidden = true;
   }
   prevButton.hidden = false;
-  //когда пролистал вправо появилась PREV
   choiseLii.forEach(li => {
     li.style.transform += 'translateX(-113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
-  receiveLenghtLi();
 }
 
-// favorites.addEventListener('click', onClickFavorites);
+
 let city = input;
 export function onClickFavorites() {
   city = input.value;
   if (city.length >= 1) {
     favoritesUl.innerHTML = '';
+    favorites.classList.add('bgNew');
     setDataInLS(city);
     getDataFromLS();
-    // favorites.classList.add('bgNew');
     checkQtyLi();
   } else {
     PNotify.defaults.delay = 1200;
@@ -114,7 +103,6 @@ function setDataInLS(city) {
     localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
   } else {
     localStorage.setItem('town', JSON.stringify([city]));
-    document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
   }
 }
 
@@ -124,11 +112,11 @@ function getDataFromLS() {
     const parsedSettings = JSON.parse(lsData);
     const markup = favoritesLocal({ parsedSettings });
     favoritesUl.insertAdjacentHTML('beforeend', markup);
-    checkQtyLi();
   }
+  checkQtyLi();
 }
 getDataFromLS();
-
+if (favoritesUl.children.length) {
 favoritesUl.addEventListener('click', onClickLink);
 function onClickLink(e) {
   e.preventDefault();
@@ -139,14 +127,24 @@ function onClickLink(e) {
     const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
     localStorage.setItem('town', JSON.stringify(lsDataFilter));
     e.target.parentNode.remove();
+    favoritesUl.innerHTML = '';
+      getDataFromLS();
+      let clientWidth = document.documentElement.clientWidth;
+      let lenghtLiChild = favoritesUl.children.length;
+      if (lenghtLiChild === 4 && clientWidth >= 771) {
+        prevButton.hidden = true;
+        nextButton.hidden = true;
+      } else if (lenghtLiChild === 2 && clientWidth < 768) {
+        prevButton.hidden = true;
+        nextButton.hidden = true;
+      }
   } else {
     services.city = input.value = e.target.textContent;
-    //GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
     searchWeatherAndBackgroungOnCityFromLs(e.target.textContent);
     favorites.classList.add('bgNew');
   }
 }
-
+}
 function searchWeatherAndBackgroungOnCityFromLs(city){
   if(services.blockSection === 'today') {
     services.getTodayWeather(city);

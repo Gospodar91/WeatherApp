@@ -10,10 +10,16 @@
   margin-left: 24px;
   display: flex;
   justify-content: left;
-  overflow: hidden;
+  overflow-y: scroll;
   margin: 0 auto;
   width: 220px;
+  height: 47px;
 }
+
+.favorites-list::-webkit-scrollbar { 
+  width: 0; 
+}
+
 .favorites-list__item {
   height: 27px;
   padding-left: 14px;
@@ -27,13 +33,15 @@
 }
 .favorites-list__item-link {
   font-size: 12px;
-  min-width: 53px;
+  width: 53px;
   text-transform: capitalize;
   display: block;
   text-align: center;
   color: #ffffff;
   font-family: 'Lato', sans-serif;
   cursor: pointer;
+  overflow: hidden;
+  text-transform: capitalize;
 }
 .favorites-list__item-close {
   width: 24px;
@@ -74,9 +82,7 @@
   position: absolute;
   cursor: pointer;
 }
-/* .bgNew {
-  background-image: url(../../assets/icons/star-filled/star-24px.svg);
-} */
+
 @media (min-width: 768px) {
   .favorites {
     justify-content: left;
