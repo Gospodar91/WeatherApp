@@ -94,8 +94,9 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 5px;
+  bottom: -7px;
   left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hourly-weather-prev-btn:hover,
