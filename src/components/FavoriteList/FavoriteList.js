@@ -141,7 +141,17 @@ function onClickLink(e) {
     e.target.parentNode.remove();
   } else {
     services.city = input.value = e.target.textContent;
-    GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+    //GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+    searchWeatherAndBackgroungOnCityFromLs(e.target.textContent);
     favorites.classList.add('bgNew');
   }
+}
+
+function searchWeatherAndBackgroungOnCityFromLs(city){
+  if(services.blockSection === 'today') {
+    services.getTodayWeather(city);
+  } else if (services.blockSection === 'fiveDay'){
+    services.getFiveDayWeather(city);
+  }
+  services.getImgBackground(city);
 }
