@@ -111,7 +111,7 @@ function handlerWeatherDay(event) {
   const markupHourlyWeather = newArray.reduce((acc, city) => {
     return (
       acc +
-      `<li class="hourly-weather-item">
+      `<li class="hourly-weather-item" id="${city.weather[0].main}">
       <p class="hourly-weather-item__set-time">${moment(
         city['dt'] * 1000,
       ).format('LT')}</p>
