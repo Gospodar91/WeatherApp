@@ -1,21 +1,45 @@
-@media(min-width:1280px){
-    .gw-part,
-    .gw-part__item {
+@media(min-width:1280px) {
+
+  .gw-part,
+
+  .gw-part__item {
+
     z-index: 0;
+
     background-color: transparent;
-    width: 110px;
-    height: 110px;
+
+    width: 160px;
+
+    height: 160px;
+
     border-radius: 15px;
+
     position: absolute;
+
     top: calc(50% - 10px);
+
     left: calc(50% - 10px);
+
     transform: translateX(0) translateY(0);
-    border: 10px solid white;
-};
+
+    border: 5px solid rgba(255, 255, 255, 0.2);
+
+  }
+
+  ;
+
 }
-@media(max-width:1279px){
-    .gw-part,
-    .gw-part__item{
-        display: none;
-    }
-};
+
+@media(max-width:1279px) {
+
+  .gw-part,
+
+  .gw-part__item {
+
+    display: none;
+
+  }
+
+  ;
+
+}
