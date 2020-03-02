@@ -135,6 +135,12 @@ function handlerWeatherDay(event) {
   }, '');
 
   refs.hourlyWeather.insertAdjacentHTML('beforeend', markupHourlyWeather);
+  setTimeout(scroll => {
+    window.scrollTo({
+      top: 500,
+      behavior: "smooth"
+    })
+  }, 350) 
 }
 
 function filterArray(array, letDay) {

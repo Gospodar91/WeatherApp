@@ -198,3 +198,7 @@ margin-right: 33px;
 .closedMoreInfo button{
   color: rgba(255, 255, 255, 0.3);
 }
+
+.closedMoreInfo{
+  background-color: transparent;
+}
