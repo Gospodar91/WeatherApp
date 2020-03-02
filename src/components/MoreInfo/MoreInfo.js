@@ -34,6 +34,7 @@ function handlerWeatherDay(event) {
   function handlerCloseHourlyWeather(event){
     refs.containerMoreInfo.classList.add('visually-hidden');;
     pLi.classList.add('closedMoreInfo');
+    pLi.classList.remove('coloredDay');
   }
 
   const dataAtribute = event.target.getAttribute('data-day');
