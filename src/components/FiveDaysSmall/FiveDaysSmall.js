@@ -31,7 +31,7 @@ function parseData(obj) {
 
   const fiveDaysData = [{}, {}, {}, {}, {}];
 
-  daysArr.forEach((el, i) => { fiveDaysData[i].day = el });
+  daysArr.forEach((el, i) => { fiveDaysData[i].day = el; fiveDaysData[i].weather = obj.list[i].weather[0].main;});
   datesArr.forEach((el, i) => { fiveDaysData[i].date = el });
   iconsArr.forEach((el, i) => { fiveDaysData[i].icon = el });
   MinTempFromFiveDaysArr.forEach((el, i) => { fiveDaysData[i].min = el });

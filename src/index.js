@@ -59,6 +59,8 @@ function showQuote() {
 
 function buildWeatherAnimayionHour(e) {
   GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.id);
+  GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.dataset.weather);
+
 }
 
 setInterval(showQuote, 8000);

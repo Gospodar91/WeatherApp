@@ -17,6 +17,9 @@
   display: flex;
   justify-content: space-between;
 }
+.FiveDaysWeaterList__item * {
+  pointer-events: none;
+}
 
 .FiveDaysWeaterList__item {
   display: flex;
