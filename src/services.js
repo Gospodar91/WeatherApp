@@ -5,9 +5,9 @@ import showTemperature from '../src/components/MoreInfo/MoreInfo';
 import buildDataWindowLayout from './components/DataWindow/DataWindow.js';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter.js';
 import FiveDaysSmall from './components/FiveDaysSmall/FiveDaysSmall';
-// import {repaintNewHoursWeatherOnSubmitForm} from './components/MoreInfo/MoreInfo';
-
-import {onClickFavorites} from './components/FavoriteList/FavoriteList';
+// import { repaintNewHoursWeatherOnSubmitForm } from './components/MoreInfo/MoreInfo';
+import Loader from './components/Loader/loader';
+import { onClickFavorites } from './components/FavoriteList/FavoriteList';
 
 const baseUrlForTodayWeather =
   'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
@@ -32,6 +32,7 @@ export default {
       timeout: 500,
     };
 
+    Loader.show();
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject, option);
     })
@@ -49,16 +50,19 @@ export default {
           })
           .catch(err => {
             throw err;
-          });
+          })
+          .finally(() => setTimeout(() => Loader.hide(), 1000));
       })
       .catch(error => {
         throw error;
-      });
+      })
+      .finally(() => setTimeout(() => Loader.hide(), 1000));
   },
 
   getTodayWeather(city) {
     this.today = null;
     this.fiveDay = null;
+    Loader.show();
     fetch(baseUrlForTodayWeather + city)
       .then(res => {
         //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
@@ -67,7 +71,9 @@ export default {
             title: 'NOTICE!',
             text: "Can't show such city!",
           });
-          document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
+          document
+            .querySelector('.search__form-favourite')
+            .removeEventListener('click', onClickFavorites);
         }
         return res.json();
       })
@@ -80,18 +86,23 @@ export default {
         GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, res.weather[0].main);
         // document.querySelector('#wrapper-body').classList.remove('visually-hidden');
         document.querySelector('#wrapper-body').removeAttribute('style');
-        document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
+        document
+          .querySelector('.search__form-favourite')
+          .addEventListener('click', onClickFavorites);
       })
-
       .catch(err => {
         console.error('hellooo');
-        document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
-      });
+        document
+          .querySelector('.search__form-favourite')
+          .removeEventListener('click', onClickFavorites);
+      })
+      .finally(() => setTimeout(() => Loader.hide(), 1000));
   },
 
   getFiveDayWeather(city) {
     this.fiveDay = null;
     this.today = null;
+    Loader.show();
     fetch(baseUrlForFiveDayWeather + city)
       .then(res => {
         //  console.log('getFiveDayWeather !!!!!!!!!!!!!!!!!!!!!!!!!', res);
@@ -100,7 +111,9 @@ export default {
             title: 'NOTICE!',
             text: 'Please write correct city!',
           });
-          document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
+          document
+            .querySelector('.search__form-favourite')
+            .removeEventListener('click', onClickFavorites);
         }
         return res.json();
       })
@@ -115,14 +128,19 @@ export default {
           GlobalEmitter.ON_WEATHER_READY,
           res.list[0].weather[0].main,
         );
-        document.querySelector('.search__form-favourite').addEventListener('click', onClickFavorites)
+        document
+          .querySelector('.search__form-favourite')
+          .addEventListener('click', onClickFavorites);
       })
       .catch(error => {
         console.error('error', error);
-        document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
-      });
+        document
+          .querySelector('.search__form-favourite')
+          .removeEventListener('click', onClickFavorites);
+      })
+      .finally(() => setTimeout(() => Loader.hide(), 1000));
   },
-  
+
   getImgBackground(cityName) {
     const baseUrl = 'https://pixabay.com/api/';
     const key = '&key=15364832-46e4bda7ae3c94390e1b1153f';
@@ -130,28 +148,26 @@ export default {
     return fetch(baseUrl + requestParams + key)
       .then(response => response.json())
       .then(parsedResponse => {
-        
         // console.log('parsedResponse', parsedResponse);
         let rand = Math.floor(Math.random() * parsedResponse.hits.length);
         // console.log(rand);
-            // if(parsedResponse.hits[rand].tags.match(/(girl)(boobs)/g)!==null||parsedResponse.hits[rand].pageURL.match(/(photos)/) !== null){rand = Math.floor(Math.random() * parsedResponse.hits.length);}
-          
+        // if(parsedResponse.hits[rand].tags.match(/(girl)(boobs)/g)!==null||parsedResponse.hits[rand].pageURL.match(/(photos)/) !== null){rand = Math.floor(Math.random() * parsedResponse.hits.length);}
 
         const mainDiv = document.querySelector('.background-image');
-       
-       // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
-       mainDiv1.style.height = mainDiv.clientHeight + 'px';
-       mainDiv1.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
-       mainDiv1.querySelector('img').src = parsedResponse.hits[rand].largeImageURL;
+
+        // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+        mainDiv1.style.height = mainDiv.clientHeight + 'px';
+        mainDiv1.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+        mainDiv1.querySelector('img').src =
+          parsedResponse.hits[rand].largeImageURL;
       })
       .catch(error => {
         console.error('getImgBackground error', error);
-      }); 
+      });
   },
 };
 
-
-function onBgReady(e){
+function onBgReady(e) {
   const mainDiv = document.querySelector('.background-image');
   mainDiv.style.backgroundImage = `url(${mainDiv1.querySelector('img').src})`;
 }
