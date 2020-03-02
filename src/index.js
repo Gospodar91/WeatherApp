@@ -22,7 +22,7 @@ import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter'
 import quoteData from './components/Quote/data';
 import services from './services';
 import Loader from './components/Loader/loader';
-import './components/Loader/loader.css';
+// import './components/Loader/loader.css';
 
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 document.addEventListener('click', buildWeatherAnimayionHour);
@@ -59,8 +59,6 @@ function showQuote() {
 
 function buildWeatherAnimayionHour(e) {
   GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.id);
-  GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.dataset.weather);
-
 }
 
 setInterval(showQuote, 8000);

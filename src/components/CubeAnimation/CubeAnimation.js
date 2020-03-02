@@ -38,6 +38,7 @@ function qubeAnimation() {
     backgroundColor: 'transparent',
     border: '5px solid rgba(255, 255, 255, 0.6)',
     scale: 1.2,
+    repeat: 50
   });
 
   gsap.to('.gw-part__item', {
@@ -49,5 +50,6 @@ function qubeAnimation() {
     backgroundColor: 'transparent',
     border: '5px solid rgba(255, 255, 255, 0.6)',
     scale: 1.2,
+    repeat: 50
   });
 }

@@ -5,6 +5,7 @@ const backgroundImage = document.querySelector('.background-image');
 
 export default {
   show() {
+    return;
     spinner.classList.remove('is-hidden');
 
     backgroundImage.style.display = 'none';
@@ -18,6 +19,7 @@ export default {
     spinner.style.backgroundColor = 'grey';
   },
   hide() {
+    return;
     spinner.classList.add('is-hidden');
 
     backgroundImage.style.display = null;

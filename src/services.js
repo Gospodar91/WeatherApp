@@ -156,10 +156,13 @@ export default {
         const mainDiv = document.querySelector('.background-image');
 
         // mainDiv.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
+
+       console.log('parsedResponse:', parsedResponse, rand, parsedResponse.hits[rand].largeImageURL);
+
         mainDiv1.style.height = mainDiv.clientHeight + 'px';
         mainDiv1.style.backgroundImage = `url(${parsedResponse.hits[rand].largeImageURL})`;
         mainDiv1.querySelector('img').src =
-          parsedResponse.hits[rand].largeImageURL;
+         parsedResponse.hits[rand].largeImageURL;
       })
       .catch(error => {
       ;

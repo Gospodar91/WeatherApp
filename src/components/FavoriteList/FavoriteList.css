@@ -10,15 +10,12 @@
   margin-left: 24px;
   display: flex;
   justify-content: left;
-  overflow-y: scroll;
+  overflow: hidden;
   margin: 0 auto;
   width: 220px;
-  height: 47px;
+  height: 28px;
 }
 
-.favorites-list::-webkit-scrollbar { 
-  width: 0; 
-}
 
 .favorites-list__item {
   height: 27px;
