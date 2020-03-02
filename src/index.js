@@ -24,13 +24,14 @@ import services from './services';
 import Loader from './components/Loader/loader';
 import './components/Loader/loader.css';
 
-
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 document.addEventListener('click', buildWeatherAnimayionHour);
 
+Loader.show();
+
 function searchWeatherData() {
-  Loader.show();
-  services.getCurrentCityForCurrentLocationCoord()
+  services
+    .getCurrentCityForCurrentLocationCoord()
     .then(city => {
       if (services.blockSection === 'today') {
         services.getTodayWeather(city);
@@ -47,7 +48,7 @@ function searchWeatherData() {
       }
       services.getImgBackground(services.city);
     })
-    .finally(() => Loader.hide());
+    .finally(() => setTimeout(() => Loader.hide(), 1500));
 }
 
 function showQuote() {
@@ -56,11 +57,9 @@ function showQuote() {
   });
 }
 
-function buildWeatherAnimayionHour(e){
-  GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.id)
+function buildWeatherAnimayionHour(e) {
+  GlobalEmitter.emit(GlobalEmitter.ON_WEATHER_READY, e.target.id);
 }
-
-
 
 setInterval(showQuote, 8000);
 showQuote();
