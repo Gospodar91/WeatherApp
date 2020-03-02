@@ -33,6 +33,7 @@
 }
 
 .hourly-weather-item__set-img {
+  pointer-events: none;
   margin: 0 auto;
 }
 
@@ -42,6 +43,8 @@
   font-family: 'Lato';
   color: rgb(255, 107, 8);
   font-weight: bold;
+  pointer-events: none;
+
 }
 
 .hourly-weather-item__weather-details {
@@ -50,6 +53,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  pointer-events: none;
+
 }
 
 .hourly-weather-item__set-time {
