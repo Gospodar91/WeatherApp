@@ -91,7 +91,7 @@ export default {
           .addEventListener('click', onClickFavorites);
       })
       .catch(err => {
-        console.error('hellooo');
+        console.error('Error of request');
         document
           .querySelector('.search__form-favourite')
           .removeEventListener('click', onClickFavorites);
@@ -162,7 +162,7 @@ export default {
           parsedResponse.hits[rand].largeImageURL;
       })
       .catch(error => {
-        console.error('getImgBackground error', error);
+      ;
       });
   },
 };

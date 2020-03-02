@@ -112,11 +112,18 @@ export default function findScheduleData(data) {
 }
 
 let myChart;
+function scrollSchedule() {
+  window.scrollTo({
+    top: 1000,
+    behavior: 'smooth',
+  });
+}
 
 scheduleButtons.addEventListener('click', openChart);
 function openChart(e) {
   ellipse.classList.toggle('ellipse-img-open');
   if (ellipse.classList.contains('ellipse-img-open')) {
+    setTimeout(scrollSchedule, 400);
     scheduleButtonText.textContent = 'Hide Chart';
     scheduleSection.classList.add('schedule');
     scheduleSection.classList.remove('none-schedule');

@@ -145,7 +145,7 @@
   height: 18px;
   border-radius: 20px;
   border: none;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
@@ -181,6 +181,10 @@ margin-right: 33px;
 }
 
 /* class for the day  */
+
+.coloredDay {
+  background-color:rgb(255, 255, 255, 0.12);
+}
 
 .coloredDay p {
   color: rgb(255, 107, 8);

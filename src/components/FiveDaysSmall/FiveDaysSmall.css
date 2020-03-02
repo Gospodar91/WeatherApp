@@ -23,10 +23,11 @@
   flex-direction: column;
   width: 60px;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .FiveDaysWeaterList__item:not(:last-child){
-  margin-right: 25px;
+  margin-right: 27px;
 }
 
 .FiveDaysWeaterList__item:hover {
