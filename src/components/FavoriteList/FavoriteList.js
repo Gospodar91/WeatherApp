@@ -5,6 +5,7 @@ import favoritesLocal from './favoritesLocal.hbs';
 import PNotify from '../../../node_modules/pnotify/dist/es/PNotify.js';
 import PNotifyButtons from '../../../node_modules/pnotify/dist/es/PNotifyButtons.js';
 import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
+import Loader from '../Loader/loader';
 
 const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
@@ -17,7 +18,7 @@ prevButton.hidden = true;
 
 let qtyClickBtn = 0;
 let choiseLii = favoritesUl.children;
-let lenghtLiChild = favoritesUl.children.length;
+
 let clientWidth = document.documentElement.clientWidth;
 let widthArray = [];
 
@@ -30,16 +31,17 @@ function receiveLenghtLi(event) {
 
 //функция для появления и удаления кнопок
 function checkQtyLi() {
+  let key;
   if (favoritesUl.children.length) {
-    let key = JSON.parse(localStorage.getItem('town'));
+     key = JSON.parse(localStorage.getItem('town'));
     if (clientWidth < 771) {
       if (key.length > 2) {
         nextButton.hidden = false;
       }
     } else if (clientWidth > 771) {
-      if (key.length > 4) {
-        nextButton.hidden = false;
-      }
+
+        nextButton.hidden = !(key.length > 4);
+        prevButton.hidden = !(qtyClickBtn>0);
     }
   }
 }
@@ -47,6 +49,7 @@ function checkQtyLi() {
 //назад кнопка
 prevButton.addEventListener('click', onClickPrevBtn);
 function onClickPrevBtn(event) {
+  let lenghtLiChild = favoritesUl.children.length;
   qtyClickBtn--;
   if (qtyClickBtn < lenghtLiChild + 1) {
     prevButton.hidden = true;
@@ -99,6 +102,7 @@ export function onClickFavorites() {
   }
 }
 
+
 function setDataInLS(city) {
   const lsData = localStorage.getItem('town');
   if (lsData) {
@@ -111,14 +115,17 @@ function setDataInLS(city) {
       });
       return;
     }
-    localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
+    verificationCorectCitybyWeatherApi(city, parsedDataFromLs);
   } else {
-    localStorage.setItem('town', JSON.stringify([city]));
-    document.querySelector('.search__form-favourite').removeEventListener('click', onClickFavorites);
+    verificationCorectCitybyWeatherApi(city);
+    document
+      .querySelector('.search__form-favourite')
+      .removeEventListener('click', onClickFavorites);
   }
 }
 
 function getDataFromLS() {
+  favoritesUl.innerHTML ='';
   const lsData = localStorage.getItem('town');
   if (lsData) {
     const parsedSettings = JSON.parse(lsData);
@@ -139,9 +146,49 @@ function onClickLink(e) {
     const lsDataFilter = lsData.filter(el => el !== e.target.dataset.text);
     localStorage.setItem('town', JSON.stringify(lsDataFilter));
     e.target.parentNode.remove();
+    qtyClickBtn--;
+    getDataFromLS();
   } else {
+    //поиск по городу local storage
     services.city = input.value = e.target.textContent;
-    GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+    //GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
+    searchWeatherAndBackgroungOnCityFromLs(e.target.textContent);
     favorites.classList.add('bgNew');
   }
+}
+
+function searchWeatherAndBackgroungOnCityFromLs(city){
+  if(services.blockSection === 'today') {
+    services.getTodayWeather(city);
+  } else if (services.blockSection === 'fiveDay'){
+    services.getFiveDayWeather(city);
+  }
+  services.getImgBackground(city);
+}
+
+function verificationCorectCitybyWeatherApi(city, parsedDataFromLs){
+  // Loader.show();
+  const baseUrlForTodayWeather =
+  'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
+  fetch(baseUrlForTodayWeather + city)
+  .then(res => {
+    if (res.status === 404) {
+      PNotify.error({
+        title: 'NOTICE!',
+        text: "Can't add such city!",
+      });
+    }
+    if (res.status !== 404){
+      if(parsedDataFromLs) {
+        localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
+        getDataFromLS();
+      } else {
+        localStorage.setItem('town', JSON.stringify([city]));
+      }
+    }
+  })
+  .catch(err => {
+    console.error(error);
+  })
+  // .finally(() => setTimeout(Loader.hide, 500))
 }
