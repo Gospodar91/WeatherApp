@@ -5,47 +5,44 @@ import favoritesLocal from './favoritesLocal.hbs';
 import PNotify from '../../../node_modules/pnotify/dist/es/PNotify.js';
 import PNotifyButtons from '../../../node_modules/pnotify/dist/es/PNotifyButtons.js';
 import '../../../node_modules/pnotify/dist/PNotifyBrightTheme.css';
-import Loader from '../Loader/loader';const favorites = document.querySelector('.search__form-favourite');
+const favorites = document.querySelector('.search__form-favourite');
 const input = document.querySelector('#search-input');
 const favoritesUl = document.querySelector('.favorites-list');
 const nextButton = document.querySelector('.favorite-next');
-const prevButton = document.querySelector('.favourite-prev');nextButton.hidden = true;
-prevButton.hidden = true;let qtyClickBtn = 0;
-let choiseLii = favoritesUl.children;let clientWidth = document.documentElement.clientWidth;
-let widthArray = [];function receiveLenghtLi(event) {
-  let searchLi = document.querySelectorAll('.favorites-list__item');
-  for (let i = 0; i < searchLi.length; i++) {
-    widthArray.push(searchLi[i].offsetWidth);
-  }
-}//функция для появления и удаления кнопок
+const prevButton = document.querySelector('.favourite-prev');
+nextButton.hidden = true;
+prevButton.hidden = true;
+let qtyClickBtn = 0;
+let choiseLii = favoritesUl.children;
+let clientWidth = document.documentElement.clientWidth;
 function checkQtyLi() {
   let key;
   if (favoritesUl.children.length) {
-     key = JSON.parse(localStorage.getItem('town'));
+    let key = localStorage.getItem('town');
+    if (key) {
+      key = JSON.parse(key);
+    }
     if (clientWidth < 771) {
       if (key.length > 2) {
         nextButton.hidden = false;
       }
-    } else if (clientWidth > 771) {        nextButton.hidden = !(key.length > 4);
-        prevButton.hidden = !(qtyClickBtn>0);
+    } else if (clientWidth > 771) {
+      nextButton.hidden = !(key.length > 4);
+      prevButton.hidden = !(qtyClickBtn > 0);
     }
   }
- 
-}//назад кнопка
+}
 prevButton.addEventListener('click', onClickPrevBtn);
 function onClickPrevBtn(event) {
   let lenghtLiChild = favoritesUl.children.length;
   qtyClickBtn--;
-  if (qtyClickBtn < lenghtLiChild + 1) {
-    prevButton.hidden = true;
-    //когда дошел до конца слайда PREV пропала
-  }
+  prevButton.hidden = qtyClickBtn < 1;
   nextButton.hidden = false;
   choiseLii.forEach(li => {
     li.style.transform += 'translateX(113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
-}//вперед кнопка
+}
 nextButton.addEventListener('click', onClickNextBtn);
 function onClickNextBtn(event) {
   let clientWidth = document.documentElement.clientWidth;
@@ -53,18 +50,16 @@ function onClickNextBtn(event) {
   qtyClickBtn++;
   if (qtyClickBtn > lenghtLiChild - 3 && clientWidth < 770) {
     nextButton.hidden = true;
-    // когда долистал до конца пропала кнопка Next
   } else if (qtyClickBtn > lenghtLiChild - 5 && clientWidth > 771) {
     nextButton.hidden = true;
   }
   prevButton.hidden = false;
-  //когда пролистал вправо появилась PREV
   choiseLii.forEach(li => {
     li.style.transform += 'translateX(-113px)';
     li.style.transitionDuration = 500 + 'ms';
   });
   receiveLenghtLi();
-}// favorites.addEventListener('click', onClickFavorites);
+}
 let city = input;
 export function onClickFavorites() {
   city = input.value;
@@ -72,7 +67,6 @@ export function onClickFavorites() {
     favoritesUl.innerHTML = '';
     setDataInLS(city);
     getDataFromLS();
-    // favorites.classList.add('bgNew');
     checkQtyLi();
   } else {
     PNotify.defaults.delay = 1200;
@@ -81,7 +75,8 @@ export function onClickFavorites() {
       text: 'Enter city!',
     });
   }
-}function setDataInLS(city) {
+}
+function setDataInLS(city) {
   const lsData = localStorage.getItem('town');
   if (lsData) {
     const parsedDataFromLs = JSON.parse(lsData);
@@ -100,8 +95,9 @@ export function onClickFavorites() {
       .querySelector('.search__form-favourite')
       .removeEventListener('click', onClickFavorites);
   }
-}function getDataFromLS() {
-  favoritesUl.innerHTML ='';
+}
+function getDataFromLS() {
+  favoritesUl.innerHTML = '';
   const lsData = localStorage.getItem('town');
   if (lsData) {
     const parsedSettings = JSON.parse(lsData);
@@ -110,7 +106,8 @@ export function onClickFavorites() {
     checkQtyLi();
   }
 }
-getDataFromLS();favoritesUl.addEventListener('click', onClickLink);
+getDataFromLS();
+favoritesUl.addEventListener('click', onClickLink);
 function onClickLink(e) {
   e.preventDefault();
   if (e.target === e.currentTarget) {
@@ -123,42 +120,43 @@ function onClickLink(e) {
     qtyClickBtn--;
     getDataFromLS();
   } else {
-    //поиск по городу local storage
     services.city = input.value = e.target.textContent;
-    //GlobalEmitter.emit(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, e);
     searchWeatherAndBackgroungOnCityFromLs(e.target.textContent);
     favorites.classList.add('bgNew');
   }
-}function searchWeatherAndBackgroungOnCityFromLs(city){
-  if(services.blockSection === 'today') {
+}
+function searchWeatherAndBackgroungOnCityFromLs(city) {
+  if (services.blockSection === 'today') {
     services.getTodayWeather(city);
-  } else if (services.blockSection === 'fiveDay'){
+  } else if (services.blockSection === 'fiveDay') {
     services.getFiveDayWeather(city);
   }
   services.getImgBackground(city);
-}function verificationCorectCitybyWeatherApi(city, parsedDataFromLs){
-  // Loader.show();
+}
+function verificationCorectCitybyWeatherApi(city, parsedDataFromLs) {
   const baseUrlForTodayWeather =
-  'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
+    'https://api.openweathermap.org/data/2.5/weather?APPID=8defc985a5e2c764076c53bf90c6c44e&units=metric&lang=en&q=';
   fetch(baseUrlForTodayWeather + city)
-  .then(res => {
-    if (res.status === 404) {
-      PNotify.error({
-        title: 'NOTICE!',
-        text: "Can't add such city!",
-      });
-    }
-    if (res.status !== 404){
-      if(parsedDataFromLs) {
-        localStorage.setItem('town', JSON.stringify([...parsedDataFromLs, city]));
-        getDataFromLS();
-      } else {
-        localStorage.setItem('town', JSON.stringify([city]));
+    .then(res => {
+      if (res.status === 404) {
+        PNotify.error({
+          title: 'NOTICE!',
+          text: "Can't add such city!",
+        });
       }
-    }
-  })
-  .catch(err => {
-    console.error(error);
-  })
-  // .finally(() => setTimeout(Loader.hide, 500))
+      if (res.status !== 404) {
+        if (parsedDataFromLs) {
+          localStorage.setItem(
+            'town',
+            JSON.stringify([...parsedDataFromLs, city]),
+          );
+          getDataFromLS();
+        } else {
+          localStorage.setItem('town', JSON.stringify([city]));
+        }
+      }
+    })
+    .catch(err => {
+      console.error(error);
+    });
 }

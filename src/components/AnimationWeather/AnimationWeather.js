@@ -1,14 +1,12 @@
 import './AnimationWeather.css';
-// import res from '../../services.js';
 import GlobalEmitter from '../GlobalFunctionAndVariables/EventEmitter';
-// const weatherSnow = 'snow';
-// const weatherRain = 'rain';
+
 
 class AnimationWeather {
   constructor(selector) {
     this.selector = selector;
     this.element = document.querySelector(selector);
-    // this.weather =
+  
   }
   animationBuildRain() {
     document.querySelector('.animationweather-special').classList.remove('thunder');
@@ -59,7 +57,7 @@ class AnimationWeather {
     document.querySelector('.animationweather').classList.add('weather');
     document.querySelector('.animationweather').classList.add('snow');
 
-    // document.querySelector('.animationweather-special').classList.add('opacity');
+ 
   }
   
   animationBuildClear() {
@@ -77,7 +75,7 @@ class AnimationWeather {
 
   startAnimation(weather) {
     if (weather === 'Clear') {
-      // qubeAnimation();
+  
       this.animationBuildClear();
     } else if (weather === 'Rain') {
       this.animationBuildRain();

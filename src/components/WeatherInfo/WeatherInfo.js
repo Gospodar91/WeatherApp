@@ -15,7 +15,6 @@ todayWeatherBtn.addEventListener('click', onTodayWeatherBtnClick);
 let currentCity;
 
 function onFiveDaysWeatherBtnClick(e) {
-  // todayWeatherData.getImgBackground(todayWeatherData.city);
   if (currentCity !== todayWeatherData.city) {
     if (!todayWeatherData.fiveDay) {
       todayWeatherData.getFiveDayWeather(todayWeatherData.city);
@@ -37,7 +36,6 @@ function onFiveDaysWeatherBtnClick(e) {
 }
 
 function onTodayWeatherBtnClick(e) {
-  // todayWeatherData.getImgBackground(todayWeatherData.city);
   if (currentCity !== todayWeatherData.city) {
     if (!todayWeatherData.today) {
       todayWeatherData.getTodayWeather(todayWeatherData.city);

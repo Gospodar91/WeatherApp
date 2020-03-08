@@ -21,16 +21,13 @@ import './components/GlobalFunctionAndVariables/globalFunctionAndVariables';
 import GlobalEmitter from './components/GlobalFunctionAndVariables/EventEmitter';
 import quoteData from './components/Quote/data';
 import services from './services';
-import Loader from './components/Loader/loader';
-// import './components/Loader/loader.css';
 
 document.addEventListener('DOMContentLoaded', searchWeatherData);
 document.addEventListener('click', buildWeatherAnimayionHour);
 
-Loader.show();
-
 function searchWeatherData() {
   services
+
     .getCurrentCityForCurrentLocationCoord()
     .then(city => {
       if (services.blockSection === 'today') {
@@ -47,8 +44,7 @@ function searchWeatherData() {
         services.getFiveDayWeather(services.city);
       }
       services.getImgBackground(services.city);
-    })
-    .finally(() => setTimeout(() => Loader.hide(), 1500));
+    });
 }
 
 function showQuote() {

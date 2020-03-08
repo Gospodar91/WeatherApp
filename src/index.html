@@ -10,167 +10,165 @@
 
 <body>
   <div id="wrapper-body" style="display: none">
-   <!-- class="visually-hidden"> -->
-  <div class="animationweather"></div>
- 
-  <div class="background-image">
-    <div class="animationweather-special">
-      <div class="sky"></div>
-    </div>
+    <!-- class="visually-hidden"> -->
+    <div class="animationweather"></div>
 
-    <div class="container">
-      <div class="gw-parts-scene"></div>
-      <section id="first-page">
-        <!-- Секция Search -->
-        <div class="global-input">
-          <div class="input-form">
-            <form class="search__form" id="search-form">
-              <svg class="search__form-geolocation" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24"
-                width="24">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M20.94 11c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-              </svg>
-              <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
-              <button class="search__form-favourite" type="button">
-                <svg class="fovourite-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24">
-                  <path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/>
-                  <path d="M0 0h24v24H0z" fill="none"/></svg>
-              </button>
-            </form>
+    <div class="background-image">
+      <div class="animationweather-special">
+        <div class="sky"></div>
+      </div>
+
+      <div class="container">
+        <div class="gw-parts-scene"></div>
+        <section id="first-page">
+          <!-- Секция Search -->
+          <div class="global-input">
+            <div class="input-form">
+              <form class="search__form" id="search-form">
+                <svg class="search__form-geolocation" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24"
+                  width="24">
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M20.94 11c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
+                </svg>
+                <input id="search-input" type="text" value="" name="city" placeholder="Enter the city" />
+                <button class="search__form-favourite" type="button">
+                  <svg class="fovourite-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24"
+                    width="24">
+                    <path
+                      d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z" />
+                    <path d="M0 0h24v24H0z" fill="none" /></svg>
+                </button>
+              </form>
+            </div>
+            <!-- Конец секции Search -->
+            <!-- Начало секции favoritesLIST -->
+            <div class="favorites js-width-conteiner">
+              <button class="list-button favourite-prev"></button>
+              <ul class="favorites-list"></ul>
+              <button class="list-button favorite-next"></button>
+            </div>
           </div>
-          <!-- Конец секции Search -->
-          <!-- Начало секции favoritesLIST -->
-          <div class="favorites js-width-conteiner">
-            <button class="list-button favourite-prev"></button>
-            <ul class="favorites-list"></ul>
-            <button class="list-button favorite-next"></button>
-          </div>
-        </div>
-        <!-- Конец favoritesList -->
-        <!-- Начало  секции WeatherInfo -->
-        <div class="none-pageOne">
-          <div class="weather-info" id="weather-info-today-init">
-            <div class="weather-today-wrapper">
-              <div class="current-weather-icon">
-                <img id="weather-today-sky" src="https://openweathermap.org/img/w/04n.png" alt="clouds">
-              </div>
-              <h3 class="current-city-name">Kiyv,UA</h3>
-              <div class="today-temperature">
-                <div class="current-temperature">
-                  <div class="today-current-temperature"></div><sup class="degree-symbol">&deg;</sup>
+          <!-- Конец favoritesList -->
+          <!-- Начало  секции WeatherInfo -->
+          <div class="none-pageOne">
+            <div class="weather-info" id="weather-info-today-init">
+              <div class="weather-today-wrapper">
+                <div class="current-weather-icon">
+                  <img id="weather-today-sky" src="https://openweathermap.org/img/w/04n.png" alt="clouds">
                 </div>
-                <div class="minimax-block">
-                  <div class="today-min-temperature minimax"><span>min</span>
-                    <div>
-                      <p id="today-min"></p>&deg;
+                <h3 class="current-city-name">Kiyv,UA</h3>
+                <div class="today-temperature">
+                  <div class="current-temperature">
+                    <div class="today-current-temperature"></div><sup class="degree-symbol">&deg;</sup>
+                  </div>
+                  <div class="minimax-block">
+                    <div class="today-min-temperature minimax"><span>min</span>
+                      <div>
+                        <p id="today-min"></p>&deg;
+                      </div>
+                    </div>
+                    <div class="minimax-devider"></div>
+                    <div class="today-max-temperature minimax"><span>max</span>
+                      <div>
+                        <p id="today-max"></p>&deg;
+                      </div>
                     </div>
                   </div>
-                  <div class="minimax-devider"></div>
-                  <div class="today-max-temperature minimax"><span>max</span>
-                    <div>
-                      <p id="today-max"></p>&deg;
-                    </div>
+                </div>
+              </div>
+              <div class="show-today-or-5-days-buttons">
+                <button class="weather-button weather-today weather-button-active">today</button>
+                <button class="weather-button five-days weather-button-unactive">5 days</button>
+              </div>
+            </div>
+            <!-- Начало  секции Data -->
+            <div class="data">
+              <p class="data__day">8 Sat</p>
+              <div class="data__wrapper">
+                <div class="data__day--month">
+                  <span class="month">February</span>
+                  <span class="time">21:30:56</span>
+                </div>
+                <div class="data__sun">
+                  <div class="sunrise">
+                    <img src="./assets/icons/data__sunrise--sunset/dawn.svg" alt="sunrise" class="sunrise__icon">
+                    <span class="sunrise__time">07:04</span>
+                  </div>
+                  <div class="twilight">
+                    <img src="./assets/icons/data__sunrise--sunset/sunset.svg" alt="sunset" class="twilight__icon">
+                    <span class="twilight__time">17:05</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="show-today-or-5-days-buttons">
-              <button class="weather-button weather-today weather-button-active">today</button>
-              <button class="weather-button five-days weather-button-unactive">5 days</button>
+            <!-- Конец секции Data -->
+            <!-- Начало  секции Quot -->
+            <div class="quote">
+              <blockquote class="quote__block">
+                <p class="quote__text"></p>
+                <cite class="quote__author"></cite>
+              </blockquote>
             </div>
+            <!-- Конец секции Quot -->
           </div>
-          <!-- Начало  секции Data -->
-          <div class="data">
-            <p class="data__day">8 Sat</p>
-            <div class="data__wrapper">
-              <div class="data__day--month">
-                <span class="month">February</span>
-                <span class="time">21:30:56</span>
+        </section>
+        <section id="second-page" class="visually-hidden">
+          <div class="AllFiveDays">
+            <!-- Начало  секции FiveDaysSmall -->
+            <h3 class="FiveDaysSmall__city-tablet">Kyiv, UA</h3>
+            <div class="FiveDaysSmallAndMoreInfo">
+              <div class="FiveDaysSmall">
+                <h3 class="FiveDaysSmall__city-mobile">Kyiv, UA</h3>
+                <ul class="FiveDaysWeaterList">
+                </ul>
+                <button class="FiveDaysSmall__navBtn">
+                  <span class="FiveDaysSmall__navBtn--left">
+                    &lt;</span>
+                </button>
+                <button class="FiveDaysSmall__navBtn">
+                  <span class="FiveDaysSmall__navBtn--right">
+                    &gt;</span>
+                </button>
               </div>
-              <div class="data__sun">
-                <div class="sunrise">
-                  <img src="./assets/icons/data__sunrise--sunset/dawn.svg" alt="sunrise" class="sunrise__icon">
-                  <span class="sunrise__time">07:04</span>
-                </div>
-                <div class="twilight">
-                  <img src="./assets/icons/data__sunrise--sunset/sunset.svg" alt="sunset" class="twilight__icon">
-                  <span class="twilight__time">17:05</span>
+              <!-- Конец  секции FiveDaysSmall -->
+              <!-- Начало  секции FiveDaysBig -->
+              <div class="MoreInfo visually-hidden">
+                <div class="gallery visually">
+                  <button class="hourly-weather-close">&#215;</button>
+                  <ul class="hourly-weather-list">
+                  </ul>
+                  <div class="hourly-weather-btns visually-hidden">
+                    <button class="hourly-weather-prev-btn">&lt;</button>
+                    <button class="hourly-weather-next-btn">&gt;</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Конец секции Data -->
-          <!-- Начало  секции Quot -->
-          <div class="quote">
-            <blockquote class="quote__block">
-              <p class="quote__text"></p>
-              <cite class="quote__author"></cite>
-            </blockquote>
-          </div>
-          <!-- Конец секции Quot -->
-        </div>
-      </section>
-      <section id="second-page" class="visually-hidden">
-        <div class="AllFiveDays">
-          <!-- Начало  секции FiveDaysSmall -->
-          <h3 class="FiveDaysSmall__city-tablet">Kyiv, UA</h3>
-          <div class="FiveDaysSmallAndMoreInfo">
-          <div class="FiveDaysSmall">
-            <h3 class="FiveDaysSmall__city-mobile">Kyiv, UA</h3>
-            <ul class="FiveDaysWeaterList">
-            </ul>
-            <button class="FiveDaysSmall__navBtn">
-              <span class="FiveDaysSmall__navBtn--left">
-                &lt;</span>
-            </button>
-            <button class="FiveDaysSmall__navBtn">
-              <span class="FiveDaysSmall__navBtn--right">
-                &gt;</span>
-            </button>
-          </div>
-          <!-- Конец  секции FiveDaysSmall -->
-          <!-- Начало  секции FiveDaysBig -->
-          <div class="MoreInfo visually-hidden">
-            <div class="gallery visually">
-              <button class="hourly-weather-close">&#215;</button>
-            <ul class="hourly-weather-list">
-            </ul>
-            <div class="hourly-weather-btns visually-hidden">
-              <button class="hourly-weather-prev-btn">&lt;</button>
-              <button class="hourly-weather-next-btn">&gt;</button>
+            <!-- Конец  секции FiveDaysBig -->
+            <!-- Начало  секции Schedule !!-->
+            <div class="schedule__div">
+              <button class="show-charts">Show Chart</button>
+              <img class="ellipse-img" src="../src/assets/icons/ellipse/ellipse.png" alt="ellipse" width="28"
+                height="28" />
             </div>
-          </div>
-          </div>
-        </div>
-          <!-- Конец  секции FiveDaysBig -->
-          <!-- Начало  секции Schedule !!-->
-          <div class="schedule__div">
-            <button class="show-charts">Show Chart</button>
-            <img class="ellipse-img" src="../src/assets/icons/ellipse/ellipse.png" alt="ellipse" width="28"
-              height="28" />
-          </div>
-          <div id="schedule">
-            <div class="chartDiv none-chart" width="auto">
-              <canvas id="myChart" width="auto"></canvas>
+            <div id="schedule">
+              <div class="chartDiv none-chart" width="auto">
+                <canvas id="myChart" width="auto"></canvas>
+              </div>
+
             </div>
-
+            <!-- Конец  секции Schedule -->
           </div>
-          <!-- Конец  секции Schedule -->
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
-  </div>
-  <div class="background-image-buffer" style="background-image: url('https://pixabay.com/get/55e7dc464a54ac14ea898578c42e3376163dc3e456597248712b7ed294_1280.jpg');">
-    <img style="display:none">
-  </div>
+    <div class="background-image-buffer"
+      style="background-image: url('https://pixabay.com/get/55e7dc464a54ac14ea898578c42e3376163dc3e456597248712b7ed294_1280.jpg');">
+      <img style="display:none">
+    </div>
 
-   <div class="customeLoader is-hidden" id="PreLoaderspinner">
-      <div class="dash uno"></div>
-      <div class="dash dos"></div>
-      <div class="dash tres"></div>
-      <div class="dash cuatro"></div>
-    </div>
+
 </body>
 
 </html>

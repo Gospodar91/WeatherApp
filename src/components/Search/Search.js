@@ -12,13 +12,11 @@ const containerMoreInfo = document.querySelector('.MoreInfo');
 
 choiseInput.addEventListener('input', onInput);
 choiseForm.addEventListener('submit', submitForm);
-// console.log('>>>>>>>>>>>>>>>>>>>>>>>>choiseForm',choiseForm);
 function onInput(event) {
   PNotify.closeAll();
 }
 GlobalEmitter.on(GlobalEmitter.ON_SEND_SUBMIT_FROM_FAVORITES, submitForm);
 function submitForm(event) {
-  // alert('qwdqwdqw', event);
   event.preventDefault();
   containerMoreInfo.classList.add('visually-hidden');
   if (choiseInput.value === '') {
@@ -27,7 +25,6 @@ function submitForm(event) {
       text: 'Please write search city!',
     });
   }
-  /////////виправляв Стахура///////////////////////
   if (choiseInput.value !== services.city) {
     services.city = choiseInput.value;
     if (services.blockSection === 'today') {
@@ -37,12 +34,4 @@ function submitForm(event) {
     }
     services.getImgBackground(services.city);
   }
-  
-
-  // if (services.blockSection === 'today') {
-  //   services.getTodayWeather(services.city);
-  // } else if (services.blockSection === 'fiveDay') {
-  //   services.getFiveDayWeather(services.city);
-  // }
-  // services.getImgBackground(services.city);
 }
